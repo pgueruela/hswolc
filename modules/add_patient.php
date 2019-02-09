@@ -5,7 +5,7 @@ include '../includes/admin_navigationbar.php';
 ?>
  
  		<?php include '../includes/admin_sidebar.php'; ?>
-		<div class="col-md-8">
+		<div class="col-md-10">
 				
 			<form method="post">
 				<div class="row">
@@ -104,18 +104,6 @@ include '../includes/admin_navigationbar.php';
 					</div>
 				</div>
 
-
-				<div class="form-group">
-			 		<div class="row">
-						<div class="col-md-8">
-							<label for="exampleInputEmail1">Years of Service</label>
-			    			<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter years of service" name="years_service">	
-			    			<small>You can leave this field for students</small>
-						</div>
-
-					</div>
-				</div>
-
 				<div class="form-group">
 		 			<div class="row">
 						<div class="col-md-8">
@@ -132,24 +120,6 @@ include '../includes/admin_navigationbar.php';
 		  		</div>
 
 		  		<hr>
-
-				<div class="form-group">
-			 		<div class="row">
-						<div class="col-md-8">
-							<label for="exampleInputEmail1">Height</label>
-			    			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient height" name="patient_height" required/>	
-						</div>
-					</div>
-				</div>
-
-				<div class="form-group">
-			 		<div class="row">
-						<div class="col-md-8">
-							<label for="exampleInputEmail1">Weight</label>
-			    			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient weight" name="patient_weight" required/>	
-						</div>
-					</div>
-				</div>
 
 				<div class="form-group">
 		 			<div class="row">

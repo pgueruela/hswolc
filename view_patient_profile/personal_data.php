@@ -1,15 +1,15 @@
 <?php 
 
-include '../includes/admin_navigationbar.php';
+include '../includes/header.php';
+
+include '../modules/sidebar_view_patient_profile.php';
 ?>
 
 <div class="col-md-10">
 
-<?php
+<?php $id = $_GET['id']; 
 
- $id = $_GET['id']; 
-
-$result = $conn->query("SELECT id, firstname, lastname, gender, patient_address, patient_number, birthdate, department, position, civil_status, blood_type FROM patient_pd_tbl WHERE id=$id");
+$result = $conn->query("SELECT firstname, lastname, gender, patient_address, patient_number, birthdate, department, position, civil_status, blood_type FROM patient_pd_tbl WHERE id=$id");
 
 $row = mysqli_fetch_assoc($result);
 ?>

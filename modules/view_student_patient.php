@@ -43,7 +43,7 @@ include '../includes/admin_sidebar.php';
 			<?php while($row = mysqli_fetch_assoc($result)) { ?>
 					<tbody>
 						<tr>
-							<th><a href="view_patient_profile.php?id=<?php echo $row['id']; ?>">View Profile</a></th>
+							<th><a href="sidebar_view_patient_profile.php?id=<?php echo $row['id']; ?>">View Profile</a></th>
 							<th><?php echo $row['firstname']; ?></th>
 							<th><?php echo $row['lastname']; ?></th>
 							<th><?php echo $row['gender']; ?></th>

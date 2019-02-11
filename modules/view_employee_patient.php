@@ -21,7 +21,6 @@ include '../includes/admin_sidebar.php';
 	$result = $conn->query("SELECT id, firstname, lastname, gender, patient_address, patient_number, department, position FROM patient_pd_tbl WHERE position='Employee'");
 
 	if ($result->num_rows > 0) {?>
-
 	<!-- Table -->
 	<div class="table-container">
 		<div class="row">
@@ -44,7 +43,7 @@ include '../includes/admin_sidebar.php';
 			<?php while($row = mysqli_fetch_assoc($result)) { ?>
 					<tbody>
 						<tr>
-							<th><button class="btn btn-info">View</button></th>
+							<th><a href="sidebar_view_patient_profile.php?id=<?php echo $row['id']; ?>">View Profile</a></th>
 							<th><?php echo $row['firstname']; ?></th>
 							<th><?php echo $row['lastname']; ?></th>
 							<th><?php echo $row['gender']; ?></th>

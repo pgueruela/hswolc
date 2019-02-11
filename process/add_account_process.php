@@ -7,11 +7,13 @@ session_start();
 $errors = array(); 
 
 
-// REGISTER USER if (isset($_POST['reg_user'])) {
+// REGISTER USER 
+if (isset($_POST['register'])) {
   // receive all input values from the form
   $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
   $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
   $usertype = mysqli_real_escape_string($conn, $_POST['usertype']);
+  $username = mysqli_real_escape_string($conn, $_POST['username']);
   $password = mysqli_real_escape_string($conn, $_POST['password']);
   $confirm_password = mysqli_real_escape_string($conn, $_POST['confirm_password']);
 
@@ -38,13 +40,13 @@ $errors = array();
   if (count($errors) == 0) {
   	$hash_pass = password_hash($password, PASSWORD_DEFAULT);
   	
-  	$query = "INSERT INTO admin_tbl (firstname, lastname, usertype, password) 
-  			  VALUES('$firstname', 'lastname', 'usertype', '$hash_pass')";
+  	$query = "INSERT INTO admin_tbl (firstname, lastname, usertype, username, password) 
+  			  VALUES('$firstname', '$lastname', '$usertype', '$username', '$hash_pass')";
   	mysqli_query($conn, $query);
   	echo "<script type=\"text/javascript\">".
         "alert('Successfully registered! ');".
     "</script>";
-  	header('location: register.php');
+  	header('location: add_account.php');
   	exit();
   }
   else {

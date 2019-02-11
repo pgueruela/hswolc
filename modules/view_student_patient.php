@@ -1,13 +1,12 @@
 <?php 
 include '../includes/header.php';
-include '../includes/db.php';
 include '../includes/admin_navigationbar.php';
 include '../includes/admin_sidebar.php';
 ?>
 
 
 <div class="col-md-10">
-	<h2 style="text-align: right;">Student</h2>
+	<h2 style="text-align: right;">Students</h2>
 	<hr>
 
 	<div class="search-bar">
@@ -44,7 +43,7 @@ include '../includes/admin_sidebar.php';
 			<?php while($row = mysqli_fetch_assoc($result)) { ?>
 					<tbody>
 						<tr>
-							<th><button class="btn btn-info">View</button></th>
+							<th><a href="view_patient_profile.php?id=<?php echo $row['id']; ?>">View Profile</a></th>
 							<th><?php echo $row['firstname']; ?></th>
 							<th><?php echo $row['lastname']; ?></th>
 							<th><?php echo $row['gender']; ?></th>
@@ -65,4 +64,12 @@ include '../includes/admin_sidebar.php';
 	}
 	 ?>
 </div>
+
+
+
+ <?php 
+
+ include '../includes/footer.php';
+
+  ?>
  

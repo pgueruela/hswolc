@@ -2,22 +2,27 @@
 
 include_once '../includes/db.php';
 
- if (isset($_POST['add_patient'])) {
+$id = $_GET['id'];
 
-
-	$firstname = $_POST['firstname'];
-	$lastname = $_POST['lastname'];
-	$gender = $_POST['gender'];
-	$address = $_POST['patient_address'];
-	$birthdate = $_POST['birthdate'];
-	$patient_number = $_POST['patient_number'];
-	$position = $_POST['position'];
-	$department = $_POST['department'];
-	$civil_status = $_POST['civil_status'];
-	$blood_type = $_POST['blood_type'];
+ if (isset($_POST['add_consultation_patient'])) {
+ 	
+	$blood_pressure = $_POST['blood_pressure'];
+	$patient_height = $_POST['patient_height'];
+	$patient_weight = $_POST['patient_weight'];
+	$bmi = $_POST['bmi'];
+	$respiratory_rate = $_POST['respiratory_rate'];
+	$heart_rate = $_POST['heart_rate'];
+	$temperature = $_POST['temperature'];
+	$medical_history = $_POST['medical_history'];
+	$past_illness = $_POST['past_illness'];
+	$hospitalization_history = $_POST['hospitalization_history'];
+	$medicines = $_POST['medicines'];
+	$allergies = $_POST['allergies'];
+	$diagnosis = $_POST['diagnosis'];
+	$nurse_doctor = $_POST['nurse_doctor'];
+	$date_checkup = $_POST['date_checkup'];
 	
-	$sql = "INSERT INTO patient_pd_tbl (firstname, lastname, gender, patient_address, birthdate, patient_number, position, department, civil_status,blood_type) VALUES('$firstname', '$lastname', '$gender', '$address', '$birthdate', $patient_number, '$position', '$department','$civil_status','$blood_type');";
-
+	$sql = "INSERT INTO consultation_tbl (patient_id, blood_pressure, patient_height, patient_weight, bmi, respiratory_rate, heart_rate, temperature, medical_history, past_illness,hospitalization_history, medicines,  allergies, diagnosis, nurse_doctor, date_checkup) VALUES($id, '$blood_pressure', '$patient_height', '$patient_weight', '$bmi', '$respiratory_rate', '$heart_rate','$temperature','$medical_history', '$past_illness', '$hospitalization_history', '$medicines', '$allergies', '$diagnosis', '$nurse_doctor',  '$date_checkup');";
 
 	if ($conn->query($sql) === TRUE) {
 			 echo "<script> alert('Stored successfully'); </script>";

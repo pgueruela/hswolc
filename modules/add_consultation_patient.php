@@ -3,6 +3,7 @@ include '../includes/header.php';
 include '../includes/db.php';
 include '../includes/admin_navigationbar.php';
 include '../includes/admin_sidebar.php';
+include '../process/add_consultation_process.php';
 ?>
 		<div class="col-md-10">
 				
@@ -61,7 +62,7 @@ include '../includes/admin_sidebar.php';
 			 		<div class="row">
 						<div class="col-md-8">
 							<label for="exampleInputEmail1">Hearth Rate</label>
-			    			<input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="heart_rate" required/>	
+			    			<input type="heart_rate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="heart_rate" required/>	
 						</div>
 					</div>
 				</div>
@@ -85,35 +86,35 @@ include '../includes/admin_sidebar.php';
 			 		<div class="row">
 						<div class="col-md-8">
 							<label for="exampleInputEmail1">Past Illness</label>
-							<textarea class="form form-control" rows="3" name="medical_history"></textarea>
+							<textarea class="form form-control" rows="3" name="past_illness"></textarea>
 						</div>
 					</div>
 				</div><div class="form-group">
 			 		<div class="row">
 						<div class="col-md-8">
 							<label for="exampleInputEmail1">Hospitalization History</label>
-							<textarea class="form form-control" rows="3" name="medical_history"></textarea>
+							<textarea class="form form-control" rows="3" name="hospitalization_history"></textarea>
 						</div>
 					</div>
 				</div><div class="form-group">
 			 		<div class="row">
 						<div class="col-md-8">
 							<label for="exampleInputEmail1">Medicines</label>
-							<textarea class="form form-control" rows="3" name="medical_history"></textarea>
+							<textarea class="form form-control" rows="3" name="medicines"></textarea>
 						</div>
 					</div>
 				</div><div class="form-group">
 			 		<div class="row">
 						<div class="col-md-8">
 							<label for="exampleInputEmail1">Allergies</label>
-							<textarea class="form form-control" rows="3" name="medical_history"></textarea>
+							<textarea class="form form-control" rows="3" name="allergies"></textarea>
 						</div>
 					</div>
 				</div><div class="form-group">
 			 		<div class="row">
 						<div class="col-md-8">
 							<label for="exampleInputEmail1">Diagnosis</label>
-							<textarea class="form form-control" rows="3" name="medical_history"></textarea>
+							<textarea class="form form-control" rows="3" name="diagnosis"></textarea>
 						</div>
 					</div>
 				</div>
@@ -138,7 +139,8 @@ include '../includes/admin_sidebar.php';
 
 				<div class="row">
 		  			<div class="col-md-8">
-		  				<button type="submit" class="btn btn-primary" name="add_patient">Add Consultation</button>
+		  				<button type="submit" class="btn btn-primary" name="add_consultation_patient">Add Consultation</button>
 		  		</div>
 			</form>
 		</div>
+

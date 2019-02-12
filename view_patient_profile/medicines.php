@@ -11,10 +11,11 @@ include '../modules/sidebar_view_patient_profile.php';
 
 $result = $conn->query("SELECT medicines FROM consultation_tbl WHERE patient_id=$id");
 
+$row = mysqli_fetch_assoc($result);
+
 if ($result->num_rows > 0) {?>
-?>
 	<div class="card">
-	  <div class="card-header">
+	  <div class="card-header">	
 	    Medicines
 	  </div>
 	  <div class="card-body">

@@ -14,7 +14,7 @@ $result = $conn->query("SELECT medical_history FROM consultation_tbl WHERE patie
 $row = mysqli_fetch_assoc($result);
 
 if ($result->num_rows > 0) {?>
-?>
+
 	<div class="card">
 	  <div class="card-header">
 	    Medical History

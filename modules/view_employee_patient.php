@@ -3,6 +3,7 @@ include '../includes/header.php';
 include '../includes/db.php';
 include '../includes/admin_navigationbar.php';
 include '../includes/admin_sidebar.php';
+include '../modules/delete_employee_modal.php';
 ?>
 
 
@@ -50,9 +51,9 @@ include '../includes/admin_sidebar.php';
 							<th><?php echo $row['patient_address']; ?></th>
 							<th><?php echo $row['patient_number']; ?></th>
 							<th><?php echo $row['department']; ?></th>
-							<th><a href="">Edit Personal Data</a></th>
+							<th><a href="../process/edit_personal_employee_data.php?id=<?php echo $row['id']; ?>">Edit Personal Data</a></th>
 							<th><a href="add_consultation_patient.php?id=<?php echo $row['id']; ?>">Add Consultation</a></th>
-							<th><button class="btn btn-danger">Delete</button></th>
+							<th><button class="btn btn-danger" data-toggle="modal" data-target="#delete-employee" data-id="<?php echo $row['id']; ?>">Delete</button>
 						</tr>
 					</tbody>
 			<?php } ?>
@@ -65,8 +66,6 @@ include '../includes/admin_sidebar.php';
 	 ?>
 </div>
  
-
-
  <?php 
 
  include '../includes/footer.php';

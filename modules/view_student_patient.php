@@ -2,6 +2,7 @@
 include '../includes/header.php';
 include '../includes/admin_navigationbar.php';
 include '../includes/admin_sidebar.php';
+include '../modules/delete_patient_modal.php';
 ?>
 
 
@@ -11,8 +12,8 @@ include '../includes/admin_sidebar.php';
 
 	<div class="search-bar">
 		<form class="form-inline my-2 my-lg-0">
-	      <input class="form-control mr-sm-2" type="search" placeholder="Search Employee" aria-label="Search">
-	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	      <input class="form-control mr-sm-2" type="search" placeholder="Search Employee" aria-label="Search" name="valueToSearch">
+	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="filter">Search</button>
     	</form>
 	</div>
 	<br>
@@ -25,7 +26,7 @@ include '../includes/admin_sidebar.php';
 	<div class="table-container">
 		<div class="row">
 			<div class="col-md-12">
-				<table class="table table-hover">
+				<table id="student_data" class="table table-hover">
 					<thead>
 						<tr>
 							<th>View</th>
@@ -50,9 +51,9 @@ include '../includes/admin_sidebar.php';
 							<th><?php echo $row['patient_address']; ?></th>
 							<th><?php echo $row['patient_number']; ?></th>
 							<th><?php echo $row['department']; ?></th>
-							<th><a href="">Edit Personal Data</a></th>
+							<th><a href="../process/edit_personal_student_data.php?id=<?php echo $row['id']; ?>">Edit Personal Data</a></th>
 							<th><a href="add_consultation_patient.php?id=<?php echo $row['id']; ?>">Add Consultation</a></th>
-							<th><button class="btn btn-danger">Delete</button></th>
+							<th><button class="btn btn-danger" data-toggle="modal" data-target="#delete-student" data-id="<?php echo $row['id']; ?>">Delete</button></th>
 						</tr>
 					</tbody>
 			<?php } ?>
@@ -65,10 +66,8 @@ include '../includes/admin_sidebar.php';
 	 ?>
 </div>
 
-
-
  <?php 
-
+//includes footer
  include '../includes/footer.php';
 
   ?>

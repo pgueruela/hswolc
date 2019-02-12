@@ -13,7 +13,7 @@ $result = $conn->query("SELECT allergies FROM consultation_tbl WHERE patient_id=
 
 $row = mysqli_fetch_assoc($result);
 if ($result->num_rows > 0) {?>
-?>
+
 	<div class="card">
 	  <div class="card-header">
 	    Allergies

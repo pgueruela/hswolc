@@ -3,19 +3,24 @@
 	padding: 0px;
 }
 
-.error {
-	width: 92%; 
-	margin: 0px auto; 
-	padding: 10px; 
-	border: 1px solid #a94442; 
-	color: #a94442; 
-	background: #f2dede; 
-	border-radius: 5px; 
-	text-align: left;
+body {
+	margin: 0 auto;
 }
-.success {
-	color: #3c763d; 
-	background: #dff0d8; 
-	border: 1px solid #3c763d;
+
+.header {
+	background-color: #FFFFFF;
+}
+
+.header img{
+	margin-top: 10px;
 	margin-bottom: 20px;
+}
+
+.navbar-style {
+	background-color: #005533;
+
+}
+
+.side-panel li a {
+	color: blue;
 }

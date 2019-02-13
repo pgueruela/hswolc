@@ -30,7 +30,7 @@ $row = mysqli_fetch_assoc($result);
 
 	if ($conn->query($sql) === TRUE) {
 			 echo "<script> alert('Stored successfully'); </script>";
-			 header("Location: ../modules/view_employee_patient.php");
+			 header("Location: ../display/view_employeepatient.php");
 
 	} else {
 	    	echo "Error: " . $sql . "<br>" . mysqli_error($conn);

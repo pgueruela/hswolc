@@ -13,7 +13,7 @@ include '../modules/delete_patient_modal.php';
 	<div class="search-bar">
 		<form class="form-inline my-2 my-lg-0">
 	      <input class="form-control mr-sm-2" type="search" placeholder="Search Employee" aria-label="Search" name="valueToSearch">
-	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="filter">Search</button>
+	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="search-student">Search</button>
     	</form>
 	</div>
 	<br>
@@ -65,6 +65,30 @@ include '../modules/delete_patient_modal.php';
 	}
 	 ?>
 </div>
+
+<script>
+	$(document).ready(function(){
+		$('#search-student').keyup(function(){
+			var input = $(this).val();
+			if (input != '') 
+			{
+				$.ajax({
+					url: "../process/fetch_student_data.php",
+					method: "post",
+					data: {search:input},
+					dataType: "text",
+					success: function(data)
+					{
+						$('#student-data').html(data);
+					}
+				});
+			}else
+			{
+				$('#student-data').html('');
+			}
+		});
+	});
+</script>
 
  <?php 
 //includes footer

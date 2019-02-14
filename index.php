@@ -1,13 +1,20 @@
 <?php 
+session_start();
 include 'includes/header.php';
 include 'includes/admin_navigationbar.php';
 include 'includes/admin_sidebar.php';
- ?>
+ 
+if (!isset($_SESSION['id'])) {
+	header("Location: login_account.php");
+	exit();
+}
 
+ ?>
 <!-- Dashboard -->
-		<div class="col-md-10">
+		<div class="col-md-9">
 			<div>
-				<p><b>Welcome to Health Services and Wealth Office Lorma Collegs Information System</b></p>
+				<p>Welcome, <?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname']; ?></p>
+				<p><b>Health Services and Wealth Office Lorma Collegs Information System</b></p>
 				<hr>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -20,3 +27,7 @@ include 'includes/admin_sidebar.php';
 
 			</div>
 		</div>
+<?php 
+
+include 'includes/footer.php';
+ ?>

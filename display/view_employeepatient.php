@@ -2,15 +2,14 @@
 include '../includes/header.php';
 include '../includes/admin_navigationbar.php';
 include '../includes/admin_sidebar.php';
-
 ?>
 
-<div class="col-md-10">
+<div class="col-md-9">
   <div class="form-group">
-
+    <h2 style="text-align: right;">Employees</h2>
     <div class="row">
       <div class="col-md-6">
-        <input class="form-control" type="text" name="search_employee" id="search_employee" placeholder="Seach student">
+        <input class="form-control" type="text" name="search_employee" id="search_employee" placeholder="Search employee">
       </div>
     </div>
 
@@ -50,3 +49,9 @@ $(document).ready(function(){
 </script>
 
 </div>
+
+</div>
+
+<?php 
+include '../includes/footer.php';
+ ?>

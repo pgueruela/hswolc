@@ -3,9 +3,14 @@ include '../includes/header.php';
 include '../includes/admin_navigationbar.php';
 include '../includes/admin_sidebar.php';
 
+if (!isset($_SESSION['id'])) {
+	header("Location: ../login_account.php");
+	exit();
+}
+
 ?>
 
-<div class="col-md-10">
+<div class="col-md-9">
 	<div class="form-group">
 
 		<div class="row">
@@ -50,3 +55,9 @@ $(document).ready(function(){
 </script>
 
 </div>
+
+</div>
+
+<?php 
+include '../includes/footer.php';
+ ?>

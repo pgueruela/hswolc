@@ -1,11 +1,13 @@
 <?php 
 
+session_start();
+
 include '../includes/header.php';
 
 include '../modules/sidebar_view_patient_profile.php';
 ?>
 
-<div class="col-md-10">
+<div class="col-md-9">
 
 <?php $id = $_GET['id']; 
 
@@ -16,7 +18,7 @@ $row = mysqli_fetch_assoc($result);
 if ($result->num_rows > 0) {?>
 <div class="card">
 	  <div class="card-header">
-	    Medical History
+	    Diagnosis
 	  </div>
 	  <div class="card-body">
 	  	<p><?php echo $row['diagnosis']; ?></p>
@@ -35,3 +37,9 @@ if ($result->num_rows > 0) {?>
 <?php
   }
 ?>
+
+</div>
+
+<?php 
+include '../includes/footer.php';
+ ?>

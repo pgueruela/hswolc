@@ -13,7 +13,7 @@ include '../includes/admin_navigationbar.php';
  	$id = $_GET['id'];	
  	 ?>
  	<div class="row">
- 		<div class="col-md-2 side-panel">
+ 		<div class="col-md-3 side-panel">
 		 	<ul>
 		 		<li><a href="../index.php">Home</a></li>
 		        <li class="active">

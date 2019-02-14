@@ -24,3 +24,24 @@ body {
 .side-panel li a {
 	color: blue;
 }
+
+.error {
+
+  color: #a94442; 
+}
+
+.card {
+	margin: 5px !important;
+}
+
+
+.card-header {
+    padding: 0px !important;
+    text-align: center !important;
+    background: #005533;
+    color: #fff; 
+}
+
+.list-group-item {
+	padding: 0px !important;
+}

@@ -4,6 +4,12 @@ include '../includes/db.php';
 include '../includes/admin_navigationbar.php';
 include '../includes/admin_sidebar.php';
 include '../process/add_consultation_process.php';
+
+if (!isset($_SESSION['id'])) {
+	header("Location: login_account.php");
+	exit();
+}
+
 ?>
 		<div class="col-md-10">
 				

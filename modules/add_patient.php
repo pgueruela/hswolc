@@ -5,7 +5,7 @@ include '../includes/admin_navigationbar.php';
 ?>
  
  		<?php include '../includes/admin_sidebar.php'; ?>
-		<div class="col-md-10">
+		<div class="col-md-9">
 				
 			<form method="post">
 				<div class="row">

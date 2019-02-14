@@ -38,7 +38,7 @@ $row = mysqli_fetch_assoc($result);
 	} 
 
 }else{?>
-<div class="col-md-10">
+<div class="col-md-9">
 		<form method="post">
 				<div class="row">
 					<div class="col-md-8">

@@ -1,9 +1,11 @@
 <?php 
 include 'includes/db.php';
 
-session_start();
 
 // initializing variables
+$firstname = "";
+$lastname ="";
+$username ="";
 $errors = array(); 
 
 
@@ -19,23 +21,23 @@ if (isset($_POST['register'])) {
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
-  if ($password != $confirm_password) {
-	array_push($errors, "The two passwords do not match");
-  }
-
-  // first check the database to make sure 
-  // a user does not already exist with the same username and/or email
   $user_check_query = "SELECT * FROM admin_tbl WHERE username='$username'LIMIT 1";
   $result = mysqli_query($conn, $user_check_query);
   $user = mysqli_fetch_assoc($result);
   
   if ($user) { // if user exists
     if ($user['username'] === $username) {
-      array_push($errors, "Username already exists");
+      array_push($errors, "*Username already exists");
     }
 
   }
 
+  if ($password != $confirm_password) {
+	array_push($errors, "*The two passwords do not match");
+  }
+
+  // first check the database to make sure 
+  // a user does not already exist with the same username and/or email
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
   	$hash_pass = password_hash($password, PASSWORD_DEFAULT);
@@ -43,14 +45,9 @@ if (isset($_POST['register'])) {
   	$query = "INSERT INTO admin_tbl (firstname, lastname, usertype, username, password) 
   			  VALUES('$firstname', '$lastname', '$usertype', '$username', '$hash_pass')";
   	mysqli_query($conn, $query);
-  	echo "<script type=\"text/javascript\">".
-        "alert('Successfully registered! ');".
-    "</script>";
+    array_push($errors, "Successfully registered!");
   	header('location: add_account.php');
   	exit();
-  }
-  else {
-  	echo "Error: " . $query . "<br>" . $conn->error;
   }
 }
 

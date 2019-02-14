@@ -1,11 +1,13 @@
 <?php 
 
+session_start();
+
 include '../includes/header.php';
 
 include '../modules/sidebar_view_patient_profile.php';
 ?>
 
-<div class="col-md-10">
+<div class="col-md-9">
 
 <?php $id = $_GET['id']; 
 
@@ -39,3 +41,8 @@ if ($result->num_rows > 0) {?>
 </div>
 
 
+</div>
+
+<?php 
+include '../includes/footer.php';
+ ?>

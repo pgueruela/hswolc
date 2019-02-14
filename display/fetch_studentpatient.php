@@ -25,8 +25,6 @@ else
 $result = mysqli_query($conn, $query);
 if(mysqli_num_rows($result) > 0)
 { ?>
-
-<h2 style="text-align: right;">Students</h2>
 	  <div>
 	   <table class="table table-bordered">
 	    <tr>

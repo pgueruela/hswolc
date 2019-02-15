@@ -3,9 +3,6 @@
 include 'includes/db.php';
 
 
-session_start();
-
-
 $errors = array();
 	
 	if (isset($_POST['login'])) {
@@ -35,7 +32,6 @@ $errors = array();
 						$_SESSION['username'] = $row['username'];
 						$_SESSION['password'] = $row['password'];
 						header("Location: ../index.php");
-						exit();
 					}
 				}
 			}

@@ -1,5 +1,5 @@
 <?php 
-session_start();
+
 include 'includes/header.php';
 include 'includes/admin_navigationbar.php';
 include 'includes/admin_sidebar.php';
@@ -13,9 +13,10 @@ if (!isset($_SESSION['id'])) {
 <!-- Dashboard -->
 		<div class="col-md-9">
 			<div>
-				<p>Welcome, <?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname']; ?></p>
 				<p><b>Health Services and Wealth Office Lorma Collegs Information System</b></p>
 				<hr>
+				<p>Logs</p>
+
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

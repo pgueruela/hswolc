@@ -1,6 +1,5 @@
 <?php 
 
-session_start();
 include '../includes/header.php';
 
 include '../modules/sidebar_view_patient_profile.php';

@@ -3,11 +3,6 @@ include '../includes/header.php';
 include '../includes/admin_navigationbar.php';
 include '../includes/admin_sidebar.php';
 
-if (!isset($_SESSION['id'])) {
-	header("Location: ../login_account.php");
-	exit();
-}
-
 ?>
 
 <div class="col-md-9">
@@ -18,7 +13,6 @@ if (!isset($_SESSION['id'])) {
 				<input class="form-control" type="text" name="search_student" id="search_student" placeholder="Seach student">
 			</div>
 		</div>
-
 
 	</div>
 	<div id="result"></div>

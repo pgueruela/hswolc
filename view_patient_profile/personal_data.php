@@ -9,18 +9,19 @@ include '../modules/sidebar_view_patient_profile.php';
 
 <?php $id = $_GET['id']; 
 
+
+
 $result = $conn->query("SELECT firstname, lastname, gender, patient_address, patient_number, birthdate, department, position, civil_status, blood_type FROM patient_pd_tbl WHERE id=$id");
 
 $row = mysqli_fetch_assoc($result);
 ?>
-
-	<div class="card">
+	
+			<div class="card">
 	  <div class="card-header">
 	    Personal Data
 	  </div>
 	  <div class="card-body">
-	  	<p>Firstname: <?php echo $row['firstname']; ?></p>
-	  	<p>Lastname: <?php echo $row['lastname']; ?></p>
+	  	<p>Name: <?php echo $row['firstname'] . " " . $row['lastname']; ?></p>
 	  	<p>Gender: <?php echo $row['gender']; ?></p>
 	  	<p>Patient Address: <?php echo $row['patient_address']; ?></p>
 	  	<p>Patient Number : <?php echo $row['patient_number']; ?></p>
@@ -31,9 +32,9 @@ $row = mysqli_fetch_assoc($result);
 	  	<p>Blood Type: <?php echo $row['blood_type']; ?></p>
 	  </div>
 	</div>
-</div>
 
 </div>
+
 
 <?php 
 include '../includes/footer.php';

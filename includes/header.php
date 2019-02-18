@@ -10,6 +10,9 @@ session_start();
 
 	<!-- CUSTOM CSS -->
 	<link rel="stylesheet" type="text/css" href="../includes/assets/css/styles.css">
+
+	<!-- FONT AWESOME -->
+	<link rel="stylesheet" href="../includes/assets/css/fontawesome.css">
 </head>
 <body>
 

@@ -6,7 +6,7 @@ include 'process/login_account_process.php';
 <div class="container">
 	<div class="row">
 		<div class="col-md-4 offset-4">
-			<form method="post" action="login_account.php">
+			<form method="post" action="login_account.php" class="form-wrapper">
 				<?php include 'process/errors.php'; ?>
 				<h2>Login</h2>
 				<hr>
@@ -16,7 +16,6 @@ include 'process/login_account_process.php';
 								<div class="col-md-12">
 									<label>Username</label>
 					    <input type="text" class="form-control" placeholder="Enter email" name="username" required/>
-						
 							</div>
 					  </div>
 					  <div class="form-group">

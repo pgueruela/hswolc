@@ -6,17 +6,25 @@ include '../includes/admin_sidebar.php';
 ?>
 
 <div class="col-md-9">
-	<div class="form-group">
+  <div class="card">
+    <div class="card-body">
+      <h4>Students</h4>
+    </div>
+  </div>
 
-		<div class="row">
-			<div class="col-md-6">
-				<input class="form-control" type="text" name="search_student" id="search_student" placeholder="Seach student">
-			</div>
-		</div>
-
-	</div>
-	<div id="result"></div>
-
+  <div class="card">
+    <div class="card-body">
+      <div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <input class="form-control" type="text" name="search_student" id="search_student" placeholder="Seach student">
+              </div>
+            </div>
+          </div>
+          <div id="result"></div>
+      </div>
+    </div>
 <script>
 $(document).ready(function(){
 
@@ -47,8 +55,6 @@ $(document).ready(function(){
  });
 });
 </script>
-
-</div>
 
 </div>
 

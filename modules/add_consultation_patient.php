@@ -11,7 +11,7 @@ if (!isset($_SESSION['id'])) {
 }
 
 ?>
-		<div class="col-md-10">
+	<div class="col-md-10">
 				
 			<form method="post">
 				<div class="row">

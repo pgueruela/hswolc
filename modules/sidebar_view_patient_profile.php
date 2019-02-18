@@ -16,7 +16,7 @@ include '../includes/admin_navigationbar.php';
  		<div class="col-md-3 side-panel">
 		 	<ul>
 		        <li class="active">
-					<a class="nav-link" href="../view_patient_profile/personal_data.php?id=<?php echo $id ?>">Vital Signs</a>
+					<a class="nav-link" href="../view_patient_profile/personal_data.php?id=<?php echo $id ?>">Personal Data</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="../view_patient_profile/vital_signs.php?id=<?php echo $id ?>">Vital Signs</a>

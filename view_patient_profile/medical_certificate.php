@@ -18,7 +18,19 @@ include '../modules/sidebar_view_patient_profile.php';
     <input type="submit" class="btn btn-primary" id="insert" value="Upload" name="med_cert_submit">
   </div>
 </form>
-<?php 
+
+<?php
+
+$image_result = $conn->query("SELECT * FROM medical_cert_tbl WHERE patient_id = $id");
+
+$img = mysqli_fetch_assoc($image_result);
+
+if ($image_result->num_rows > 0 ) { ?>
+    <tr>
+      <td><img src="../photos/<?php echo $img['image_path']; ?>" height= "200" width="200"></td>
+    </tr>
+<?php  
+}
 
 if (isset($_POST["med_cert_submit"])) {
 	$filetmp = $_FILES["medical_cert_img"] ["tmp_name"];
@@ -34,21 +46,7 @@ if (isset($_POST["med_cert_submit"])) {
 	} else {
     echo "Error: " . $sql . "<br>" . $conn->error;	
 	}	
- }else{
-
- 	$query = "SELECT * FROM medical_lab_tbl WHERE id=$id";
- 	$result = mysqli_query($conn, $query);?>
-  <h2>Medical Cert</h2>
- 	<table>
-  	<?php
-  		while ($row = mysqli_fetch_array($result)) {?>
-  			<tr>
-  				<td><img src="<?php echo $row['image_path']; ?>" height = "300" width = "300"></td>
-  			</tr>
- 	</table>
- <?php  
- 		}	
-}
+ }
  ?>
 </div>
 

@@ -20,7 +20,7 @@ include_once '../includes/db.php';
 
 
 	if ($conn->query($sql) === TRUE) {
-			 echo "<script> alert('Stored successfully'); </script>";
+			 echo "<script> alert('New record created!'); </script>";
 	} else {
 	    	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}

@@ -32,20 +32,29 @@ body {
 }
 
 /*Side Panel navigation bar*/
+.card-header-side-panel button {
+	color: #fff !important;
+}
+
 .side-panel li a {
 	color: blue;
 }
 
 /*Forms*/
 
-
 .error {
 
   color: #a94442; 
 }
 
+/*Cards*/
+
+.card-body-header {
+	padding: 6px !important;
+}
+
 .card {
-	margin: 5px !important;
+	margin: 3px !important;
 }
 
 

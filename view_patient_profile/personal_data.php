@@ -21,6 +21,11 @@ $row = mysqli_fetch_assoc($result);
 	    Personal Data
 	  </div>
 	  <div class="card-body">
+	  	<div class="row">
+	  		<div class="col-md-4">
+	  			
+	  		</div>
+	  	</div>
 	  	<p>Name: <?php echo $row['firstname'] . " " . $row['lastname']; ?></p>
 	  	<p>Gender: <?php echo $row['gender']; ?></p>
 	  	<p>Patient Address: <?php echo $row['patient_address']; ?></p>

@@ -5,15 +5,13 @@ session_start();
 <html>
 <head>
 	<title>Health Services and Wealth Office Lorma Colleges Carlatan Campus</title>
+	<!-- FONT AWESOME -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="../includes/assets/css/bootstrap.min.css">
 
 	<!-- CUSTOM CSS -->
 	<link rel="stylesheet" type="text/css" href="../includes/assets/css/styles.css">
-
-	<!-- FONT AWESOME -->
-	<link rel="stylesheet" href="../includes/assets/css/fontawesome.css">
-
 	<!-- Data tables -->
 	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 </head>

@@ -6,9 +6,13 @@ include '../modules/delete_patient_modal.php';
 ?>
 
 <div class="col-md-9">
-	<div class="card">
-		<div class="card-body">
+	<div class="row">
+		<div class="col-md-12">
+				<div class="card card-body-margins">
+		<div class="card-body card-body-header">
 			<h4>Employees</h4>
+		</div>
+	</div>
 		</div>
 	</div>
 	<?php 
@@ -17,7 +21,9 @@ include '../modules/delete_patient_modal.php';
 	?>
 	<!-- Table -->
 	<div>
-		<div class="row">
+		<div class="card card-body-header">
+			<div class="card-body">
+				<div class="row">
 			<div class="col-md-12">
 				<table id="employee_data" class="table table-hover">
 					<thead>
@@ -27,8 +33,8 @@ include '../modules/delete_patient_modal.php';
 							<td>Contact Number</td>
 							<td>Department</td>
 							<td>View</td>
-							<td>Edit Personal Data</td>
-							<td>Add Consultation Form</td>
+							<td>Edit</td>
+							<td>Add</td>
 						</tr>
 					</thead>
 			<?php while($row = mysqli_fetch_array($result)) { ?>
@@ -37,14 +43,16 @@ include '../modules/delete_patient_modal.php';
 						<td><?php echo $row["gender"]; ?></td>
 						<td><?php echo $row["patient_number"]; ?></td>
 						<td><?php echo $row["department"]; ?></td>
-						<th><a href="../modules/sidebar_view_patient_profile.php?id=<?php echo $row['id']; ?>">Icons</a></th>
-						<th><a href="../process/edit_personal_student_data.php?id=<?php echo $row['id']; ?>">Icond</a></th>
-						<th><a href="../modules/add_consultation_patient.php?id=<?php echo $row['id']; ?>">Icons</a></th>
+						<th><a href="../modules/sidebar_view_patient_profile.php?id=<?php echo $row['id']; ?>"><i class="fas fa-eye"></i> View Full Profile</a></th>
+						<th><a href="../process/edit_personal_student_data.php?id=<?php echo $row['id']; ?>"><i class="fas fa-edit"></i> Edit Personal Data</a></th>
+						<th><a href="../modules/add_consultation_patient.php?id=<?php echo $row['id']; ?>"><i class="fas fa-plus"></i> Add consultation</a></th>
 					</tr>		
 			<?php 
 			}
 			 ?>
 				</table>
+			</div>
+		</div>
 			</div>
 		</div>
 	</div>

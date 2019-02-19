@@ -6,8 +6,8 @@ include '../includes/admin_navigationbar.php';
  
  		<?php include '../includes/admin_sidebar.php'; ?>
 		<div class="col-md-9">
-			<div class="card">
-				<div class="card-body">
+			<div class="card card-body-margins">
+				<div class="card-body card-body-header">
 					<h4>Enter personal data for patient</h4>
 				 </div>
 			</div>

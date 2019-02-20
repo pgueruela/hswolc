@@ -1,36 +1,37 @@
 <?php 
 include '../includes/header.php';
+include '../includes/header-img.php';
+include '../includes/db.php';
+?>
 
-include '../includes/admin_sidebar.php';
+<!--  Admin Navigation Bar -->
+ <nav class="navbar navbar-toggleable-md navbar-style">
+    <div class="container">
 
-
-$id= $_GET['id'];
+      <a class="navbar-brand" href="#" style="color: #fff;">HSWOLCIS</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.php"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="../process/logout_account_process.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<div class="container">
+<?php
+$id= $_SESSION['id'];
 
 $result = $conn->query("SELECT firstname, lastname FROM admin_tbl WHERE id=$id");
 
-$row = mysqli_fetch_assoc($result);
+$row = mysqli_fetch_assoc($result); ?>
 
-
-if (isset($_POST['save_changes'])) {
- 	$firstname = $_POST['firstname'];
- 	$lastname = $_POST['lastname'];
-
-	$sql = "UPDATE admin_tbl SET firstname = '$firstname', lastname = '$lastname' WHERE id=$id ";
-
-
-	if ($conn->query($sql) === TRUE) {
-			 echo "<script> alert('Updated successfully!'); </script>";
-			 header("Location: edit_user_account.php?id=$id");
-
-	} else {
-	    	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-			exit();
-	} 
-
-}else{
- ?>
 <div class="col-md-9">
-<form method="post" action="">
+
+<form method="post">
 	<h2>Update profile</h2>
 	<hr>
 	<div class="container">
@@ -61,6 +62,22 @@ if (isset($_POST['save_changes'])) {
 
 </form>
 <?php 
-}
+if (isset($_POST['save_changes'])) {
+ 	$firstname = $_POST['firstname'];
+ 	$lastname = $_POST['lastname'];
 
+	$sql = "UPDATE admin_tbl SET firstname = '$firstname', lastname = '$lastname' WHERE id=$id ";
+	echo "<script>
+	alert('Updated Successfully!');
+</script>";
+
+	if ($conn->query($sql) === TRUE) {
+			 header("Location: edit_user_account.php?id=$id");
+
+	} else {
+	    	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+			exit();
+	} 
+}
 ?>
+

@@ -31,7 +31,6 @@ include '../includes/admin_sidebar.php';
 							<td>Contact Number</td>
 							<td>Department</td>
 							<td>View</td>
-							<td>Edit</td>
 							<td>Add</td>
 						</tr>
 					</thead>
@@ -42,7 +41,6 @@ include '../includes/admin_sidebar.php';
 						<td><?php echo $row["patient_number"]; ?></td>
 						<td><?php echo $row["department"]; ?></td>
 						<th><a href="../modules/sidebar_view_patient_profile.php?id=<?php echo $row['id']; ?>"><i class="fas fa-eye"></i> View Full Profile</a></th>
-						<th><a href="../process/edit_personal_student_data.php?id=<?php echo $row['id']; ?>"><i class="fas fa-edit"></i> Edit Personal Data</a></th>
 						<th><a href="../modules/add_consultation_patient.php?id=<?php echo $row['id']; ?>"><i class="fas fa-plus"></i> Add consultation</a></th>
 					</tr>		
 			<?php 

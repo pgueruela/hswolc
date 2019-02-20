@@ -47,6 +47,10 @@ body {
   color: #a94442; 
 }
 
+.success {
+	color: green;
+}
+
 /*Cards*/
 
 .card-body-header {

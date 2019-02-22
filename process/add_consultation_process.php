@@ -20,9 +20,8 @@ $id = $_GET['id'];
 	$allergies = $_POST['allergies'];
 	$diagnosis = $_POST['diagnosis'];
 	$nurse_doctor = $_POST['nurse_doctor'];
-	$date_checkup = $_POST['date_checkup'];
-	
-	$sql = "INSERT INTO consultation_tbl (patient_id, blood_pressure, patient_height, patient_weight, bmi, respiratory_rate, heart_rate, temperature, medical_history, past_illness,hospitalization_history, medicines,  allergies, diagnosis, nurse_doctor, date_checkup) VALUES($id, '$blood_pressure', '$patient_height', '$patient_weight', '$bmi', '$respiratory_rate', '$heart_rate','$temperature','$medical_history', '$past_illness', '$hospitalization_history', '$medicines', '$allergies', '$diagnosis', '$nurse_doctor',  '$date_checkup');";
+
+	$sql = "INSERT INTO consultation_tbl (patient_id, blood_pressure, patient_height, patient_weight, bmi, respiratory_rate, heart_rate, temperature, medical_history, past_illness,hospitalization_history, medicines,  allergies, diagnosis, nurse_doctor, date_checkup) VALUES($id, '$blood_pressure', '$patient_height', '$patient_weight', '$bmi', '$respiratory_rate', '$heart_rate','$temperature','$medical_history', '$past_illness', '$hospitalization_history', '$medicines', '$allergies', '$diagnosis', '$nurse_doctor', now());";
 
 	if ($conn->query($sql) === TRUE) {
 			 echo "<script> alert('Stored successfully'); </script>";

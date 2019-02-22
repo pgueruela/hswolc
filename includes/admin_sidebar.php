@@ -36,13 +36,13 @@ $row = mysqli_fetch_assoc($result);
 			      <div class="card-body">
 			         <ul class="list-group list-group-flush">
 				    	<li class="list-group-item">
-				    		<a class="nav-link" href="../modules/add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
+				    		<a class="nav-link" href="modules/add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
 				    	</li>
 						<li class="list-group-item">
-							<a class="nav-link" href="../modules/view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
+							<a class="nav-link" href="modules/view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
 						</li>
 						<li class="list-group-item">
-							<a class="nav-link" href="../modules/view_employee_patient.php"><i class="fas fa-user-tie"></i> View Employee</a>
+							<a class="nav-link" href="modules/view_employee_patient.php"><i class="fas fa-user-tie"></i> View Employee</a>
 						</li>
 			 		 </ul>
 			      </div>

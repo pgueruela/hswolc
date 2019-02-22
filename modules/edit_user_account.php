@@ -1,5 +1,5 @@
 <?php 
-include '../includes/header.php';
+include '../header-include.php';
 include '../includes/header-img.php';
 include '../includes/db.php';
 ?>

@@ -31,7 +31,7 @@ $errors = array();
 						$_SESSION['user_type'] = $row['usertype'];
 						$_SESSION['username'] = $row['username'];
 						$_SESSION['password'] = $row['password'];
-						header("Location: ../index.php");
+						header("Location: ../hswolc/index.php");
 					}
 				}
 			}

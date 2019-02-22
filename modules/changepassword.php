@@ -1,8 +1,6 @@
 <?php 
-include '../includes/header.php';
+include '../header-include.php';
 include '../includes/admin_navigationbar.php';
-include '../includes/admin_sidebar.php';
-
 include '../process/changepassword_process.php';
 
 ?>

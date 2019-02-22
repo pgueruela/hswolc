@@ -1,5 +1,5 @@
 <?php 
-include '../includes/header.php';
+include '../header-include.php';
 include '../includes/db.php';
 include '../includes/admin_navigationbar.php';
 include '../process/add_consultation_process.php';
@@ -138,7 +138,7 @@ if (!isset($_SESSION['id'])) {
 						<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Temperature</label>
-						    		<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient telephone/cellphone number" name="temperature" required/>
+						    		<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient temperature number" name="temperature" required/>
 								</div>
 						</div>
 						<hr>
@@ -192,15 +192,6 @@ if (!isset($_SESSION['id'])) {
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Doctor/Nurse who checkup: </label>
 					    			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient weight" name="nurse_doctor" required/>	
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-					 		<div class="row">
-								<div class="col-md-8">
-									<label for="exampleInputEmail1">Date Checkup</label>
-					    			<input type="date" class="form-control" id="exampleInputEmail1" value="<?php echo date("Y-m-d"); ?>" aria-describedby="emailHelp" name="date_checkup" readonly />	
 								</div>
 							</div>
 						</div>

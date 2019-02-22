@@ -1,8 +1,6 @@
 <?php 
-
+include 'includes/header-img.php';
 include 'includes/header.php';
-include 'includes/admin_navigationbar.php';
-
 include 'includes/db.php';
 
 $id = $_SESSION['id'];
@@ -18,6 +16,22 @@ $result = $conn->query("SELECT * FROM admin_tbl WHERE id = $id");
 $row = mysqli_fetch_assoc($result);
 ?>
 
+ <nav class="navbar navbar-toggleable-md navbar-style">
+    <div class="container">
+
+      <a class="navbar-brand" href="#" style="color: #fff;">HSWOLCIS</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="process/logout_account_process.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
 <div class="container">
 
@@ -25,11 +39,11 @@ $row = mysqli_fetch_assoc($result);
  		<div class="col-md-3">		 		
 		 	<div class="card">
 			  <div class="card-body">
-			    <img src="../includes/assets/img/profile_pic.png" width="50" height="50">
+			    <img src="includes/assets/img/profile_pic.png" width="50" height="50">
 			    <p style="text-align: center;"><?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname']; ?></p>
 			    <p style="text-align: center"><?php echo $_SESSION['user_type']; ?></p>
-			    <a style="text-align: center" href="../modules/edit_user_account.php?id=<?php echo $row['id']; ?>" class="nav-link card-link"><i class="fas fa-user-edit"></i> Edit Profile</a>
-			    <a style="text-align: center" href="../modules/changepassword.php?id=<?php echo $row['id']; ?>" class="nav-link card-link"><i class="fas fa-key"></i> Change Password</a>
+			    <a style="text-align: center" href="modules/edit_user_account.php?id=<?php echo $row['id']; ?>" class="nav-link card-link"><i class="fas fa-user-edit"></i> Edit Profile</a>
+			    <a style="text-align: center" href="modules/changepassword.php?id=<?php echo $row['id']; ?>" class="nav-link card-link"><i class="fas fa-key"></i> Change Password</a>
 			  </div>
 			</div>
 
@@ -47,13 +61,13 @@ $row = mysqli_fetch_assoc($result);
 			      <div class="card-body">
 			         <ul class="list-group list-group-flush">
 				    	<li class="list-group-item">
-				    		<a class="nav-link" href="../modules/add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
+				    		<a class="nav-link" href="modules/add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
 				    	</li>
 						<li class="list-group-item">
-							<a class="nav-link" href="../modules/view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
+							<a class="nav-link" href="modules/view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
 						</li>
 						<li class="list-group-item">
-							<a class="nav-link" href="../modules/view_employee_patient.php"><i class="fas fa-user-tie"></i> View Employee</a>
+							<a class="nav-link" href="modules/view_employee_patient.php"><i class="fas fa-user-tie"></i> View Employee</a>
 						</li>
 			 		 </ul>
 			      </div>

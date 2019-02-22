@@ -1,9 +1,5 @@
 <?php 
-
-include 'db.php';
-
 include 'header-img.php';
-
  ?>
 
  <nav class="navbar navbar-toggleable-md navbar-style">

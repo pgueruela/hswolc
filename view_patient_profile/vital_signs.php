@@ -1,9 +1,7 @@
 <?php 
 
-include '../includes/header.php';
-
+include '../header-include.php';
 include '../includes/db.php';
-
 include '../includes/admin_navigationbar.php';
 ?>
 <div class="container">

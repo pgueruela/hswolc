@@ -1,10 +1,5 @@
-<?php 
-include 'header-img.php';
- ?>
-
  <nav class="navbar navbar-toggleable-md navbar-style">
     <div class="container">
-
       <a class="navbar-brand" href="#" style="color: #fff;">HSWOLCIS</a>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">

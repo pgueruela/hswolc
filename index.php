@@ -113,9 +113,8 @@ $row = mysqli_fetch_assoc($result);
 	</div>
 <?php 
 
-$query = "SELECT pt.id, pt.firstname, pt.lastname, ct.id, ct.patient_id , ct.date_checkup, ct.nurse_doctor FROM patient_pd_tbl as pt, consultation_tbl as ct WHERE pt.id=ct.patient_id ORDER BY ct.id DESC";
+$query = "SELECT pt.id, pt.firstname, pt.lastname, ct.patient_id , ct.date_checkup, ct.nurse_doctor FROM patient_pd_tbl as pt, consultation_tbl as ct WHERE pt.id=ct.patient_id ORDER BY ct.id DESC";
 $result = mysqli_query($conn, $query);?>
-
 	<!-- Table -->
 	<div>
 		<div class="card card-body-margins">

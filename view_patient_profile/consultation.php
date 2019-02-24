@@ -3,7 +3,6 @@
 include '../header-include.php';
 include '../includes/db.php';
 include '../includes/admin_navigationbar.php';
-
 ?>
 <div class="container">
 <?php 
@@ -18,12 +17,13 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
  	<div class="row">
  		<div class="col-md-3 side-panel">
  			<div class="card">
- 							<div class="card-body">
+ 				<div class="card-body">
 			    <img src="../includes/assets/img/profile_pic.png" width="50" height="50">
 			    <p style="text-align: center;"><?php echo $row['firstname'] . " " . $row['lastname']; ?></p>
 			    <p style="text-align: center"><?php echo $row['patient_number']; ?></p>
 			    <p style="text-align: center"><?php echo $row['patient_address']; ?></p>
 			</div>
+
  			</div>
 			<div class="accordion" id="patient_accordion" aria-expanded="true">
 			  <div class="card card-side-panel">
@@ -46,13 +46,7 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
 						</li>
 						<li class="list-group-item">
 
-							<a class="nav-link" href="../view_patient_profile/medical_history.php?id=<?php echo $id ?>"><i class="fas fa-h-square"></i> Medical History</a>	
-						</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/medicines.php?id=<?php echo $id ?>"><i class="fas fa-prescription-bottle-alt"></i> Medicines</a>	
-						</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/diagnosis.php?id=<?php echo $id ?>"><i class="fas fa-comment-medical"></i> Diagnosis</a>	
+							<a class="nav-link" href="../view_patient_profile/consultation.php?id=<?php echo $id ?>"><i class="fas fa-comment-medical"></i> Consultation</a>	
 						</li>
 						<li class="list-group-item">
 							<a class="nav-link" href="../view_patient_profile/medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
@@ -67,26 +61,45 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
 			</div>
 		</div>
 		<?php 
-		$medicines = $conn->query("SELECT medicines, date_checkup FROM consultation_tbl WHERE patient_id=$id");
+		$consultation = $conn->query("SELECT * FROM consultation_tbl WHERE patient_id=$id");
 
-		$med = mysqli_fetch_array($medicines);
+		$cs = mysqli_fetch_assoc($consultation);
 
-		if ($medicines->num_rows > 0) { ?>
+		if ($consultation->num_rows > 0) { ?>
 		<div class="col-md-9">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card card-body-margins">
+						<div class="card-body card-body-header">
+							<div class="row">
+								<div class="col-md-6">
+									<h4>Consultation</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="card">
-				<h5>Medicines</h5>
-				<hr>
 				<div class="card-body">
 					<div class="row">
 						<div class="col-md-12">
-							<p>Medicines: <?php echo $med['medicines']; ?></p>
+							<p>Medical History: <?php echo $cs['medical_history']; ?></p>
 							<hr>
+							<p>Pass illness: <?php echo $cs['past_illness']; ?></p>
+							<hr>
+							<p>Hospitalization History: <?php echo $cs['hospitalization_history']; ?></p>
+							<hr>
+							<p>Medicines: <?php echo $cs['medicines']; ?></p>	
+							<hr>
+							<p>Allergies: <?php echo $cs['allergies']; ?></p>
+							<hr>
+							<p>Diagnosis: <?php echo $cs['diagnosis']; ?></p>
+							<hr>
+							<p>Physician: <?php echo $cs['nurse_doctor']; ?></p>
+							<hr>
+							<p>Date of consultation: <?php echo $cs['date_checkup']; ?></p>
 						</div>
-					</div>
-					<div class="row">
-							<div class="col-md-12">
-								<p><small style="color: red;"><i>*This medical history was recorded on <?php echo $med['date_checkup']; ?></i></small></p>					
-							</div>
 					</div>
 				</div>
 			</div>
@@ -95,7 +108,7 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
 		}else{ ?>
 		<div class="col-md-9">
 			<div class="card">
-				<h5>Medicines</h5>
+				<h5>Vital Signs</h5>
 				<hr>
 				<div class="card-body">
 					<div class="row">
@@ -110,7 +123,6 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
 		?>
 		<div>
 		</div>
-
 <?php 
 include '../includes/footer.php';
  ?>

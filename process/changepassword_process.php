@@ -16,7 +16,7 @@ if (isset($_POST['change_pass'])) {
 		header("Location: ../modules/changepassword.php?id=$id");
 	}else{
 
-		$result = mysqli_query($conn, "SELECT *from admin_tbl WHERE id=$id");
+		$result = mysqli_query($conn, "SELECT password FROM admin_tbl WHERE id=$id");
 		$row = mysqli_fetch_array($result);
 		$hashPassword = password_verify($current_password, $row['password']);
 

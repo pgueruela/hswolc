@@ -42,15 +42,8 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
             <li class="list-group-item">
               <a class="nav-link" href="../view_patient_profile/vital_signs.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Vital Signs</a>
             </li>
-            <li class="list-group-item">
-
-              <a class="nav-link" href="../view_patient_profile/medical_history.php?id=<?php echo $id ?>"><i class="fas fa-h-square"></i> Medical History</a> 
-            </li>
-            <li class="list-group-item">
-              <a class="nav-link" href="../view_patient_profile/medicines.php?id=<?php echo $id ?>"><i class="fas fa-prescription-bottle-alt"></i> Medicines</a>  
-            </li>
-            <li class="list-group-item">
-              <a class="nav-link" href="../view_patient_profile/diagnosis.php?id=<?php echo $id ?>"><i class="fas fa-comment-medical"></i> Diagnosis</a>  
+             <li class="list-group-item">
+                <a class="nav-link" href="../view_patient_profile/consultation.php?id=<?php echo $id ?>"><i class="fas fa-comment-medical"></i> Consultation</a>  
             </li>
             <li class="list-group-item">
               <a class="nav-link" href="../view_patient_profile/medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>  

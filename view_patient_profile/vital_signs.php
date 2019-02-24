@@ -45,14 +45,7 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
 							<a class="nav-link" href="../view_patient_profile/vital_signs.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Vital Signs</a>
 						</li>
 						<li class="list-group-item">
-
-							<a class="nav-link" href="../view_patient_profile/medical_history.php?id=<?php echo $id ?>"><i class="fas fa-h-square"></i> Medical History</a>	
-						</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/medicines.php?id=<?php echo $id ?>"><i class="fas fa-prescription-bottle-alt"></i> Medicines</a>	
-						</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/diagnosis.php?id=<?php echo $id ?>"><i class="fas fa-comment-medical"></i> Diagnosis</a>	
+							<a class="nav-link" href="../view_patient_profile/consultation.php?id=<?php echo $id ?>"><i class="fas fa-comment-medical"></i> Consultation</a>	
 						</li>
 						<li class="list-group-item">
 							<a class="nav-link" href="../view_patient_profile/medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
@@ -73,9 +66,23 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
 
 		if ($vital_signs->num_rows > 0) { ?>
 		<div class="col-md-9">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card card-body-margins">
+						<div class="card-body card-body-header">
+							<div class="row">
+								<div class="col-md-6">
+									<h4>Vital Signs</h4>
+								</div>
+								<div class="col-md-6">
+									<a href=""><i class="fas fa-user"></i> Edit</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="card">
-				<h5>Vital Signs</h5>
-				<hr>
 				<div class="card-body">
 					<div class="row">
 						<div class="col-md-6">

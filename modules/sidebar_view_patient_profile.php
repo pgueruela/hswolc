@@ -69,14 +69,7 @@ include '../includes/admin_navigationbar.php';
 							<a class="nav-link" href="../view_patient_profile/vital_signs.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Vital Signs</a>
 						</li>
 						<li class="list-group-item">
-
-							<a class="nav-link" href="../view_patient_profile/medical_history.php?id=<?php echo $id ?>"><i class="fas fa-h-square"></i> Medical History</a>	
-						</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/medical_history.php?id=<?php echo $id ?>"><i class="fas fa-prescription-bottle-alt"></i> Medicines</a>	
-						</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/diagnosis.php?id=<?php echo $id ?>"><i class="fas fa-comment-medical"></i> Diagnosis</a>	
+							<a class="nav-link" href="../view_patient_profile/consultation.php?id=<?php echo $id ?>"><i class="fas fa-comment-medical"></i> Consultation</a>	
 						</li>
 						<li class="list-group-item">
 							<a class="nav-link" href="../view_patient_profile/medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
@@ -92,19 +85,24 @@ include '../includes/admin_navigationbar.php';
 		</div>
 
 		<div class="col-md-9">
-			<div class="card">
-				<div class="class_header">
-					<div class="row">
-						<div class="col-md-6">
-							<h5>Personal Data</h5>
-						</div>
-						<div class="col-md-6">
-							<a class="nav-link" href="">Edit</a>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card card-body-margins">
+						<div class="card-body card-body-header">
+							<div class="row">
+								<div class="col-md-6">
+									<h4>Personal Data</h4>
+								</div>
+								<div class="col-md-6">
+									<a href=""><i class="fas fa-user"></i> Edit</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-				<hr>
- 				<div class="card-body">
+			</div>
+			<div class="card">
+			 	<div class="card-body">
  					<div class="row">
  						<div class="col-md-6">
  							<p>Gender: <?php echo $row['gender']; ?></p>
@@ -126,7 +124,7 @@ include '../includes/admin_navigationbar.php';
  						</div>
  					</div>
  				</div>
- 			</div>
-		</div>
+			</div>
+ 		</div>
 	</div>
 </div>

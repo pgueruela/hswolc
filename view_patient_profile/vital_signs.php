@@ -75,7 +75,7 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
 									<h4>Vital Signs</h4>
 								</div>
 								<div class="col-md-6">
-									<a href=""><i class="fas fa-user"></i> Edit</a>
+									<a href="../modules/edit_patient_vitalsign.php?id=<?php echo $id ?>"><i class="fas fa-user"></i> Edit</a>
 								</div>
 							</div>
 						</div>

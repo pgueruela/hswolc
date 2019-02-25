@@ -10,8 +10,6 @@ $id = $_GET['id'];
 $result = $conn->query("SELECT id, firstname, lastname, gender, patient_address, patient_number, birthdate, department, position, civil_status, blood_type FROM patient_pd_tbl WHERE id=$id");
 
 $row = mysqli_fetch_assoc($result);
-
-
  if (isset($_POST['update_data'])) {
 
 	$firstname = $_POST['firstname'];

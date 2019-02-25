@@ -94,7 +94,7 @@ include '../includes/admin_navigationbar.php';
 									<h4>Personal Data</h4>
 								</div>
 								<div class="col-md-6">
-									<a href=""><i class="fas fa-user"></i> Edit</a>
+									<a href="edit_personal_data.php?id=<?php echo $id ?>"><i class="fas fa-user"></i> Edit</a>
 								</div>
 							</div>
 						</div>

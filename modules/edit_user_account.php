@@ -11,18 +11,23 @@
 include '../includes/admin_navigationbar.php';
 include '../includes/db.php';
 include '../header-include.php';
+
+$id = $_SESSION['id'];
+
+$result = $conn->query("SELECT * FROM admin_tbl WHERE id = $id");
+
+$row = mysqli_fetch_assoc($result);
+
 ?>
 <div class="container">
-
  	<div class="row">
  		<div class="col-md-3">		 		
 		 	<div class="card">
 			  <div class="card-body">
-			    <img src="includes/assets/img/profile_pic.png" width="50" height="50">
 			    <p style="text-align: center;"><?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname']; ?></p>
 			    <p style="text-align: center"><?php echo $_SESSION['user_type']; ?></p>
-			    <a style="text-align: center" href="modules/edit_user_account.php?id=<?php echo $row['id']; ?>" class="nav-link card-link"><i class="fas fa-user-edit"></i> Edit Profile</a>
-			    <a style="text-align: center" href="modules/changepassword.php?id=<?php echo $row['id']; ?>" class="nav-link card-link"><i class="fas fa-key"></i> Change Password</a>
+			    <a style="text-align: center" href="edit_user_account.php?id=<?php echo $row['id']; ?>" class="nav-link card-link"><i class="fas fa-user-edit"></i> Edit Profile</a>
+			    <a style="text-align: center" href="changepassword.php?id=<?php echo $row['id']; ?>" class="nav-link card-link"><i class="fas fa-key"></i> Change Password</a>
 			  </div>
 			</div>
 
@@ -79,71 +84,68 @@ include '../header-include.php';
 			  </div>
 			</div>
  		</div>
+		<?php
+		$id= $_SESSION['id'];
+
+		$result = $conn->query("SELECT firstname, lastname FROM admin_tbl WHERE id=$id");
+
+		$row = mysqli_fetch_assoc($result);
 
 
-<?php
-$id= $_SESSION['id'];
+		if (isset($_POST['save_changes'])) {
+				 	$firstname = $_POST['firstname'];
+				 	$lastname = $_POST['lastname'];
 
-$result = $conn->query("SELECT firstname, lastname FROM admin_tbl WHERE id=$id");
+					$sql = "UPDATE admin_tbl SET firstname = '$firstname', lastname = '$lastname' WHERE id=$id ";
+					if ($conn->query($sql) === TRUE) {
+							echo "<script>alert('Updated Successfully!');</script>";
+			}
+		}
+		?>
+		<div class="col-md-9">
 
-$row = mysqli_fetch_assoc($result); ?>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card card-body-margins">
+							<div class="card-body card-body-header">
+								<h4>Edit profile</h4>
+							</div>
+						</div>
+					</div>
+				</div>
 
-<div class="col-md-9">
+				<div class="card">
+					<div class="card-body">
+						
+						<form method="post">
+							<div class="container">
+								 <div class="form-group">
+								 		<div class="row">
+											<div class="col-md-8">
+												<label for="exampleInputEmail1">Firstname</label>
+								    <input type="text" class="form-control" placeholder="Enter email" name="firstname" value="<?php echo $row['firstname']; ?>" required/>
+									
+											</div>
+								  		</div>
+								 </div>
+								  <div class="form-group">
+								 		<div class="row">
+											<div class="col-md-8">
+												<label for="exampleInputEmail1">Lastname</label>
+								    <input type="text" class="form-control" placeholder="Enter email" name="lastname" value="<?php echo $row['lastname']; ?>" required/>
+											</div>
+										</div>
+								  </div>
 
-		<div class="row">
-			<div class="col-md-12">
-				<div class="card card-body-margins">
-					<div class="card-body card-body-header">
-						<h4>Edit profile</h4>
+								  <div class="row">
+								  	<div class="col-md-8">
+								  		<button type="submit" class="btn btn-success" name="save_changes">Save Changes</button>
+								  	</div>
+								  </div>
+							</div>
+
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<div class="card">
-			<div class="card-body">
-				
-				<form method="post">
-					<div class="container">
-						 <div class="form-group">
-						 		<div class="row">
-									<div class="col-md-8">
-										<label for="exampleInputEmail1">Firstname</label>
-						    <input type="text" class="form-control" placeholder="Enter email" name="firstname" value="<?php echo $row['firstname']; ?>" required/>
-							
-									</div>
-						  		</div>
-						 </div>
-						  <div class="form-group">
-						 		<div class="row">
-									<div class="col-md-8">
-										<label for="exampleInputEmail1">Lastname</label>
-						    <input type="text" class="form-control" placeholder="Enter email" name="lastname" value="<?php echo $row['lastname']; ?>" required/>
-									</div>
-								</div>
-						  </div>
-
-						  <div class="row">
-						  	<div class="col-md-8">
-						  		<button type="submit" class="btn btn-primary" name="save_changes">Save Changes</button>
-						  	</div>
-						  </div>
-					</div>
-
-				</form>
-			</div>
-		</div>
-<?php 
-if (isset($_POST['save_changes'])) {
- 	$firstname = $_POST['firstname'];
- 	$lastname = $_POST['lastname'];
-
-	$sql = "UPDATE admin_tbl SET firstname = '$firstname', lastname = '$lastname' WHERE id=$id ";
-	if ($conn->query($sql) === TRUE) {
-			echo "<script>
-			alert('Updated Successfully!');
-			</script>";
-	}
-}
-?>
-

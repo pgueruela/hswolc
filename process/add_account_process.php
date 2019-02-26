@@ -45,9 +45,7 @@ if (isset($_POST['register'])) {
   	$query = "INSERT INTO admin_tbl (firstname, lastname, usertype, username, password) 
   			  VALUES('$firstname', '$lastname', '$usertype', '$username', '$hash_pass')";
   	mysqli_query($conn, $query);
-    array_push($errors, "Successfully registered!");
-  	header('location: add_account.php');
-  	exit();
+    echo "<script>alert('Successfully registered!');</script>";
   }
 }
 

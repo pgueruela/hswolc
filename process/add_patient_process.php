@@ -3,8 +3,7 @@
 include_once '../includes/db.php';
 
  if (isset($_POST['add_patient'])) {
-
-
+	 
 	$firstname = $_POST['firstname'];
 	$lastname = $_POST['lastname'];
 	$gender = $_POST['gender'];

@@ -9,22 +9,13 @@
 <?php 
 include '../header-include.php';
 include '../includes/admin_navigationbar.php';
-include '../process/changepassword_process.php';
+include '../includes/db.php';
+
+
 ?>
 <div class="container">
-
- 	<div class="row">
+	<div class="row">
  		<div class="col-md-3">		 		
-		 	<div class="card">
-			  <div class="card-body">
-			    <img src="includes/assets/img/profile_pic.png" width="50" height="50">
-			    <p style="text-align: center;"><?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname']; ?></p>
-			    <p style="text-align: center"><?php echo $_SESSION['user_type']; ?></p>
-			    <a style="text-align: center" href="modules/edit_user_account.php?id=<?php echo $row['id']; ?>" class="nav-link card-link"><i class="fas fa-user-edit"></i> Edit Profile</a>
-			    <a style="text-align: center" href="modules/changepassword.php?id=<?php echo $row['id']; ?>" class="nav-link card-link"><i class="fas fa-key"></i> Change Password</a>
-			  </div>
-			</div>
-
 			<div class="accordion" id="patient_accordion">
 			  <div class="card card-side-panel">
 			    <div class="card-header card-header-side-panel" id="headingOne">
@@ -78,58 +69,92 @@ include '../process/changepassword_process.php';
 			  </div>
 			</div>
  		</div>
-
-	<div class="col-md-9">
-	<div class="row">
-			<div class="col-md-12">
-				<div class="card card-body-margins">
-					<div class="card-body card-body-header">
-						<div class="col-md-12">
-							<h4>Change Password</h4>
-							<small style="color: red;"><i>Strong passwords include numbers, letters, and punctuation marks</i></small>
+ 		<?php 
+ 		$id= $_SESSION['id'];
+ 		 ?>
+ 		<div class="col-md-9">
+		<div class="row">
+				<div class="col-md-12">
+					<div class="card card-body-margins">
+						<div class="card-body card-body-header">
+							<div class="col-md-12">
+								<h4>Change Password</h4>
+								<small style="color: red;"><i>Strong passwords include numbers, letters, and punctuation marks</i></small>
+							</div>
 						</div>
 					</div>
 				</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<form method="post">
+				<div class="container">
+					  <div class="form-group">
+					 		<div class="row">
+								<div class="col-md-8">
+									<label for="exampleInputEmail1">New Password</label>
+					    <input type="password" class="form-control" placeholder="Enter your new password" name="new_pass" required/>
+								</div>
+							</div>
+					  </div>
+					  	<div class="row">
+								<div class="col-md-8">
+									<label for="exampleInputEmail1">Confirm New Password</label>
+					    <input type="password" class="form-control" placeholder="Confirm your new password" name="confirm_pass" required/>
+						
+								</div>
+					  		</div>
+					  			 <div class="form-group">
+					 		<div class="row">
+								<div class="col-md-8">
+									<label for="exampleInputEmail1">Password</label>
+					    <input type="password" class="form-control" placeholder="Enter your current password" name="current_pass" required/>
+						
+								</div>
+					  		</div>
+					 </div>
+
+					  <div class="row">
+					  	<div class="col-md-8">
+					  		<button type="submit" class="btn btn-success" name="change_pass">Change password</button>
+					  	</div>
+					  </div>
+				</div>
+
+			</form>
+
 			</div>
-	</div>
-	<div class="card">
-		<div class="card-body">
-					<form method="post" action="changepassword.php">
-			<?php include '../process/errors.php'; ?>
-			<div class="container">
-				  <div class="form-group">
-				 		<div class="row">
-							<div class="col-md-8">
-								<label for="exampleInputEmail1">New Password</label>
-				    <input type="password" class="form-control" placeholder="Enter your new password" name="new_pass" required/>
-							</div>
-						</div>
-				  </div>
-				  	<div class="row">
-							<div class="col-md-8">
-								<label for="exampleInputEmail1">Confirm New Password</label>
-				    <input type="password" class="form-control" placeholder="Confirm your new password" name="confirm_pass" required/>
-					
-							</div>
-				  		</div>
-				  			 <div class="form-group">
-				 		<div class="row">
-							<div class="col-md-8">
-								<label for="exampleInputEmail1">Password</label>
-				    <input type="password" class="form-control" placeholder="Enter your current password" name="current_pass" required/>
-					
-							</div>
-				  		</div>
-				 </div>
-
-				  <div class="row">
-				  	<div class="col-md-8">
-				  		<button type="submit" class="btn btn-primary" name="change_pass">Change password</button>
-				  	</div>
-				  </div>
-			</div>
-
-		</form>
-
 		</div>
 	</div>
+	<?php 
+		if (isset($_POST['change_pass'])) {
+
+			$new_pass = $_POST['new_pass'];
+			$confirm_pass = $_POST['confirm_pass'];
+			$current_pass = $_POST['current_pass'];
+
+			if ($new_pass != $confirm_pass) {
+				echo "<script> alert('New password and confirm is not the same!');</script>";
+			}else{
+
+				$result = mysqli_query($conn, "SELECT password FROM admin_tbl WHERE id=$id");
+				$row = mysqli_fetch_array($result);
+				$hashPassword = password_verify($current_pass, $row['password']);
+
+				if ($current_pass == $hashPassword) {
+				$new_hash_pass = password_hash($new_pass, PASSWORD_DEFAULT);
+				$sql = "UPDATE admin_tbl SET password = '$new_hash_pass' WHERE id=$id ";
+					if ($conn->query($sql) === TRUE) {
+						echo "<script> alert('Password has been reset!');</script>";
+					}
+					else{
+						echo "Error: " . $sql . "<br>" . $conn->error;
+					}
+			}
+
+		}
+	}
+
+	 ?>
+</div>
+</div>

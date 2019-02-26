@@ -199,7 +199,7 @@ include '../includes/admin_navigationbar.php';
 			  		</div>
 					<div class="row">
 			  			<div class="col-md-8">
-			  				<button type="submit" class="btn btn-primary" name="add_patient">Register</button>
+			  				<button type="submit" class="btn btn-success" name="add_patient">Add</button>
 			  			</div>
 			  		</div>
 						</div>

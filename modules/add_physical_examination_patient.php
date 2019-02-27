@@ -72,7 +72,7 @@ if (!isset($_SESSION['id'])) {
 				<div class="col-md-12">
 						<div class="card card-body-margins">
 				<div class="card-body card-body-header">
-					<h5>Consultation Form</h5>
+					<h5>Annual Physical Examination</h5>
 				</div>
 			</div>
 				</div>
@@ -81,7 +81,6 @@ if (!isset($_SESSION['id'])) {
 			<div class="card">
 				<div class="card-body">
 					<form method="post">
-
 						<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Temperature</label>
@@ -97,12 +96,11 @@ if (!isset($_SESSION['id'])) {
 							</div>
 				  		</div>
 
-
 						<div class="form-group">
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Hearth Rate</label>
-					    			<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter heart rate" name="heart_rate" required/>	
+					    			<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient heart rate" name="heart_rate" required/>	
 								</div>
 							</div>
 						</div>
@@ -111,65 +109,102 @@ if (!isset($_SESSION['id'])) {
 							<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Respiratory Rate</label>
-							    	<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter respiratory_rate" name="respiratory_rate" required/>
+							    	<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter respiratory rate" name="respiratory_rate" required/>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+				 			<div class="row">
+								<div class="col-md-8">
+									<label for="blood-pressure">Height</label>
+					   				 <input type="number" class="form-control" id="blood_pressure" aria-describedby="emailHelp" placeholder="Enter patient heigt" name="patient_height" required/>
+								</div>
+							</div>
+				  		</div>
+
+						<div class="form-group">
+					 		<div class="row">
+								<div class="col-md-8">
+									<label for="exampleInputEmail1">Weight</label>
+					    			<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient weight" name="patient_weight" required/>	
+								</div>
+							</div>
+						</div>
+
+					  	<div class="form-group">
+							<div class="row">
+								<div class="col-md-8">
+									<label for="exampleInputEmail1">BMI</label>
+							    	<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="bmi" readonly />
 								</div>
 							</div>
 						</div>
 						<hr>
 
-						<div class="form-group">
-					 		<div class="row">
+					  	<div class="form-group">
+							<div class="row">
 								<div class="col-md-8">
-									<label for="exampleInputEmail1">Chief Complain</label>
-									<textarea class="form form-control" rows="3" name="chief_complain"></textarea>
+									<label for="exampleInputEmail1">Eyes</label>
 								</div>
 							</div>
 						</div>
-
+						<div class="form-group row">
+						    <label for="inputPassword" class="col-sm-2 col-form-label">OS No Glasses</label>
+						    <div class="col-sm-4">
+						      <input type="text" class="form-control" id="inputPassword">
+						    </div>
+						    <label for="inputPassword" class="col-sm-2 col-form-label">with Glasses</label>
+						    <div class="col-sm-4">
+						      <input type="text" class="form-control" id="inputPassword">
+						    </div>
+						</div>
+						<div class="form-group row">
+						    <label for="inputPassword" class="col-sm-2 col-form-label">OD No Glasses</label>
+						    <div class="col-sm-4">
+						      <input type="text" class="form-control" id="inputPassword">
+						    </div>
+						    <label for="inputPassword" class="col-sm-2 col-form-label">with Glasses</label>
+						    <div class="col-sm-4">
+						      <input type="text" class="form-control" id="inputPassword">
+						    </div>
+						</div>
+						<hr>	
 						<div class="form-group">
-					 		<div class="row">
+							<div class="row">
 								<div class="col-md-8">
-									<label for="exampleInputEmail1">Physical Examination</label>
-									<textarea class="form form-control" rows="3" name="physical_examination"></textarea>
-								</div>
-							</div>
-						</div><div class="form-group">
-					 		<div class="row">
-								<div class="col-md-8">
-									<label for="exampleInputEmail1">Treatment</label>
-									<textarea class="form form-control" rows="3" name="treatment"></textarea>
-								</div>
-							</div>
-						</div><div class="form-group">
-					 		<div class="row">
-								<div class="col-md-8">
-									<label for="exampleInputEmail1">Diagnosis</label>
-									<textarea class="form form-control" rows="3" name="diagnosis"></textarea>
+									<label for="exampleInputEmail1">Ears</label>
 								</div>
 							</div>
 						</div>
-
-						<div class="form-group">
-					 		<div class="row">
-								<div class="col-md-8">
-									<label for="exampleInputEmail1">Remarks</label>
-									<textarea class="form form-control" rows="3" name="remarks"></textarea>
-								</div>
-							</div>
+						<div class="form-group row">
+						    <label for="inputPassword" class="col-sm-2 col-form-label">Right</label>
+						    <div class="col-sm-4">
+						      <input type="text" class="form-control" id="inputPassword">
+						    </div>
+						    <label for="inputPassword" class="col-sm-2 col-form-label">Left</label>
+						    <div class="col-sm-4">
+						      <input type="text" class="form-control" id="inputPassword">
+						    </div>
 						</div>
-
+						<hr>
 						<div class="form-group">
-					 		<div class="row">
-								<div class="col-md-8">
-									<label for="exampleInputEmail1">Doctor/Nurse who checkup: </label>
-					    			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" name="nurse_doctor" required/>	
-								</div>
-							</div>
+							<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox1"  name="name" value="option1">
+  <label class="form-check-label" for="inlineCheckbox1">1</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" name="name" id="inlineCheckbox2" value="option2">
+  <label class="form-check-label" for="inlineCheckbox2">2</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" name="name" id="inlineCheckbox3" value="option3" >
+  <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+</div>
 						</div>
-
 						<div class="row">
 				  			<div class="col-md-8">
 				  				<button type="submit" class="btn btn-primary" name="add_consultation_patient">Add Consultation</button>
+				  			</div>
 				  		</div>
 					</form>
 				</div>

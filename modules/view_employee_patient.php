@@ -86,21 +86,15 @@ include '../includes/db.php';
 						<thead>
 							<tr>
 								<td>Name</td>
-								<td>Gender</td>
-								<td>Contact Number</td>
-								<td>Department</td>
-								<td>View</td>
-								<td>Add</td>
+								<td>Consultation</td>
+								<td>Physical Examination</td>
 							</tr>
 						</thead>
 				<?php while($row = mysqli_fetch_array($result)) { ?>
 						<tr>
-							<td><?php echo $row["firstname"]. " " . $row["lastname"]; ?></td>
-							<td><?php echo $row["gender"]; ?></td>
-							<td><?php echo $row["patient_number"]; ?></td>
-							<td><?php echo $row["department"]; ?></td>
-							<th><a href="../modules/sidebar_view_patient_profile.php?id=<?php echo $row['id']; ?>"><i class="fas fa-eye"></i> View Full Profile</a></th>
+							<td><a href="../modules/sidebar_view_patient_profile.php?id=<?php echo $row['id']; ?>"><?php echo $row["firstname"]. " " . $row["lastname"]; ?></a></td>
 							<th><a href="../modules/add_consultation_patient.php?id=<?php echo $row['id']; ?>"><i class="fas fa-plus"></i> Add consultation</a></th>
+							<th><a href=""><i class="fas fa-plus"></i> Add Physical Examination</a></th>
 						</tr>		
 				<?php 
 				}

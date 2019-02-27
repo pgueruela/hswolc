@@ -136,8 +136,23 @@ include '../includes/admin_navigationbar.php';
 					    		<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient telephone/cellphone number" name="patient_number" required/>
 							</div>
 				</div>
-				<br>
+				<hr>
+				<div class="form-group">
+						<div class="row">
+							<div class="col-md-8">
+								<label for="exampleInputEmail1">Contact person in case of emergency</label>
+						    	<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter contact persons name" name="contact_person" required/>
+							</div>
+						</div>
+				</div>
 
+				<div class="row">
+							<div class="col-md-8">
+								<label for="exampleInputEmail1">Telephone/Cellphone #</label>
+					    		<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter persons emergency telephone/cellphone number" name="person_contact_emergency_number" required/>
+							</div>
+				</div>
+				<hr>
 				<fieldset class="form-group">
 					<div class="row">
 					<legend class="col-form-label col-sm-2 pt-0">Position</legend>

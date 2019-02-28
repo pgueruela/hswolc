@@ -3,6 +3,9 @@
 	padding: 0px;
 }
 
+a, u:hover {
+    text-decoration: none !important;
+}
 body {
 	margin: 0 auto;
 	background: #f5f5f5;

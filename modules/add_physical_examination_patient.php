@@ -2,7 +2,7 @@
 include '../header-include.php';
 include '../includes/db.php';
 include '../includes/admin_navigationbar.php';
-include '../process/add_consultation_process.php';
+include '../process/add_physical_examination_process.php';
 
 if (!isset($_SESSION['id'])) {
 	header("Location: login_account.php");
@@ -84,7 +84,7 @@ if (!isset($_SESSION['id'])) {
 						<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Temperature</label>
-						    		<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient temperature number" name="temperature" required/>
+						    		<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient temperature number" name="temperature" required>
 								</div>
 						</div>
 						<div class="form-group">
@@ -117,17 +117,27 @@ if (!isset($_SESSION['id'])) {
 				 			<div class="row">
 								<div class="col-md-8">
 									<label for="blood-pressure">Height</label>
-					   				 <input type="number" class="form-control" id="blood_pressure" aria-describedby="emailHelp" placeholder="Enter patient heigt" name="patient_height" required/>
-								</div>
+									<div class="input-group mb-3">
+			  						<div class="input-group-prepend">
+			    					<span class="input-group-text" id="basic-addon1">cm</span>
+			  						</div>
+		  							<input type="number" class="form-control" placeholder="E.G.183" aria-label="height" aria-describedby="basic-addon1" name="patient_height" required/>
+									</div>
+								</div>	
 							</div>
 				  		</div>
 
 						<div class="form-group">
 					 		<div class="row">
 								<div class="col-md-8">
-									<label for="exampleInputEmail1">Weight</label>
-					    			<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient weight" name="patient_weight" required/>	
-								</div>
+									<label for="blood-pressure">Weight</label>
+									<div class="input-group mb-3">
+			  						<div class="input-group-prepend">
+			    					<span class="input-group-text" id="basic-addon1">kg</span>
+			  						</div>
+		  							<input type="number" class="form-control" placeholder="E.G.63" aria-label="height" aria-describedby="basic-addon1" name="patient_weight" required/>
+									</div>
+								</div>	
 							</div>
 						</div>
 
@@ -135,7 +145,7 @@ if (!isset($_SESSION['id'])) {
 							<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">BMI</label>
-							    	<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="bmi" readonly />
+							    	<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="bmi">
 								</div>
 							</div>
 						</div>
@@ -151,21 +161,21 @@ if (!isset($_SESSION['id'])) {
 						<div class="form-group row">
 						    <label for="inputPassword" class="col-sm-2 col-form-label">OS No Glasses</label>
 						    <div class="col-sm-4">
-						      <input type="text" class="form-control" id="inputPassword">
+						      <input type="text" class="form-control" id="inputPassword" name="os_no_glasses">
 						    </div>
 						    <label for="inputPassword" class="col-sm-2 col-form-label">with Glasses</label>
 						    <div class="col-sm-4">
-						      <input type="text" class="form-control" id="inputPassword">
+						      <input type="text" class="form-control" id="inputPassword" name="os_with_glasses">
 						    </div>
 						</div>
 						<div class="form-group row">
 						    <label for="inputPassword" class="col-sm-2 col-form-label">OD No Glasses</label>
 						    <div class="col-sm-4">
-						      <input type="text" class="form-control" id="inputPassword">
+						      <input type="text" class="form-control" id="inputPassword" name="od_no_glasses">
 						    </div>
 						    <label for="inputPassword" class="col-sm-2 col-form-label">with Glasses</label>
 						    <div class="col-sm-4">
-						      <input type="text" class="form-control" id="inputPassword">
+						      <input type="text" class="form-control" id="inputPassword" name="od_with_glasses">
 						    </div>
 						</div>
 						<hr>	
@@ -179,31 +189,362 @@ if (!isset($_SESSION['id'])) {
 						<div class="form-group row">
 						    <label for="inputPassword" class="col-sm-2 col-form-label">Right</label>
 						    <div class="col-sm-4">
-						      <input type="text" class="form-control" id="inputPassword">
+						      <input type="text" class="form-control" id="inputPassword" name="ears_right" required>
 						    </div>
 						    <label for="inputPassword" class="col-sm-2 col-form-label">Left</label>
 						    <div class="col-sm-4">
-						      <input type="text" class="form-control" id="inputPassword">
+						      <input type="text" class="form-control" id="inputPassword" name="ears_left" required>
 						    </div>
 						</div>
 						<hr>
-						<div class="form-group">
-							<div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1"  name="name" value="option1">
-  <label class="form-check-label" for="inlineCheckbox1">1</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" name="name" id="inlineCheckbox2" value="option2">
-  <label class="form-check-label" for="inlineCheckbox2">2</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" name="name" id="inlineCheckbox3" value="option3" >
-  <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
-</div>
+						<p>Choose N if Normal, NA if not assesed, A if with abnormally</p>
+						<div class="form-group row">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-6">	
+										<div>
+											<label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Skin</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="skin"  value="N" checked/>
+											  <label class="form-check-label" for="inlineradio1">N</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="skin" value="NA">
+											  <label class="form-check-label" for="inlineradio2">NA</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="skin" value="
+											  <label class="form-check-label" for="inlineradio3">A</label>
+											</div>
+										</div>		
+										<div>
+											<label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Nose</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="nose"  value="N" checked>
+											  <label class="form-check-label" for="inlineradio1">N</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="nose" value="NA">
+											  <label class="form-check-label" for="inlineradio2">NA</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="nose" value="A">
+											  <label class="form-check-label" for="inlineradio3">A</label>
+											</div>
+										</div>
+
+										<div>
+											<label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Mouth</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="mouth"  value="N" checked>
+											  <label class="form-check-label" for="inlineradio1">N</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="mouth" value="NA">
+											  <label class="form-check-label" for="inlineradio2">NA</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="mouth" value="A">
+											  <label class="form-check-label" for="inlineradio3">A</label>
+											</div>
+										</div>
+										<div>
+											<label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Pharynx</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="pharynx"  value="N" checked>
+											  <label class="form-check-label" for="inlineradio1">N</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="phraynx" value="NA">
+											  <label class="form-check-label" for="inlineradio2">NA</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="phraynx" value="A">
+											  <label class="form-check-label" for="inlineradio3">A</label>
+											</div>
+										</div>
+										<div>
+											<label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Tonsils</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="tonsils"  value="N" checked>
+											  <label class="form-check-label" for="inlineradio1">N</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="tonsils" value="NA">
+											  <label class="form-check-label" for="inlineradio2">NA</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="tonsils" value="A">
+											  <label class="form-check-label" for="inlineradio3">A</label>
+											</div>
+										</div>
+										<div>
+											<label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Gums</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="gums"  value="N" checked>
+											  <label class="form-check-label" for="inlineradio1">N</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="gums" value="NA">
+											  <label class="form-check-label" for="inlineradio2">NA</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="gums" value="A
+											  <label class="form-check-label" for="inlineradio3">A</label>
+											</div>
+										</div>
+										<div>
+											<label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Lymph nodes</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="lymph_nodes"  value="N" checked>
+											  <label class="form-check-label" for="inlineradio1">N</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="lymph_nodes" value="NA">
+											  <label class="form-check-label" for="inlineradio2">NA</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="lymph_nodes" value="A">
+											  <label class="form-check-label" for="inlineradio3">A</label>
+											</div>
+										</div>
+										<div>
+											<label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Neck</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="neck"  value="N" checked>
+											  <label class="form-check-label" for="inlineradio1">N</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="neck" value="NA">
+											  <label class="form-check-label" for="inlineradio2">NA</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="neck" value="A"
+											  <label class="form-check-label" for="inlineradio3">A</label>
+											</div>
+										</div>
+										<div>
+											<label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Chest</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="chest"  value="N" checked>
+											  <label class="form-check-label" for="inlineradio1">N</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="chest" value="NA">
+											  <label class="form-check-label" for="inlineradio2">NA</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="chest" value="A">
+											  <label class="form-check-label" for="inlineradio3">A</label>
+											</div>
+										</div>			
+									</div>
+
+
+									<div class="col-md-6">	
+										<div>
+											<label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Lungs</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="lungs"  value="N" checked>
+											  <label class="form-check-label" for="inlineradio1">N</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="lungs" value="NA">
+											  <label class="form-check-label" for="inlineradio2">NA</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="lungs" value="A" >
+											  <label class="form-check-label" for="inlineCheradiockbox3">A</label>
+											</div>
+										</div>	<div>
+											<label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Heart</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="heart"  value="N" checked>
+											  <label class="form-check-label" for="inlineradio1">N</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="heart" value="NA">
+											  <label class="form-check-label" for="inlineradio2">NA</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="heart" value="A">
+											  <label class="form-check-label" for="inlineradio3">A</label>
+											</div>
+										</div>	<div>
+											<label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Abdomen</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="abdomen"  value="N" checked>
+											  <label class="form-check-label" for="inlineradio1">N</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="abdomen" value="NA" >
+											  <label class="form-check-label" for="inlineradio2">NA</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="abdomen" value="A">
+											  <label class="form-check-label" for="inlineradio3">A</label>
+											</div>
+										</div>	<div>
+											<label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Rectum</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="rectum"  value="N" checked> 
+											  <label class="form-check-label" for="inlineradio1">N</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradioNA" name="rectum" value="NA">
+											  <label class="form-check-label" for="inlineradioNA">NA</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="rectum" value="A" >
+											  <label class="form-check-label" for="inlineradio3">A</label>
+											</div>
+										</div>	<div>
+											<label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Genitalia</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="genitalia"  value="N" checked>
+											  <label class="form-check-label" for="inlineradio1">N</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradioNA" name="genitalia" value="NA">
+											  <label class="form-check-label" for="inlineradioNA">NA</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="genitalia" value="A">
+											  <label class="form-check-label" for="inlineradio3">A</label>
+											</div>
+										</div>	<div>
+											<label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Spine</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="spine"  value="N" checked>
+											  <label class="form-check-label" for="inlineradio1">N</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradioNA" name="spine" value="NA">
+											  <label class="form-check-label" for="inlineradioNA">NA</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="spine" value="A">
+											  <label class="form-check-label" for="inlineradio3">A</label>
+											</div>
+										</div>
+											<div>
+											<label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Arms</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="arms"  value="N" checked>
+											  <label class="form-check-label" for="inlineradio1">N</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradioNA" name="arms" value="NA">
+											  <label class="form-check-label" for="inlineradioNA">NA</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="arms" value="A">
+											  <label class="form-check-label" for="inlineradio3">A</label>
+											</div>
+										</div>	<div>
+											<label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Legs</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="legs"  value="N" checked>
+											  <label class="form-check-label" for="inlineradio1">N</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradioNA" name="legs" value="NA">
+											  <label class="form-check-label" for="inlineradioNA">NA</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="legs" value="A">
+											  <label class="form-check-label" for="inlineradio3">A</label>
+											</div>
+										</div>
+
+										<div>
+											<label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Feet</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="feet"  value="N" checked>
+											  <label class="form-check-label" for="inlineradio1">N</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradioNA" name="feet" value="NA">
+											  <label class="form-check-label" for="inlineradioNA">NA</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="feet" value="A">
+											  <label class="form-check-label" for="inlineradio3">A</label>
+											</div>
+										</div>						
+									</div>
+								</div>
+							</div>
 						</div>
+
+						<div class="form-group">
+					 		<div class="row">
+								<div class="col-md-8">
+									<label for="exampleInputEmail1">Remarks</label>
+									<textarea class="form form-control" rows="3" name="remarks" required></textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+					 		<div class="row">
+								<div class="col-md-8">
+									<div class="form-check">
+									  <input class="form-check-input" type="checkbox" name="essentially" value="yes">
+									  <label class="form-check-label" for="exampleRadios1">
+									    Essentially Normal Physical Examination Findings
+									  </label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-8">
+									<div class="form-check">
+									<input class="form-check-input" type="checkbox" name="limitation" value="yes">
+									<label class="form-check-label" for="exampleRadios2">
+									    With Limitation of activities
+									 </label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-8">
+									<div class="form-check">
+									  <input class="form-check-input" type="checkbox" name="special_attention" value="yes">
+									  <label class="form-check-label" for="exampleRadios3">
+									    Requires special attention
+									  </label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+					 		<div class="row">
+								<div class="col-md-8">
+									<label for="exampleInputEmail1">Reccomendation</label>
+									<textarea class="form form-control" rows="3" name="reccomendation" required></textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+					 		<div class="row">
+								<div class="col-md-8">
+									<label for="exampleInputEmail1">Physician</label>
+					    			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" name="physician" required/>	
+								</div>
+							</div>
+						</div>
+
 						<div class="row">
 				  			<div class="col-md-8">
-				  				<button type="submit" class="btn btn-primary" name="add_consultation_patient">Add Consultation</button>
+				  				<button type="submit" class="btn btn-primary" name="add_physical_examination">Add Consultation</button>
 				  			</div>
 				  		</div>
 					</form>

@@ -85,24 +85,23 @@ if (!isset($_SESSION['id'])) {
 						<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Temperature</label>
-						    		<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient temperature number" name="temperature" required/>
+						    		<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient temperature number" name="temperature">
 								</div>
 						</div>
 						<div class="form-group">
 				 			<div class="row">
 								<div class="col-md-8">
 									<label for="blood-pressure">Blood Pressure</label>
-					   				 <input type="text" class="form-control" id="blood_pressure" aria-describedby="emailHelp" placeholder="Enter patient blood pressure" name="blood_pressure" required/>
+					   				 <input type="text" class="form-control" id="blood_pressure" aria-describedby="emailHelp" placeholder="Enter patient blood pressure" name="blood_pressure">
 								</div>
 							</div>
 				  		</div>
-
 
 						<div class="form-group">
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Hearth Rate</label>
-					    			<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter heart rate" name="heart_rate" required/>	
+					    			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter heart rate" name="heart_rate">	
 								</div>
 							</div>
 						</div>
@@ -111,7 +110,7 @@ if (!isset($_SESSION['id'])) {
 							<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Respiratory Rate</label>
-							    	<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter respiratory_rate" name="respiratory_rate" required/>
+							    	<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter respiratory_rate" name="respiratory_rate">
 								</div>
 							</div>
 						</div>
@@ -140,11 +139,30 @@ if (!isset($_SESSION['id'])) {
 									<textarea class="form form-control" rows="3" name="treatment"></textarea>
 								</div>
 							</div>
-						</div><div class="form-group">
+						</div>
+						<div class="form-group">
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Diagnosis</label>
 									<textarea class="form form-control" rows="3" name="diagnosis"></textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+					 		<div class="row">
+								<div class="col-md-8">
+									<label for="exampleInputEmail1">Medicine & Dose Given</label>
+									<textarea class="form form-control" rows="3" name="medicines"></textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+					 		<div class="row">
+								<div class="col-md-8">
+									<label for="exampleInputEmail1">QTY</label>
+					    			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Number of medicines that given" name="quantity">	
 								</div>
 							</div>
 						</div>

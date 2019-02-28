@@ -107,7 +107,7 @@ $row = mysqli_fetch_assoc($result);
 				<div class="col-md-12">
 						<div class="card">
 				<div class="card-body card-body-header">
-					<h5>Logs</h5>
+					<h5>Clinic Visits</h5>
 				</div>
 			</div>
 				</div>
@@ -124,8 +124,8 @@ $row = mysqli_fetch_assoc($result);
 						<table id="logs_data" class="table table-hover">
 							<thead>
 								<tr>
-									<td>Fullname</td>
-									<td>Date Checkup</td>
+									<td>Name</td>
+									<td>Date Visited</td>
 									<td>Doctor/Nurse</td>
 								</tr>
 							</thead>

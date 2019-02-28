@@ -84,7 +84,10 @@ include 'process/add_account_process.php';
 				<div class="col-md-12">
 					<div class="card">
 					<div class="card-body card-body-header">
-						<h4>Add User for this system</h4>
+						<div class="col-md-12">
+													<h4>Add User for this system</h4>
+						<small style="color: red;"><i>Adding user in this system can access everything from this system</i></small>
+						</div>
 					</div>
 					</div>
 				</div>

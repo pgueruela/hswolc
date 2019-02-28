@@ -88,13 +88,15 @@ include '../includes/db.php';
 								<td>Name</td>
 								<td>Consultation</td>
 								<td>Physical Examination</td>
+								<td>Medical Profile</td>
 							</tr>
 						</thead>
 				<?php while($row = mysqli_fetch_array($result)) { ?>
 						<tr>
 							<td><a href="../modules/sidebar_view_patient_profile.php?id=<?php echo $row['id']; ?>"><?php echo $row["firstname"]. " " . $row["lastname"]; ?></a></td>
-							<th><a href="../modules/add_consultation_patient.php?id=<?php echo $row['id']; ?>"><i class="fas fa-plus"></i> Add consultation</a></th>
-							<th><a href=""><i class="fas fa-plus"></i> Add Physical Examination</a></th>
+							<th><a href="../modules/add_consultation_patient.php?id=<?php echo $row['id']; ?>"><i class="fas fa-plus"></i> Add</a></th>
+							<th><a href="../modules/add_physical_examination_patient.php?id=<?php echo $row['id']; ?>"><i class="fas fa-plus"></i> Add</a></th>
+							<th><a href="../modules/emp_medical_profile.php?id=<?php echo $row['id']; ?>"><i class="fas fa-plus"></i> Add</a></th>
 						</tr>		
 				<?php 
 				}

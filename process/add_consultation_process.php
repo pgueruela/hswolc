@@ -6,25 +6,22 @@ $id = $_GET['id'];
 
  if (isset($_POST['add_consultation_patient'])) {
  	
-	$blood_pressure = $_POST['blood_pressure'];
-	$patient_height = $_POST['patient_height'];
-	$patient_weight = $_POST['patient_weight'];
-	$bmi = $_POST['bmi'];
-	$respiratory_rate = $_POST['respiratory_rate'];
-	$heart_rate = $_POST['heart_rate'];
 	$temperature = $_POST['temperature'];
-	$medical_history = $_POST['medical_history'];
-	$past_illness = $_POST['past_illness'];
-	$hospitalization_history = $_POST['hospitalization_history'];
+	$blood_pressure = $_POST['blood_pressure'];
+	$heart_rate = $_POST['heart_rate'];
+	$respiratory_rate = $_POST['respiratory_rate'];
+	$chief_complain= $_POST['chief_complain'];
+	$physical_examination = $_POST['physical_examination'];
 	$medicines = $_POST['medicines'];
-	$allergies = $_POST['allergies'];
+	$quantity = $_POST['quantity'];
 	$diagnosis = $_POST['diagnosis'];
+	$remarks = $_POST['remarks'];
 	$nurse_doctor = $_POST['nurse_doctor'];
 
-	$sql = "INSERT INTO consultation_tbl (patient_id, blood_pressure, patient_height, patient_weight, bmi, respiratory_rate, heart_rate, temperature, medical_history, past_illness,hospitalization_history, medicines,  allergies, diagnosis, nurse_doctor, date_checkup) VALUES($id, '$blood_pressure', '$patient_height', '$patient_weight', '$bmi', '$respiratory_rate', '$heart_rate','$temperature','$medical_history', '$past_illness', '$hospitalization_history', '$medicines', '$allergies', '$diagnosis', '$nurse_doctor', now());";
+	$sql = "INSERT INTO consultation_tbl (patient_id, blood_pressure, respiratory_rate, heart_rate, temperature, chief_complain, remarks, physical_examination , medicines, quantity,diagnosis, nurse_doctor, date_checkup) VALUES($id, '$blood_pressure', '$respiratory_rate', '$heart_rate', '$temperature' , '$chief_complain', '$remarks','$diagnosis', '$physical_examination', '$medicines', '$quantity', '$nurse_doctor', now());";
 
 	if ($conn->query($sql) === TRUE) {
-			 echo "<script> alert('Stored successfully'); </script>";
+			 echo "<script> alert('Consultation added! '); </script>";
 	} else {
 	    	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}

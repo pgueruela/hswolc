@@ -78,14 +78,14 @@ include '../includes/admin_navigationbar.php';
 			<div class="card">
 				<div class="card-body">
 					<form method="post">
-				<div class="form-group">
-			 		<div class="row">
-						<div class="col-md-8">
-							<label for="firstname">Firstname</label>
-				   			<input type="text" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter patient firstname" name="firstname" required/>
+					<div class="form-group">
+				 		<div class="row">
+							<div class="col-md-8">
+								<label for="firstname">Firstname</label>
+					   			<input type="text" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter patient firstname" name="firstname" required/>
+							</div>
 						</div>
-					</div>
-			  	</div>
+				  	</div>
 				<div class="form-group">
 					<div class="row">
 						<div class="col-md-8">
@@ -129,12 +129,17 @@ include '../includes/admin_navigationbar.php';
 							</div>
 						</div>
 				</div>
-
+				
 				<div class="row">
-							<div class="col-md-8">
-								<label for="exampleInputEmail1">Telephone/Cellphone #</label>
-					    		<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient telephone/cellphone number" name="patient_number" required/>
-							</div>
+					<div class="col-md-8">
+							<label for="exampleInputEmail1">Contact Number</label>
+						<div class="input-group mb-3">
+	  						<div class="input-group-prepend">
+	    					<span class="input-group-text" id="basic-addon1">+63</span>
+	  						</div>
+  							<input type="number" class="form-control" placeholder="Enter patient contact number" aria-label="Username" aria-describedby="basic-addon1" name="patient_number">
+						</div>
+					</div>
 				</div>
 				<hr>
 				<div class="form-group">
@@ -145,12 +150,17 @@ include '../includes/admin_navigationbar.php';
 							</div>
 						</div>
 				</div>
-
+				
 				<div class="row">
-							<div class="col-md-8">
-								<label for="exampleInputEmail1">Telephone/Cellphone #</label>
-					    		<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter persons emergency telephone/cellphone number" name="person_contact_emergency_number" required/>
-							</div>
+					<div class="col-md-8">
+					<label for="exampleInputEmail1">Contact Number</label>
+						<div class="input-group mb-3">
+	  						<div class="input-group-prepend">
+	    					<span class="input-group-text" id="basic-addon1">+63</span>
+	  						</div>
+  							<input type="number" class="form-control" placeholder="Contact persons emergency number" aria-label="Username" aria-describedby="basic-addon1" name="person_contact_emergency_number">
+						</div>
+					</div>
 				</div>
 				<hr>
 				<fieldset class="form-group">
@@ -232,3 +242,4 @@ include '../process/add_patient_process.php';
 
 
 
+ 

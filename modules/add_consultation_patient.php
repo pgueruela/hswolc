@@ -84,6 +84,12 @@ if (!isset($_SESSION['id'])) {
 
 						<div class="row">
 								<div class="col-md-8">
+						    		<input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient temperature number" name="visit_reason" value="Consult" required/>
+								</div>
+						</div>
+ 
+						<div class="row">
+								<div class="col-md-8">
 									<label for="exampleInputEmail1">Temperature</label>
 						    		<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient temperature number" name="temperature">
 								</div>

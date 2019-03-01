@@ -78,20 +78,28 @@ if (!isset($_SESSION['id'])) {
 				</div>
 			</div>
 
+
 			<div class="card">
 				<div class="card-body">
 					<form method="post">
+
+						<div class="row">
+								<div class="col-md-8">
+						    		<input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient temperature number" name="visit_reason" value="Physical Examination" required/>
+								</div>
+						</div>
+
 						<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Temperature</label>
-						    		<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient temperature number" name="temperature" required>
+						    		<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient temperature number" name="temperature" required/>
 								</div>
 						</div>
 						<div class="form-group">
 				 			<div class="row">
 								<div class="col-md-8">
 									<label for="blood-pressure">Blood Pressure</label>
-					   				 <input type="text" class="form-control" id="blood_pressure" aria-describedby="emailHelp" placeholder="Enter patient blood pressure" name="blood_pressure" required/>
+					   				 <input type="text" class="form-control" id="blood_pressure" aria-describedby="emailHelp" placeholder="Enter patient blood pressure" name="blood_pressure"  >
 								</div>
 							</div>
 				  		</div>
@@ -100,7 +108,7 @@ if (!isset($_SESSION['id'])) {
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Hearth Rate</label>
-					    			<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient heart rate" name="heart_rate" required/>	
+					    			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient heart rate" name="heart_rate"  required/>	
 								</div>
 							</div>
 						</div>
@@ -109,7 +117,7 @@ if (!isset($_SESSION['id'])) {
 							<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Respiratory Rate</label>
-							    	<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter respiratory rate" name="respiratory_rate" required/>
+							    	<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter respiratory rate" name="respiratory_rate" required/>
 								</div>
 							</div>
 						</div>
@@ -121,7 +129,7 @@ if (!isset($_SESSION['id'])) {
 			  						<div class="input-group-prepend">
 			    					<span class="input-group-text" id="basic-addon1">cm</span>
 			  						</div>
-		  							<input type="number" class="form-control" placeholder="E.G.183" aria-label="height" aria-describedby="basic-addon1" name="patient_height" required/>
+		  							<input type="text" class="form-control" placeholder="E.G.183" aria-label="height" aria-describedby="basic-addon1" name="patient_height" required/ >
 									</div>
 								</div>	
 							</div>
@@ -135,7 +143,7 @@ if (!isset($_SESSION['id'])) {
 			  						<div class="input-group-prepend">
 			    					<span class="input-group-text" id="basic-addon1">kg</span>
 			  						</div>
-		  							<input type="number" class="form-control" placeholder="E.G.63" aria-label="height" aria-describedby="basic-addon1" name="patient_weight" required/>
+		  							<input type="text" class="form-control" placeholder="E.G.63" aria-label="height" aria-describedby="basic-addon1" name="patient_weight" required/ >
 									</div>
 								</div>	
 							</div>
@@ -145,7 +153,7 @@ if (!isset($_SESSION['id'])) {
 							<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">BMI</label>
-							    	<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="bmi">
+							    	<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="bmi" required/>
 								</div>
 							</div>
 						</div>
@@ -161,21 +169,21 @@ if (!isset($_SESSION['id'])) {
 						<div class="form-group row">
 						    <label for="inputPassword" class="col-sm-2 col-form-label">OS No Glasses</label>
 						    <div class="col-sm-4">
-						      <input type="text" class="form-control" id="inputPassword" name="os_no_glasses">
+						      <input type="text" class="form-control" id="inputPassword" name="os_no_glasses" required/>
 						    </div>
 						    <label for="inputPassword" class="col-sm-2 col-form-label">with Glasses</label>
 						    <div class="col-sm-4">
-						      <input type="text" class="form-control" id="inputPassword" name="os_with_glasses">
+						      <input type="text" class="form-control" id="inputPassword" name="os_with_glasses" required/>
 						    </div>
 						</div>
 						<div class="form-group row">
 						    <label for="inputPassword" class="col-sm-2 col-form-label">OD No Glasses</label>
 						    <div class="col-sm-4">
-						      <input type="text" class="form-control" id="inputPassword" name="od_no_glasses">
+						      <input type="text" class="form-control" id="inputPassword" name="od_no_glasses" required/>
 						    </div>
 						    <label for="inputPassword" class="col-sm-2 col-form-label">with Glasses</label>
 						    <div class="col-sm-4">
-						      <input type="text" class="form-control" id="inputPassword" name="od_with_glasses">
+						      <input type="text" class="form-control" id="inputPassword" name="od_with_glasses" required/>
 						    </div>
 						</div>
 						<hr>	
@@ -189,15 +197,15 @@ if (!isset($_SESSION['id'])) {
 						<div class="form-group row">
 						    <label for="inputPassword" class="col-sm-2 col-form-label">Right</label>
 						    <div class="col-sm-4">
-						      <input type="text" class="form-control" id="inputPassword" name="ears_right" required>
+						      <input type="text" class="form-control" id="inputPassword" name="ears_right"  required/ >
 						    </div>
 						    <label for="inputPassword" class="col-sm-2 col-form-label">Left</label>
 						    <div class="col-sm-4">
-						      <input type="text" class="form-control" id="inputPassword" name="ears_left" required>
+						      <input type="text" class="form-control" id="inputPassword" name="ears_left" required/  >
 						    </div>
 						</div>
 						<hr>
-						<p>Choose N if Normal, NA if not assesed, A if with abnormally and indicate with any</p>
+						<p>Choose N if Normal, NA if not assesed, A if with abnormally and indicate if any</p>
 
 						<div class="form-group row">
 							<div class="container">
@@ -213,7 +221,7 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="skin" value="
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="skin" value="A">
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="skin_abnormal">
@@ -228,7 +236,7 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="nose" value="
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="nose" value="A">
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="nose_abnormal">
@@ -259,7 +267,7 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="pharynx" value="
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="pharynx" value="A">
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="pharynx_abnormal">
@@ -274,7 +282,7 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="tonsils" value="
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="tonsils" value="A">
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="tonsil_abnormal">
@@ -289,7 +297,7 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="gums" value="
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="gums" value="A">
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="gums_abnormal">
@@ -304,7 +312,7 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="lymph_nodes" value="
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="lymph_nodes" value="A">
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="lymph_nodes_abnormal">
@@ -319,7 +327,7 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="neck" value="
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="neck" value="A">
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="neck_abnormal">
@@ -335,7 +343,7 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="chest" value="
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="chest" value="A">
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="chest_abnormal">
@@ -352,7 +360,7 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="lungs" value="
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="lungs" value="A">
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="lungs_abnormal">
@@ -367,7 +375,7 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="heart" value="
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="heart" value="A">
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="heart_abnormal">
@@ -382,7 +390,7 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="abdomen" value="
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="abdomen" value="A">
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="abdomen_abnormal">
@@ -398,10 +406,10 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="rectum" value="
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="rectum" value="A">
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
-											<input class="form control col-sm-4" type="" name="nose_abnormal">
+											<input class="form control col-sm-4" type="" name="rectum_abnormal">
 										
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Genitalia</label>
 											<div class="form-check form-check-inline">
@@ -413,7 +421,7 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="genitalia" value="
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="genitalia" value="A">
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="genitalia_abnormal">
@@ -428,7 +436,7 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="spine" value="
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="spine" value="A">
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="spine_abnormal">
@@ -443,7 +451,7 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="arms" value="
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="arms" value="A">
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="arms_abnormal">
@@ -458,7 +466,7 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="legs" value="
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="legs" value="A">
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="legs_abnormal">
@@ -473,7 +481,7 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="feetinlineradio3" name="feet" value="
+											  <input class="form-check-input" type="radio" id="feetinlineradio3" name="feet" value="A">
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="feet_abnormal">
@@ -485,44 +493,66 @@ if (!isset($_SESSION['id'])) {
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Remarks</label>
-									<textarea class="form form-control" rows="3" name="remarks" required></textarea>
+									<textarea class="form form-control" rows="3" name="remarks" required/  ></textarea>
 								</div>
 							</div>
 						</div>
 
-						<div class="form-group">
-					 		<div class="row">
-								<div class="col-md-8">
-									<div class="form-check">
-									  <input class="form-check-input" type="checkbox" name="essentially" value="yes">
-									  <label class="form-check-label" for="exampleRadios1">
-									    Essentially Normal Physical Examination Findings
-									  </label>
+						<div class="form-group row">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-12">	
+										<div>
+											<label for="colFormLabelSm" class="col-m-7 col-form-label col-form-label-m">Essentially Normal Physical Examination Findings</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="essentially"  value="Yes" checked/>
+											  <label class="form-check-label" for="inlineradio1">YES</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="essentially" value="No">
+											  <label class="form-check-label" for="inlineradio2">NO</label>
+											</div>
+										</div>	
 									</div>
 								</div>
 							</div>
 						</div>
 
-						<div class="form-group">
-							<div class="row">
-								<div class="col-md-8">
-									<div class="form-check">
-									<input class="form-check-input" type="checkbox" name="limitation" value="yes">
-									<label class="form-check-label" for="exampleRadios2">
-									    With Limitation of activities
-									 </label>
+						<div class="form-group row">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-12">	
+										<div>
+											<label for="colFormLabelSm" class="col-m-7 col-form-label col-form-label-m">With Limitation of activities</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="limitation"  value="Yes" checked/>
+											  <label class="form-check-label" for="inlineradio1">YES</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="limitation" value="No">
+											  <label class="form-check-label" for="inlineradio2">NO</label>
+											</div>
+										</div>	
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="form-group">
-							<div class="row">
-								<div class="col-md-8">
-									<div class="form-check">
-									  <input class="form-check-input" type="checkbox" name="special_attention" value="yes">
-									  <label class="form-check-label" for="exampleRadios3">
-									    Requires special attention
-									  </label>
+
+						<div class="form-group row">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-12">	
+										<div>
+											<label for="colFormLabelSm" class="col-m-7 col-form-label col-form-label-m">Requires special attention</label>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="special_attention"  value="Yes" checked/>
+											  <label class="form-check-label" for="inlineradio1">YES</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="special_attention" value="No">
+											  <label class="form-check-label" for="inlineradio2">NO</label>
+											</div>
+										</div>	
 									</div>
 								</div>
 							</div>
@@ -532,7 +562,7 @@ if (!isset($_SESSION['id'])) {
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Reccomendation</label>
-									<textarea class="form form-control" rows="3" name="reccomendation" required></textarea>
+									<textarea class="form form-control" rows="3" name="reccomendation"  required/ ></textarea>
 								</div>
 							</div>
 						</div>
@@ -541,14 +571,14 @@ if (!isset($_SESSION['id'])) {
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Physician</label>
-					    			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" name="physician" required/>	
+					    			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" name="physician" required/ >	
 								</div>
 							</div>
 						</div>
 
 						<div class="row">
 				  			<div class="col-md-8">
-				  				<button type="submit" class="btn btn-primary" name="add_physical_examination">Add Consultation</button>
+				  				<button type="submit" class="btn btn-primary" name="add_physical_examination" required/> Add</button>
 				  			</div>
 				  		</div>
 					</form>

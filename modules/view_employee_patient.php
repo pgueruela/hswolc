@@ -85,7 +85,7 @@ include '../includes/db.php';
 					<table id="employee_data" class="table table-hover">
 						<thead>
 							<tr>
-								<td>Name</td>
+								<td>View</td>
 								<td>Consultation</td>
 								<td>Physical Examination</td>
 								<td>Medical Profile</td>

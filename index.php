@@ -114,7 +114,7 @@ $row = mysqli_fetch_assoc($result);
 			</div>
 		<?php 
 
-		$query = "SELECT pt.id, pt.firstname, pt.lastname, ct.patient_id , ct.date_checkup, ct.nurse_doctor FROM patient_pd_tbl as pt, consultation_tbl as ct WHERE pt.id=ct.patient_id ORDER BY ct.id DESC";
+		$query = "SELECT pt.id, pt.firstname, pt.lastname, vt.patient_id, vt.visit_reason, vt.date_recorded, vt.assesed_by FROM patient_pd_tbl as pt, visit_tbl as vt WHERE pt.id=vt.patient_id ORDER BY vt.id DESC";
 		$result = mysqli_query($conn, $query);?>
 			<!-- Table -->
 			<div>
@@ -122,18 +122,20 @@ $row = mysqli_fetch_assoc($result);
 					<div class="card-body card-body-header">
 							<div class="col-md-12">
 						<table id="logs_data" class="table table-hover">
-							<thead>
+							<thead>	
 								<tr>
 									<td>Name</td>
+									<td>Reason of Visit</td>
+									<td>Assesed by</td>
 									<td>Date Visited</td>
-									<td>Doctor/Nurse</td>
 								</tr>
 							</thead>
 					<?php while($row = mysqli_fetch_array($result)) { ?>
 							<tr>
 								<td><?php echo $row["firstname"]. " " . $row["lastname"]; ?></td>
-								<td><?php echo $row["date_checkup"]; ?></td>
-								<td><?php echo $row["nurse_doctor"]; ?></td>
+								<td><?php echo $row["visit_reason"]; ?></td>
+								<td><?php echo $row["assesed_by"]; ?></td>
+								<td><?php echo $row["date_recorded"]; ?></td>
 							</tr>		
 					<?php 
 					}

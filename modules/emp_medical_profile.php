@@ -2,7 +2,7 @@
 include '../header-include.php';
 include '../includes/db.php';
 include '../includes/admin_navigationbar.php';
-include '../process/add_physical_examination_process.php';
+include '../process/emp_medical_profile_process.php';
 
 if (!isset($_SESSION['id'])) {
 	header("Location: login_account.php");
@@ -78,7 +78,7 @@ if ($row['gender'] == 'M') {?>
 				<div class="col-md-12">
 						<div class="card card-body-margins">
 				<div class="card-body card-body-header">
-					<h5>Medical Profile</h5>
+					<h5>Employee Medical Profile</h5>
 				</div>
 			</div>
 				</div>
@@ -87,6 +87,13 @@ if ($row['gender'] == 'M') {?>
 			<div class="card">
 				<div class="card-body">
 					<form method="post">
+
+						<div class="row">
+								<div class="col-md-8">
+						    		<input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient temperature number" name="visit_reason" value="Physical Examination" required/>
+								</div>
+						</div>
+
 						<div class="form-group">
 				 			<div class="row">
 								<div class="col-md-8">
@@ -128,7 +135,7 @@ if ($row['gender'] == 'M') {?>
 							<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">BMI</label>
-							    	<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="bmi">
+							    	<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="bmi" required/>
 								</div>
 							</div>
 						</div>
@@ -137,7 +144,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Medical History</label>
-									<textarea class="form form-control" rows="3" name="medical_history" required></textarea>
+									<textarea class="form form-control" rows="3" name="medical_history"></textarea>
 								</div>
 							</div>
 						</div>						
@@ -145,7 +152,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Past Illness</label>
-									<textarea class="form form-control" rows="3" name="past_illness" required></textarea>
+									<textarea class="form form-control" rows="3" name="past_illness"></textarea>
 								</div>
 							</div>
 						</div>
@@ -153,7 +160,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Hospitalization History (Please state the year and reason why you are hospitalized)</label>
-									<textarea class="form form-control" rows="3" name="hospitalization_history" required></textarea>
+									<textarea class="form form-control" rows="3" name="hospitalization_history"></textarea>
 								</div>
 							</div>
 						</div>
@@ -182,7 +189,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">If yes, state the name of the drug/s</label>
-									<textarea class="form form-control" rows="3" name="drug_name" required></textarea>
+									<textarea class="form form-control" rows="3" name="drug_name"></textarea>
 								</div>
 							</div>
 						</div>
@@ -191,7 +198,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Why are you taking the drug/s?</label>
-									<textarea class="form form-control" rows="3" name="why_taking_drugs" required></textarea>
+									<textarea class="form form-control" rows="3" name="why_taking_drugs"></textarea>
 								</div>
 							</div>
 						</div>
@@ -220,7 +227,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">If yes, state the name of the drug/s</label>
-									<textarea class="form form-control" rows="3" name="name_drug" required></textarea>
+									<textarea class="form form-control" rows="3" name="name_drug"></textarea>
 								</div>
 							</div>
 						</div>
@@ -249,7 +256,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="firstname">Name of Doctor</label>
-						   			<input type="text" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter patient firstname" name="doctor_name" required/>
+						   			<input type="text" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter patient firstname" name="doctor_name">
 								</div>
 							</div>
 				  		</div>
@@ -258,7 +265,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="firstname">Address</label>
-						   			<input type="text" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter doctors address" name="doctor_add" required/>
+						   			<input type="text" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter doctors address" name="doctor_add">
 								</div>
 							</div>
 				  		</div>
@@ -267,7 +274,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="firstname">Contact Number</label>
-						   			<input type="number" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter doctors address" name="doctor_num" required/>
+						   			<input type="number" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter doctors address" name="doctor_num">
 								</div>
 							</div>
 				  		</div>
@@ -291,9 +298,32 @@ if ($row['gender'] == 'M') {?>
 								</div>
 							</div>
 						</div>
+
+						<div class="form-group">
+					 		<div class="row">
+								<div class="col-md-8">
+									<label for="exampleInputEmail1">Assesed by: </label>
+					    			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" name="assesed_by" required/>	
+								</div>
+							</div>
+						</div>
+						<!-- Hidden type fields for male -->
+						<input class="form-check-input" type="hidden" id="inlineradio2" name="self_breast_exam" value="None">
+						<input type="hidden" name="how_often">
+						<input class="form-check-input" type="hidden" id="inlineradio1" name="mammography"  value="N/A" checked/>
+						<input class="form-check-input" type="hidden" id="inlineradio2" name="mammography" value="N/A">
+						<input class="form-check-input" type="hidden" id="inlineradio1" name="pregnant"  value="Yes" checked/>			<input class="form-check-input" type="hidden" id="inlineradio2" name="pregnant" value="No">
+						<input type="hidden" name="month_pregnant">
+						<input class="form-check-input" type="hidden" id="inlineradio1" name="contraceptives"  value="Yes" checked/>
+						<input class="form-check-input" type="hidden" id="inlineradio2" name="contraceptives" value="No">
+						<input type="hidden" name="method">
+						<input type="hidden" name="number_pregnancies">
+						<input class="form-check-input" type="hidden" id="inlineradio1" name="aborted_pregnancies"  value="Yes" checked/>
+						<input class="form-check-input" type="hidden" id="inlineradio2" name="aborted_pregnancies" value="No"><input type="hidden" name="reasons">
+
 						<div class="row">
 				  			<div class="col-md-8">
-				  				<button type="submit" class="btn btn-primary" name="add_physical_examination">Add</button>
+				  				<button type="submit" class="btn btn-primary" name="add_employee_medical_profile">Add</button>
 				  			</div>
 				  		</div>
 					</form>
@@ -368,7 +398,7 @@ if ($row['gender'] == 'M') {?>
 				<div class="col-md-12">
 						<div class="card card-body-margins">
 				<div class="card-body card-body-header">
-					<h5>Annual Physical Examination</h5>
+					<h5>Employee Medical Profile</h5>
 				</div>
 			</div>
 				</div>
@@ -377,6 +407,13 @@ if ($row['gender'] == 'M') {?>
 			<div class="card">
 				<div class="card-body">
 					<form method="post">
+
+						<div class="row">
+								<div class="col-md-8">
+						    		<input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="visit_reason" value="Physical Examination" required/>
+								</div>
+						</div>
+
 						<div class="form-group">
 				 			<div class="row">
 								<div class="col-md-8">
@@ -472,7 +509,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">If yes, state the name of the drug/s</label>
-									<textarea class="form form-control" rows="3" name="drug_name" required></textarea>
+									<textarea class="form form-control" rows="3" name="drug_name"></textarea>
 								</div>
 							</div>
 						</div>
@@ -481,7 +518,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Why are you taking the drug/s?</label>
-									<textarea class="form form-control" rows="3" name="why_taking_drugs" required></textarea>
+									<textarea class="form form-control" rows="3" name="why_taking_drugs"></textarea>
 								</div>
 							</div>
 						</div>
@@ -510,7 +547,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">If yes, state the name of the drug/s</label>
-									<textarea class="form form-control" rows="3" name="name_drug" required></textarea>
+									<textarea class="form form-control" rows="3" name="name_drug"></textarea>
 								</div>
 							</div>
 						</div>
@@ -539,7 +576,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="firstname">Name of Doctor</label>
-						   			<input type="text" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter patient firstname" name="doctor_name" required/>
+						   			<input type="text" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter patient firstname" name="doctor_name">
 								</div>
 							</div>
 				  		</div>
@@ -548,7 +585,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="firstname">Address</label>
-						   			<input type="text" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter doctors address" name="doctor_add" required/>
+						   			<input type="text" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter doctors address" name="doctor_add">
 								</div>
 							</div>
 				  		</div>
@@ -557,7 +594,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="firstname">Contact Number</label>
-						   			<input type="number" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter doctors address" name="doctor_num" required/>
+						   			<input type="number" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter doctors address" name="doctor_num">
 								</div>
 							</div>
 				  		</div>
@@ -590,11 +627,11 @@ if ($row['gender'] == 'M') {?>
 										<div>
 											<label for="colFormLabelSm" class="col-m-7 col-form-label col-form-label-m">Do you practice self-breast exam?</label>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="self-breast_exam"  value="Yes" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="self_breast_exam"  value="Yes" checked/>
 											  <label class="form-check-label" for="inlineradio1">YES</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="self-breast_exam" value="None">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="self_breast_exam" value="None">
 											  <label class="form-check-label" for="inlineradio2">NO</label>
 											</div>
 										</div>	
@@ -607,7 +644,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">How often?</label>
-									<textarea class="form form-control" rows="3" name="how_often" required></textarea>
+									<textarea class="form form-control" rows="3" name="how_often"></textarea>
 								</div>
 							</div>
 						</div>
@@ -657,7 +694,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">If yes how many month?</label>
-									<textarea class="form form-control" rows="3" name="month_pregnant" required></textarea>
+									<textarea class="form form-control" rows="3" name="month_pregnant"></textarea>
 								</div>
 							</div>
 						</div>
@@ -688,7 +725,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">What method do you use?</label>
-									<textarea class="form form-control" rows="3" name="method" required></textarea>
+									<textarea class="form form-control" rows="3" name="method"></textarea>
 								</div>
 							</div>
 						</div>
@@ -696,7 +733,7 @@ if ($row['gender'] == 'M') {?>
 						<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Number of pregnancies?</label>
-						    		<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient temperature number" name="number_pregnancies" required/>
+						    		<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient temperature number" name="number_pregnancies">
 								</div>
 						</div>
 
@@ -725,14 +762,23 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Reason/s</label>
-									<textarea class="form form-control" rows="3" name="reasons" required></textarea>
+									<textarea class="form form-control" rows="3" name="reasons"></textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+					 		<div class="row">
+								<div class="col-md-8">
+									<label for="exampleInputEmail1">Assesed by: </label>
+					    			<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" name="assesed_by" required/>	
 								</div>
 							</div>
 						</div>
 
 						<div class="row">
 				  			<div class="col-md-8">
-				  				<button type="submit" class="btn btn-primary" name="add_physical_examination">Add</button>
+				  				<button type="submit" class="btn btn-primary" name="add_employee_medical_profile">Add</button>
 				  			</div>
 				  		</div>
 					</form>

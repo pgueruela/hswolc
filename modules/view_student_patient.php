@@ -81,7 +81,7 @@ include '../includes/admin_navigationbar.php';
 							<table id="student_data" class="table table-hover">
 								<thead>
 									<tr>
-										<td>Name</td>
+										<td>View</td>
 										<td>Consultation</td>
 										<td>Physical Examination</td>
 									</tr>

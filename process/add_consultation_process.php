@@ -19,8 +19,8 @@ $id = $_GET['id'];
 	$remarks = $_POST['remarks'];
 	$nurse_doctor = $_POST['nurse_doctor'];
 
-	$sql = "INSERT INTO consultation_tbl (patient_id, blood_pressure, respiratory_rate, heart_rate, temperature, chief_complain, remarks, physical_examination , medicines, quantity,diagnosis, nurse_doctor) VALUES($id, '$blood_pressure', '$respiratory_rate', '$heart_rate', '$temperature' , '$chief_complain', '$remarks','$diagnosis', '$physical_examination', '$medicines', '$quantity', '$nurse_doctor'); ";
-	$sql .= "INSERT INTO visit_tbl (patient_id, visit_reason, date_recorded) VALUES ($id, '$visit_reason', now())";
+	$sql = "INSERT INTO consultation_tbl (patient_id, blood_pressure, respiratory_rate, heart_rate, temperature, chief_complain, remarks, physical_examination , medicines, quantity,diagnosis, assesed_by , date_recorded) VALUES($id, '$blood_pressure', '$respiratory_rate', '$heart_rate', '$temperature' , '$chief_complain', '$remarks','$diagnosis', '$physical_examination', '$medicines', '$quantity', '$nurse_doctor', now()); ";
+	$sql .= "INSERT INTO visit_tbl (patient_id, visit_reason, assesed_by , date_recorded) VALUES ($id, '$visit_reason', '$nurse_doctor', now())";
 
 	if ($conn->multi_query($sql) === TRUE) {
 			 echo "<script> alert('Consultation added! '); </script>";

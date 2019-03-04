@@ -213,41 +213,41 @@ if (!isset($_SESSION['id'])) {
 									<div class="col-md-6">	
 										<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Skin</label>
 										<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="skin"  value="N" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="skin"  value="Normal" checked/>
 										 	  <label class="form-check-label" for="inlineradio1">N</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="skin" value="NA">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="skin" value="Not Assesed"  >
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="skin" value="A">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="skin" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="skin_abnormal">
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Nose</label>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="nose"  value="N" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="nose"  value="Normal"   checked/>
 											  <label class="form-check-label" for="inlineradio1">N</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="nose" value="NA">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="nose" value="Not Assesed"  >
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="nose" value="A">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="nose" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="nose_abnormal">
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Mouth</label>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="mouth"  value="N" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="mouth"  value="Normal"   checked/>
 											  <label class="form-check-label" for="inlineradio1">N</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="mouth" value="NA">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="mouth" value="Not Assesed"  >
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
@@ -259,75 +259,75 @@ if (!isset($_SESSION['id'])) {
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Pharynx</label>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="pharynx"  value="N" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="pharynx"  value="Normal"   checked/>
 											  <label class="form-check-label" for="inlineradio1">N</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="pharynx" value="NA">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="pharynx" value="Not Assesed"  >
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="pharynx" value="A">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="pharynx" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="pharynx_abnormal">
 										
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Tonsils</label>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="tonsils"  value="N" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="tonsils"  value="Normal"   checked/>
 											  <label class="form-check-label" for="inlineradio1">N</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="tonsils" value="NA">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="tonsils" value="Not Assesed"  >
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="tonsils" value="A">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="tonsils" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="tonsil_abnormal">
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Gums</label>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="gums"  value="N" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="gums"  value="Normal"   checked/>
 											  <label class="form-check-label" for="inlineradio1">N</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="gums" value="NA">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="gums" value="Not Assesed"  >
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="gums" value="A">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="gums" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="gums_abnormal">
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Lymph</label>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="lymph_nodes"  value="N" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="lymph_nodes"  value="Normal"   checked/>
 											  <label class="form-check-label" for="inlineradio1">N</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="lymph_nodes" value="NA">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="lymph_nodes" value="Not Assesed"  >
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="lymph_nodes" value="A">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="lymph_nodes" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="lymph_nodes_abnormal">
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Neck</label>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="neck"  value="N" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="neck"  value="Normal"   checked/>
 											  <label class="form-check-label" for="inlineradio1">N</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="neck" value="NA">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="neck" value="Not Assesed"  >
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="neck" value="A">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="neck" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="neck_abnormal">
@@ -335,15 +335,15 @@ if (!isset($_SESSION['id'])) {
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Chest</label>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="chest"  value="N" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="chest"  value="Normal"   checked/>
 											  <label class="form-check-label" for="inlineradio1">N</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="chest" value="NA">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="chest" value="Not Assesed"  >
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="chest" value="A">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="chest" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="chest_abnormal">
@@ -352,45 +352,45 @@ if (!isset($_SESSION['id'])) {
 										<div class="col-md-6">	
 										<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Lungs</label>
 										<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="lungs"  value="N" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="lungs"  value="Normal"   checked/>
 										 	  <label class="form-check-label" for="inlineradio1">N</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="lungs" value="NA">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="lungs" value="Not Assesed"  >
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="lungs" value="A">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="lungs" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="lungs_abnormal">
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Heart</label>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="heart"  value="N" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="heart"  value="Normal"   checked/>
 											  <label class="form-check-label" for="inlineradio1">N</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="heart" value="NA">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="heart" value="Not Assesed"  >
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="heart" value="A">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="heart" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="heart_abnormal">
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Abdomen</label>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="abdomen"  value="N" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="abdomen"  value="Normal"   checked/>
 											  <label class="form-check-label" for="inlineradio1">N</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="abdomen" value="NA">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="abdomen" value="Not Assesed"  >
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="abdomen" value="A">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="abdomen" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="abdomen_abnormal">
@@ -398,90 +398,90 @@ if (!isset($_SESSION['id'])) {
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Rectum</label>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="rectum"  value="N" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="rectum"  value="Normal"   checked/>
 											  <label class="form-check-label" for="inlineradio1">N</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="rectum" value="NA">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="rectum" value="Not Assesed"  >
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="rectum" value="A">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="rectum" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="rectum_abnormal">
 										
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Genitalia</label>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="genitalia"  value="N" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="genitalia"  value="Normal"   checked/>
 											  <label class="form-check-label" for="inlineradio1">N</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="genitalia" value="NA">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="genitalia" value="Not Assesed"  >
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="genitalia" value="A">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="genitalia" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="genitalia_abnormal">
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Spine</label>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="spine"  value="N" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="spine"  value="Normal"   checked/>
 											  <label class="form-check-label" for="inlineradio1">N</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="spine" value="NA">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="spine" value="Not Assesed"  >
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="spine" value="A">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="spine" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="spine_abnormal">
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Arms</label>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="arms"  value="N" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="arms"  value="Normal"   checked/>
 											  <label class="form-check-label" for="inlineradio1">N</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="arms" value="NA">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="arms" value="Not Assesed"  >
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="arms" value="A">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="arms" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="arms_abnormal">
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Legs</label>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="legs"  value="N" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="legs"  value="Normal"   checked/>
 											  <label class="form-check-label" for="inlineradio1">N</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="legs" value="NA">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="legs" value="Not Assesed"  >
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio3" name="legs" value="A">
+											  <input class="form-check-input" type="radio" id="inlineradio3" name="legs" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="legs_abnormal">
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Feet</label>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="feet"  value="N" checked/>
+											  <input class="form-check-input" type="radio" id="inlineradio1" name="feet"  value="Normal"   checked/>
 											  <label class="form-check-label" for="inlineradio1">N</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="feet" value="NA">
+											  <input class="form-check-input" type="radio" id="inlineradio2" name="feet" value="Not Assesed"  >
 											  <label class="form-check-label" for="inlineradio2">NA</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="feetinlineradio3" name="feet" value="A">
+											  <input class="form-check-input" type="radio" id="feetinlineradio3" name="feet" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="feet_abnormal">

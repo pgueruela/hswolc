@@ -16,15 +16,6 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
  	?>
  	<div class="row">
  		<div class="col-md-3 side-panel">
- 			<div class="card">
- 				<div class="card-body">
-			    <img src="../includes/assets/img/profile_pic.png" width="50" height="50">
-			    <p style="text-align: center;"><?php echo $row['firstname'] . " " . $row['lastname']; ?></p>
-			    <p style="text-align: center"><?php echo $row['patient_number']; ?></p>
-			    <p style="text-align: center"><?php echo $row['patient_address']; ?></p>
-			</div>
-
- 			</div>
 			<div class="accordion" id="patient_accordion" aria-expanded="true">
 			  <div class="card card-side-panel">
 			    <div class="card-header card-header-side-panel" id="headingOne">
@@ -45,6 +36,7 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
 							<a class="nav-link" href="../view_patient_profile/vital_signs.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Vital Signs</a>
 						</li>
 						<li class="list-group-item">
+
 							<a class="nav-link" href="../view_patient_profile/consultation.php?id=<?php echo $id ?>"><i class="fas fa-comment-medical"></i> Consultation</a>	
 						</li>
 						<li class="list-group-item">
@@ -59,77 +51,54 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
 			  </div>
 			</div>
 		</div>
-		<?php 
-		$vital_signs = $conn->query("SELECT * FROM consultation_tbl WHERE patient_id=$id");
-
-		$vs = mysqli_fetch_assoc($vital_signs);
-
-		if ($vital_signs->num_rows > 0) { ?>
+				<!-- Dashboard -->
 		<div class="col-md-9">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="card card-body-margins">
-						<div class="card-body card-body-header">
-							<div class="row">
-								<div class="col-md-6">
-									<h4>Vital Signs</h4>
-								</div>
-								<div class="col-md-6">
-									<a href="../modules/edit_patient_vitalsign.php?id=<?php echo $id ?>"><i class="fas fa-user"></i> Edit</a>
-								</div>
-							</div>
-						</div>
-					</div>
+						<div class="card">
+				<div class="card-body card-body-header">
+					<h5>Annual Physical Records</h5>
 				</div>
 			</div>
-			<div class="card">
-				<div class="card-body">
-					<div class="row">
-						<div class="col-md-6">
-							<p>Blood Pressure: <?php echo $vs['blood_pressure']; ?></p>
-							<hr>
-							<p>Patient Height: <?php echo $vs['patient_height']; ?></p>
-							<hr>
-							<p>Patient Weight: <?php echo $vs['patient_weight']; ?></p>
-							<hr>
-							<p>BMI: <?php echo $vs['bmi']; ?></p>	
-						</div>
-						<div class="col-md-6">
-							<p>Respiratory Rate: <?php echo $vs['respiratory_rate']; ?></p>
-							<hr>
-							<p>Heart Rate: <?php echo $vs['heart_rate']; ?></p>
-							<hr>
-							<p>Temperature: <?php echo $vs['temperature']; ?></p>
-							<hr>
-						</div>
-					</div>
-					<div class="row">
+				</div>
+			</div>
+		<?php 
+
+		$query = "SELECT * FROM physical_examination_tbl WHERE patient_id=$id;";
+		$result = mysqli_query($conn, $query);?>
+			<!-- Table -->
+			<div>
+				<div class="card card-body-margins">
+					<div class="card-body card-body-header">
 							<div class="col-md-12">
-								<p><small style="color: red;"><i>*This vital signs was recorded on <?php echo $vs['date_checkup']; ?></i></small></p>					
-							</div>
+						<table id="logs_data" class="table table-hover">
+							<thead>	
+								<tr>
+									<td>Records</td>
+								</tr>
+							</thead>
+					<?php while($row = mysqli_fetch_array($result)) { ?>
+							<tr>
+								<td><a href="view_full_annual_physical_record.php?id=<?php echo $row['id']; ?>"><?php echo $row["date_recorded"]; ?></a></td>
+							</tr>		
+					<?php 
+					}
+					 ?>
+						</table>
 					</div>
+					</div>
+				</div>
+				<div class="row">
 				</div>
 			</div>
 		</div>
-		<?php
-		}else{ ?>
-		<div class="col-md-9">
-			<div class="card">
-				<h5>Vital Signs</h5>
-				<hr>
-				<div class="card-body">
-					<div class="row">
-					<div class="col-md-12">
-						<p>No data was recorded.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<?php 	 
-		}
-		?>
-		<div>
-		</div>
+
+		<script>
+		$(document).ready( function() {
+		    $('#logs_data').DataTable();
+		});
+		</script>
+
 <?php 
 include '../includes/footer.php';
  ?>

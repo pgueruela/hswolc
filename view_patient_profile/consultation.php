@@ -16,15 +16,6 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
  	?>
  	<div class="row">
  		<div class="col-md-3 side-panel">
- 			<div class="card">
- 				<div class="card-body">
-			    <img src="../includes/assets/img/profile_pic.png" width="50" height="50">
-			    <p style="text-align: center;"><?php echo $row['firstname'] . " " . $row['lastname']; ?></p>
-			    <p style="text-align: center"><?php echo $row['patient_number']; ?></p>
-			    <p style="text-align: center"><?php echo $row['patient_address']; ?></p>
-			</div>
-
- 			</div>
 			<div class="accordion" id="patient_accordion" aria-expanded="true">
 			  <div class="card card-side-panel">
 			    <div class="card-header card-header-side-panel" id="headingOne">
@@ -35,24 +26,23 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
 			      </h5>
 			    </div>
 
-			    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#patient_accordion">
+			 	 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#patient_accordion">
 			      <div class="card-body">
 			         <ul class="list-group list-group-flush">
 				    	<li class="list-group-item">
-				    		<a class="nav-link" href="../modules/sidebar_view_patient_profile.php?id=<?php echo $id ?>"><i class="far fa-user"></i> Personal Data</a>
+				    		<a class="nav-link" href="sidebar_view_patient_profile.php?id=<?php echo $id ?>"><i class="far fa-user"></i> Personal Data</a>
 				    	</li>
 						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/vital_signs.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Vital Signs</a>
+							<a class="nav-link" href="consultation.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Consultation Records</a>
 						</li>
 						<li class="list-group-item">
-
-							<a class="nav-link" href="../view_patient_profile/consultation.php?id=<?php echo $id ?>"><i class="fas fa-comment-medical"></i> Consultation</a>	
+							<a class="nav-link" href="annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Annual Physical Records</a>	
 						</li>
 						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
+							<a class="nav-link" href="medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
 						</li>
 						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/medical_certificate.php?id=<?php echo $id ?>"><i class="fas fa-certificate"></i> Medical Certificate</a>	
+							<a class="nav-link" href="medical_certificate.php?id=<?php echo $id ?>"><i class="fas fa-certificate"></i> Medical Certificate</a>	
 						</li>
 			 		 </ul>
 			      </div>
@@ -60,69 +50,70 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
 			  </div>
 			</div>
 		</div>
-		<?php 
-		$consultation = $conn->query("SELECT * FROM consultation_tbl WHERE patient_id=$id");
-
-		$cs = mysqli_fetch_assoc($consultation);
-
-		if ($consultation->num_rows > 0) { ?>
+				<!-- Dashboard -->
 		<div class="col-md-9">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="card card-body-margins">
-						<div class="card-body card-body-header">
-							<div class="row">
-								<div class="col-md-6">
-									<h4>Consultation</h4>
-								</div>
-							</div>
-						</div>
-					</div>
+						<div class="card">
+				<div class="card-body card-body-header">
+					<h5>Consultation Records</h5>
 				</div>
 			</div>
-			<div class="card">
-				<div class="card-body">
-					<div class="row">
-						<div class="col-md-12">
-							<p>Medical History: <?php echo $cs['medical_history']; ?></p>
-							<hr>
-							<p>Pass illness: <?php echo $cs['past_illness']; ?></p>
-							<hr>
-							<p>Hospitalization History: <?php echo $cs['hospitalization_history']; ?></p>
-							<hr>
-							<p>Medicines: <?php echo $cs['medicines']; ?></p>	
-							<hr>
-							<p>Allergies: <?php echo $cs['allergies']; ?></p>
-							<hr>
-							<p>Diagnosis: <?php echo $cs['diagnosis']; ?></p>
-							<hr>
-							<p>Physician: <?php echo $cs['nurse_doctor']; ?></p>
-							<hr>
-							<p>Date of consultation: <?php echo $cs['date_checkup']; ?></p>
-						</div>
+				</div>
+			</div>
+		<?php 
+
+		$query = "SELECT * FROM consultation_tbl WHERE patient_id=$id;";
+		$result = mysqli_query($conn, $query);?>
+			<!-- Table -->
+			<div>
+				<div class="card card-body-margins">
+					<div class="card-body card-body-header">
+							<div class="col-md-12">
+						<table id="logs_data" class="table table-hover">
+							<thead>	
+								<tr>
+									<td>Date</td>
+									<td>Chief Complain</td>
+									<td>Temp</td>
+									<td>BP</td>
+									<td>PR</td>
+									<td>RR</td>
+									<td>Medicine</td>
+									<td>QTY</td>
+									<td>Remarks</td>
+								</tr>
+							</thead>
+					<?php while($row = mysqli_fetch_array($result)) { ?>
+							<tr>
+								<td><?php echo $row["date_recorded"]; ?></td>
+								<td><?php echo $row["chief_complain"]; ?></td>
+								<td><?php echo $row["temperature"]; ?></td>
+								<td><?php echo $row["blood_pressure"]; ?></td>
+								<td><?php echo $row["heart_rate"]; ?></td>
+								<td><?php echo $row["respiratory_rate"]; ?></td>
+								<td><?php echo $row["medicines"]; ?></td>
+								<td><?php echo $row["quantity"]; ?></td>
+								<td><?php echo $row["remarks"]; ?></td>
+							</tr>		
+					<?php 
+					}
+					 ?>
+						</table>
 					</div>
+					</div>
+				</div>
+				<div class="row">
 				</div>
 			</div>
 		</div>
-		<?php
-		}else{ ?>
-		<div class="col-md-9">
-			<div class="card">
-				<h5>Vital Signs</h5>
-				<hr>
-				<div class="card-body">
-					<div class="row">
-					<div class="col-md-12">
-						<p>No data was recorded.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<?php 	 
-		}
-		?>
-		<div>
-		</div>
+
+		<script>
+		$(document).ready( function() {
+		    $('#logs_data').DataTable();
+		});
+		</script>
+
 <?php 
 include '../includes/footer.php';
  ?>

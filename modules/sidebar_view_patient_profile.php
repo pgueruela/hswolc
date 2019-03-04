@@ -41,14 +41,6 @@ include '../includes/admin_navigationbar.php';
  	?>
  	<div class="row">
  		<div class="col-md-3 side-panel">
- 			<div class="card">
-	 			<div class="card-body">
-				    <img src="../includes/assets/img/profile_pic.png" width="50" height="50">
-				    <p style="text-align: center;"><?php echo $row['firstname'] . " " . $row['lastname']; ?></p>
-				    <p style="text-align: center"><?php echo $row['patient_number']; ?></p>
-				    <p style="text-align: center"><?php echo $row['patient_address']; ?></p>
-				</div>
-			</div>
 			<div class="accordion" id="patient_accordion" aria-expanded="true">
 			  <div class="card card-side-panel">
 			    <div class="card-header card-header-side-panel" id="headingOne">
@@ -66,10 +58,10 @@ include '../includes/admin_navigationbar.php';
 				    		<a class="nav-link" href="sidebar_view_patient_profile.php?id=<?php echo $id ?>"><i class="far fa-user"></i> Personal Data</a>
 				    	</li>
 						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/vital_signs.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Vital Signs</a>
+							<a class="nav-link" href="../view_patient_profile/consultation.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Consultation Records</a>
 						</li>
 						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/consultation.php?id=<?php echo $id ?>"><i class="fas fa-comment-medical"></i> Consultation</a>	
+							<a class="nav-link" href="../view_patient_profile/annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Annual Physical Records</a>	
 						</li>
 						<li class="list-group-item">
 							<a class="nav-link" href="../view_patient_profile/medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	

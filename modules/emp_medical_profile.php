@@ -11,7 +11,8 @@ if (!isset($_SESSION['id'])) {
 
 $id = $_GET['id'];
 
-$result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id = $id");
+$result = $conn->query("SELECT * 
+						FROM patient_pd_tbl WHERE id =  $id ");
 
 $row = mysqli_fetch_assoc($result);
 
@@ -172,11 +173,11 @@ if ($row['gender'] == 'M') {?>
 										<div>
 											<label for="colFormLabelSm" class="col-m-7 col-form-label col-form-label-m">Are you currently taking any drug/s</label>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="currently_taking_drugs"  value="Yes" checked/>
+											  <input class="form-check-input" type="radio" id="input_2" name="currently_taking_drugs"  value="Yes" checked/>
 											  <label class="form-check-label" for="inlineradio1">YES</label>
 											</div>
 											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="currently_taking_drugs" value="No">
+											  <input class="form-check-input" type="radio" id="input_1" name="currently_taking_drugs" value="No">
 											  <label class="form-check-label" for="inlineradio2">NO</label>
 											</div>
 										</div>	
@@ -189,7 +190,7 @@ if ($row['gender'] == 'M') {?>
 					 		<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">If yes, state the name of the drug/s</label>
-									<textarea class="form form-control" rows="3" name="drug_name"></textarea>
+									<textarea class="form form-control" rows="3" name="drug_name" id="input_3"></textarea>
 								</div>
 							</div>
 						</div>

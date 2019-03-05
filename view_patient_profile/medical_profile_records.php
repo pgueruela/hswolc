@@ -42,7 +42,7 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
 							<a class="nav-link" href="../view_patient_profile/annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Physical Records</a>	
 						</li>
 						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/medical_profile_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i>Medical Profile</a>	
+							<a class="nav-link" href="../view_patient_profile/medical_profile_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Medical Profile</a>	
 						</li>
 						<li class="list-group-item">
 							<a class="nav-link" href="../view_patient_profile/medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
@@ -102,69 +102,48 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
 				<div class="col-md-12">
 						<div class="card">
 				<div class="card-body card-body-header">
-					<h5>Consultation Records</h5>
+					<h5>Medical Profile</h5>
 				</div>
 			</div>
 				</div>
 			</div>
 		<?php 
 
-		$query = "SELECT * FROM consultation_tbl WHERE patient_id=$id;";
+		$query = "SELECT * FROM employee_medical_profile WHERE patient_id=$id;";
 		$result = mysqli_query($conn, $query);?>
 			<!-- Table -->
 			<div>
 				<div class="card card-body-margins">
 					<div class="card-body card-body-header">
-						<div class="col-md-12">
-
-							<!-- if condition -->
-							
-							<table id="logs_data" class="table table-hover">
-								<thead>	
-									<tr>
-										<td>Date</td>
-										<td>Chief Complain</td>
-										<td>Temp</td>
-										<td>BP</td>
-										<td>PR</td>
-										<td>RR</td>
-										<td>Medicine</td>
-										<td>QTY</td>
-										<td>Remarks</td>
-									</tr>
-								</thead>
-						<?php while($row = mysqli_fetch_array($result)) { ?>
+							<div class="col-md-12">
+						<table id="logs_data" class="table table-hover">
+							<thead>	
 								<tr>
-									<td><?php echo $row["date_recorded"]; ?></td>
-									<td><?php echo $row["chief_complain"]; ?></td>
-									<td><?php echo $row["temperature"]; ?></td>
-									<td><?php echo $row["blood_pressure"]; ?></td>
-									<td><?php echo $row["heart_rate"]; ?></td>
-									<td><?php echo $row["respiratory_rate"]; ?></td>
-									<td><?php echo $row["medicines"]; ?></td>
-									<td><?php echo $row["quantity"]; ?></td>
-									<td><?php echo $row["remarks"]; ?></td>
-								</tr>		
-						<?php 
-						}
-						 ?>
-							</table>
-						
-						<!-- else -->
-
-						</div>
-						</div>
+									<td>Records</td>
+								</tr>
+							</thead>
+					<?php while($row = mysqli_fetch_array($result)) { ?>
+							<tr>
+								<td><a href="view_full_medical_record.php?id=<?php echo $row['id']; ?>"><?php echo $row["date_recorded"]; ?></a></td>
+							</tr>		
+					<?php 
+					}
+					 ?>
+						</table>
 					</div>
-					<div class="row">
 					</div>
 				</div>
+				<div class="row">
+				</div>
 			</div>
+		</div>
 
-			<script>
-			$(document).ready( function() {
-			    $('#logs_data').DataTable();
-			});
-			</script>
+		<script>
+		$(document).ready( function() {
+		    $('#logs_data').DataTable();
+		});
+		</script>
+
 <?php 
 include '../includes/footer.php';
  ?>

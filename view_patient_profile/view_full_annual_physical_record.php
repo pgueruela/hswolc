@@ -5,69 +5,22 @@ include '../includes/db.php';
 include '../includes/admin_navigationbar.php';
 ?>
  <div class="container">
- 	<?php 
+ 
+  <?php   
+  $id = $_GET['id'];
+  $result = $conn->query("SELECT * FROM physical_examination_tbl WHERE id=$id");
 
- 	$id = $_GET['id'];	
-
- 	$result = $conn->query("SELECT * FROM physical_examination_tbl WHERE id=$id");
-
-	$row = mysqli_fetch_assoc($result);
-
- 	?>
- 	<div class="row">
- 		<div class="col-md-3 side-panel">
-			<div class="accordion" id="patient_accordion" aria-expanded="true">
-			  <div class="card card-side-panel">
-			    <div class="card-header card-header-side-panel" id="headingOne">
-			      <h5 class="mb-0">
-			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-			          Patient Informations
-			        </button>
-			      </h5>
-			    </div>
-
-			    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#patient_accordion">
-			      <div class="card-body">
-			         <ul class="list-group list-group-flush">
-				    	<li class="list-group-item">
-				    		<a class="nav-link" href="sidebar_view_patient_profile.php?id=<?php echo $id ?>"><i class="far fa-user"></i> Personal Data</a>
-				    	</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/consultation.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Consultation Records</a>
-						</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Annual Physical Records</a>	
-						</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
-						</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/medical_certificate.php?id=<?php echo $id ?>"><i class="fas fa-certificate"></i> Medical Certificate</a>	
-						</li>
-			 		 </ul>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-		</div>
-
+  $row = mysqli_fetch_assoc($result);?>
 		<div class="col-md-9">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="card card-body-margins">
-						<div class="card-body card-body-header">
-							<div class="row">
-								<div class="col-md-6">
-									<h4>Physical Annual Record</h4>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 			<div class="card">
 			 	<div class="card-body">
  					<!-- VS -->
+ 						<div class="row">
+ 						<div class="col-md-12">
+ 							<small style="color: red;"><i>This annual physical record was recorded on <?php echo $row['date_recorded']; ?></i></small>
+ 						</div>
+ 					</div>
+ 					<hr>
  					<div class="row">
  						<div class="col-md-4">
  							<p>Temperature: <b><?php echo $row['temperature']; ?></b> </p>
@@ -160,7 +113,7 @@ include '../includes/admin_navigationbar.php';
  							<p></p>
  						</div>
  						<div class="col-md-2">
- 							<p>Lymph Nodes: <b><?php echo $row['lymph_nodes']; ?></b></p>
+ 							<p>Lymph: <b><?php echo $row['lymph_nodes']; ?></b></p>
  						</div>
  						<div class="col-md-4">
  							<p></p>
@@ -258,12 +211,11 @@ include '../includes/admin_navigationbar.php';
  							<p>Assesed by: <b><?php echo $row['assesed_by']; ?></b> </p>
  						</div>
  					</div>
- 					<div class="row">
- 						<div class="col-md-6">
- 							<small style="color: red;"><i>This annual physical record was recorded on <?php echo $row['date_recorded']; ?></i></small>
- 						</div>
 
- 						
+ 					<div class="row">
+ 						<div class="col-md-1 offset-11">
+ 							<a href="../report/print_physical_examination.php?id=<?php echo $id; ?>"><i style="font-size: 25px;" class="fas fa-print"></i></a>
+ 						</div>
  					</div>
  				</div>
 			</div>

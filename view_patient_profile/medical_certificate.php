@@ -11,7 +11,7 @@ $id = $_GET['id'];
 $result = $conn->query("SELECT firstname, lastname, gender, patient_address, patient_number, birthdate, department, position, civil_status, blood_type FROM patient_pd_tbl WHERE id=$id");
 
   $row = mysqli_fetch_assoc($result); ?>
- <div class="row">
+  <div class="row">
 
   <?php 
   if ($row['position']== 'Employee') { ?>
@@ -95,18 +95,6 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
   }
   ?>
     <div class="col-md-9">
-    <div class="row">
-      <div class="col-md-12">
-        <form method="post" enctype="multipart/form-data">
-      <div class="form-group">
-        <label for="exampleFormControlFile1">Attach a file</label>
-        <input type="file" class="form-control-file" id="image" name="medical_cert_img">
-        <br>
-        <input type="submit" class="btn btn-primary" id="insert" value="Upload" name="med_cert_submit">
-      </div>
-    </form>
-      </div>
-    </div>
     <?php  
     if (isset($_POST["med_cert_submit"])) {
       $filetmp = $_FILES["medical_cert_img"] ["tmp_name"];
@@ -126,20 +114,44 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
     ?> 
     <?php
 
-    $image_result = $conn->query("SELECT * FROM medical_cert_tbl WHERE patient_id = $id");
+    $mysql_query = "SELECT * FROM medical_cert_tbl WHERE patient_id = $id";
 
-    $img = mysqli_fetch_assoc($image_result);
+    $img = mysqli_query($conn, $mysql_query); ?>
 
-    if ($image_result->num_rows > 0 ) { ?>
-        <tr>
-          <td><img src="../photos/<?php echo $img['image_path']; ?>" height= "700" width="700"></td>
-        </tr>
-    <?php  
-    }
-    ?>
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-margin">
+          <h4>Medical Laboratories</h4>
+        </div>
+      </div>
+      <?php
+      while($image_result = mysqli_fetch_array($img)) { ?>
+          <ul class="nav">
+            <li class="nav-item"><img src="../photos/<?php echo $image_result['image_path']; ?>" height= "200" width="200"></li>
+          </ul>
+          <br>
+      <?php  
+      }
+      ?>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <form class="form-inline" method="post" enctype="multipart/form-data">
+        <div class="form-group mx-sm-1 mb-1">
+          <input type="file" class="form-control-file" id="image" name="medical_cert_img">
+          <br>  
+        </div>
+        <input type="submit" class="btn btn-primary mb-2" id="insert" value="Upload" name="med_cert_submit">
+        </div>
+        </form>
+      </div>
+    </div>
 </div>
 
+
  <script>  
+//Insert Image
  $(document).ready(function(){  
       $('#insert').click(function(){  
            var image_name = $('#image').val();  
@@ -159,7 +171,10 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
                 }  
            }  
       });  
- });  
+ }); 
+
+
+ //View image 
  </script> 
 
 <?php 

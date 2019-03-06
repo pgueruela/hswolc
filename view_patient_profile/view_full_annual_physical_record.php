@@ -83,102 +83,32 @@ include '../includes/admin_navigationbar.php';
  					</div>
  					<hr>
 
- 					<div class="row">
- 						<div class="col-md-2">
- 							<p>Skin: <b><?php echo $row['skin']; ?></b></p>
- 						</div>
- 						<div class="col-md-4">
- 							<p></p>
- 						</div>
- 						<div class="col-md-2">
- 							<p>Nose: <b><?php echo $row['nose']; ?></b></p>
- 						</div>
- 						<div class="col-md-4">
- 							<p></p>
- 						</div><div class="col-md-2">
- 							<p>Pharynx: <b><?php echo $row['pharynx']; ?></b></p>
- 						</div>
- 						<div class="col-md-4">
- 							<p></p>
- 						</div>
- 						<div class="col-md-2">
- 							<p>Tonsils: <b><?php echo $row['tonsils']; ?></b></p>
- 						</div>
- 						<div class="col-md-4">
- 							<p></p>
- 						</div><div class="col-md-2">
- 							<p>Gums: <b><?php echo $row['gums']; ?></b></p>
- 						</div>
- 						<div class="col-md-4">
- 							<p></p>
- 						</div>
- 						<div class="col-md-2">
- 							<p>Lymph: <b><?php echo $row['lymph_nodes']; ?></b></p>
- 						</div>
- 						<div class="col-md-4">
- 							<p></p>
- 						</div><div class="col-md-2">
- 							<p>Neck: <b><?php echo $row['neck']; ?></b></p>
- 						</div>
- 						<div class="col-md-4">
- 							<p></p>
- 						</div>
- 						<div class="col-md-2">
- 							<p>Chest: <b><?php echo $row['chest']; ?></b></p>
- 						</div>
- 						<div class="col-md-4">
- 							<p></p>
- 						</div><div class="col-md-2">
- 							<p>Lungs: <b><?php echo $row['lungs']; ?></b></p>
- 						</div>
- 						<div class="col-md-4">
- 							<p></p>
- 						</div>
- 						<div class="col-md-2">
- 							<p>Heart: <b><?php echo $row['heart']; ?></b></p>
- 						</div>
- 						<div class="col-md-4">
- 							<p></p>
- 						</div><div class="col-md-2">
- 							<p>Abdomen: <b><?php echo $row['abdomen']; ?></b></p>
- 						</div>
- 						<div class="col-md-4">
- 							<p></p>
- 						</div>
- 						<div class="col-md-2">
- 							<p>Rectum: <b><?php echo $row['rectum']; ?></b> </p>
- 						</div>
- 						<div class="col-md-4">
- 							<p></p>
- 						</div><div class="col-md-2">
- 							<p>Genitalia:<b><?php echo $row['genitalia']; ?></b> </p>
- 						</div>
- 						<div class="col-md-4">
- 							<p></p>
- 						</div>
- 						<div class="col-md-2">
- 							<p>Spine: <b><?php echo $row['spine']; ?></b></p>
- 						</div>
- 						<div class="col-md-4">
- 							<p></p>
- 						</div><div class="col-md-2">
- 							<p>Arms:<b><?php echo $row['arms']; ?></b> </p>
- 						</div>
- 						<div class="col-md-4">
- 							<p></p>
- 						</div>
- 						<div class="col-md-2">
- 							<p>Legs: <b><?php echo $row['legs']; ?></b></p>
- 						</div>
- 						<div class="col-md-4">
- 							<p></p>
- 						</div>	<div class="col-md-2">
- 							<p>Feet: <b><?php echo $row['feet']; ?></b></p>
- 						</div>
- 						<div class="col-md-4">
- 							<p></p>
- 						</div>
- 						<hr>
+	 				<div class="">
+						<div class="row">
+							<div class="col-md-6">
+								<p>Skin: <b><?php echo $row['skin']; ?></b></p>
+								<p>Mouth: <b><?php echo $row['mouth']; ?></b></p>
+								<p>Nose: <b><?php echo $row['nose']; ?></b></p>
+								<p>Pharynx: <b><?php echo $row['pharynx']; ?></b></p>
+								<p>Tonsils: <b><?php echo $row['tonsils']; ?></b></p>
+								<p>Gums: <b><?php echo $row['gums']; ?></b></p>
+								<p>Lymph: <b><?php echo $row['lymph_nodes']; ?></b></p>
+								<p>Neck: <b><?php echo $row['neck']; ?></b></p>
+								<p>Chest: <b><?php echo $row['chest']; ?></b></p>
+				 			</div>
+
+				 			<div class="col-md-6">
+				 				<p>Lungs: <b><?php echo $row['lungs']; ?></b></p>
+								<p>Heart: <b><?php echo $row['heart']; ?></b></p>
+								<p>Abdomen: <b><?php echo $row['abdomen']; ?></b></p>
+								<p>Rectum: <b><?php echo $row['rectum']; ?></b> </p>
+								<p>Genitalia:<b><?php echo $row['genitalia']; ?></b> </p>
+								<p>Spine: <b><?php echo $row['spine']; ?></b></p>
+								<p>Arms:<b><?php echo $row['arms']; ?></b> </p>
+								<p>Legs: <b><?php echo $row['legs']; ?></b></p>
+								<p>Feet: <b><?php echo $row['feet']; ?></b></p>
+				 			</div>
+						</div>				
 					</div>
 					<hr>
 					 <div class="row">

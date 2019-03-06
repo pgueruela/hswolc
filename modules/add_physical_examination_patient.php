@@ -224,7 +224,7 @@ if (!isset($_SESSION['id'])) {
 											  <input class="form-check-input" type="radio" id="input_three" name="skin" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
-											<input class="form control col-sm-4" type="text" name="skin_abnormal"  id="input_four" disabled="disabled" required/>
+											<input class="form control col-sm-4" type="text" name="skin_abnormal"  id="input_four">
 
 											<script>
 												$('#input_three').click(function()
@@ -257,7 +257,7 @@ if (!isset($_SESSION['id'])) {
 											  <input class="form-check-input" type="radio" id="input_seven" name="nose" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
-											<input class="form control col-sm-4" type="" name="nose_abnormal"  id="input_eight" disabled="disabled" required/>
+											<input class="form control col-sm-4" type="" name="nose_abnormal"  id="input_eight">
 
 											<script>
 												$('#input_seven').click(function()
@@ -290,7 +290,7 @@ if (!isset($_SESSION['id'])) {
 											  <input class="form-check-input" type="radio" id="11" name="mouth" value="
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
-											<input class="form control col-sm-4" type="text" name="mouth_abnormal"  id="12" disabled="disabled" required/ >
+											<input class="form control col-sm-4" type="text" name="mouth_abnormal"  id="12" >
 
 											<script>
 												$('#11').click(function()
@@ -323,7 +323,7 @@ if (!isset($_SESSION['id'])) {
 											  <input class="form-check-input" type="radio" id="15" name="pharynx" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
-											<input class="form control col-sm-4" type="text" name="pharynx_abnormal" id="16" disabled="disabled" required/>
+											<input class="form control col-sm-4" type="text" name="pharynx_abnormal" id="16">
 
 											<script>
 												$('#15').click(function()
@@ -356,7 +356,7 @@ if (!isset($_SESSION['id'])) {
 											  <input class="form-check-input" type="radio" id="19" name="tonsils" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
-											<input class="form control col-sm-4" type="text" name="tonsil_abnormal" id="20" disabled="disabled" required/>
+											<input class="form control col-sm-4" type="text" name="tonsil_abnormal" id="20">
 
 											<script>
 												$('#19').click(function()
@@ -388,7 +388,7 @@ if (!isset($_SESSION['id'])) {
 											  <input class="form-check-input" type="radio" id="23" name="gums" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
-											<input class="form control col-sm-4" type="text" name="gums_abnormal" id="24" disabled="disabled" required/>
+											<input class="form control col-sm-4" type="text" name="gums_abnormal" id="24">
 
 											<script>
 												$('#23').click(function()
@@ -420,7 +420,7 @@ if (!isset($_SESSION['id'])) {
 											  <input class="form-check-input" type="radio" id="27" name="lymph_nodes" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
-											<input class="form control col-sm-4" type="text" name="lymph_nodes_abnormal" id="28" disabled="disabled" required/>
+											<input class="form control col-sm-4" type="text" name="lymph_nodes_abnormal" id="28">
 
 											<script>
 												$('#27').click(function()
@@ -452,7 +452,7 @@ if (!isset($_SESSION['id'])) {
 											  <input class="form-check-input" type="radio" id="31" name="neck" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
-											<input class="form control col-sm-4" type="text" name="neck_abnormal" id="32" disabled="disabled" required/>
+											<input class="form control col-sm-4" type="text" name="neck_abnormal" id="32">
 
 												<script>
 												$('#31').click(function()
@@ -485,7 +485,7 @@ if (!isset($_SESSION['id'])) {
 											  <input class="form-check-input" type="radio" id="35" name="chest" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
-											<input class="form control col-sm-4" type="text" name="chest_abnormal" id="36" disabled="disabled" required/>
+											<input class="form control col-sm-4" type="text" name="chest_abnormal" id="36">
 
 											<script>
 												$('#35').click(function()
@@ -519,7 +519,7 @@ if (!isset($_SESSION['id'])) {
 											  <input class="form-check-input" type="radio" id="39" name="lungs" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
-											<input class="form control col-sm-4" type="text" name="lungs_abnormal" id="40" disabled="disabled" required/>
+											<input class="form control col-sm-4" type="text" name="lungs_abnormal" id="40">
 
 											<script>
 												$('#39').click(function()
@@ -551,7 +551,7 @@ if (!isset($_SESSION['id'])) {
 											  <input class="form-check-input" type="radio" id="43" name="heart" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
-											<input class="form control col-sm-4" type="text" name="heart_abnormal" id="44" disabled="disabled" required/>
+											<input class="form control col-sm-4" type="text" name="heart_abnormal" id="44">
 
 											<script>
 												$('#43').click(function()
@@ -583,7 +583,7 @@ if (!isset($_SESSION['id'])) {
 											  <input class="form-check-input" type="radio" id="47" name="abdomen" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
-											<input class="form control col-sm-4" type="text" name="abdomen_abnormal" id="48" disabled="disabled" required/>
+											<input class="form control col-sm-4" type="text" name="abdomen_abnormal" id="48">
 
 											<script>
 												$('#47').click(function()
@@ -615,7 +615,7 @@ if (!isset($_SESSION['id'])) {
 											  <input class="form-check-input" type="radio" id="51" name="rectum" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
-											<input class="form control col-sm-4" type="" name="rectum_abnormal" id="52" disabled="disabled" required/ >
+											<input class="form control col-sm-4" type="" name="rectum_abnormal" id="52" >
 
 											<script>
 												$('#51').click(function()
@@ -647,7 +647,7 @@ if (!isset($_SESSION['id'])) {
 											  <input class="form-check-input" type="radio" id="55" name="genitalia" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
-											<input class="form control col-sm-4" type="" name="genitalia_abnormal" id="56" disabled="disabled" required/>
+											<input class="form control col-sm-4" type="" name="genitalia_abnormal" id="56">
 
 
 											<script>
@@ -680,7 +680,7 @@ if (!isset($_SESSION['id'])) {
 											  <input class="form-check-input" type="radio" id="59" name="spine" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
-											<input class="form control col-sm-4" type="" name="spine_abnormal" id="60" disabled="disabled" required/>
+											<input class="form control col-sm-4" type="" name="spine_abnormal" id="60">
 
 											<script>
 												$('#59').click(function()
@@ -712,7 +712,7 @@ if (!isset($_SESSION['id'])) {
 											  <input class="form-check-input" type="radio" id="63" name="arms" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
-											<input class="form control col-sm-4" type="" name="arms_abnormal"  id="64" disabled="disabled" required/>
+											<input class="form control col-sm-4" type="" name="arms_abnormal"  id="64">
 
 											<script>
 												$('#63').click(function()
@@ -744,7 +744,7 @@ if (!isset($_SESSION['id'])) {
 											  <input class="form-check-input" type="radio" id="67" name="legs" value="Abnormal"  >
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
-											<input class="form control col-sm-4" type="" name="legs_abnormal"  id="68" disabled="disabled" required/>
+											<input class="form control col-sm-4" type="" name="legs_abnormal"  id="68">
 
 											<script>
 												$('#67').click(function()
@@ -776,7 +776,7 @@ if (!isset($_SESSION['id'])) {
 											  <input class="form-check-input" type="radio" id="71" name="feet" value="Abnormal"  >
 											  <label class="form-check-label" for="input_disabled">A</label>
 											</div>
-											<input class="form control col-sm-4" type="text" name="feet_abnormal" id="72" disabled="disabled" required/>
+											<input class="form control col-sm-4" type="text" name="feet_abnormal" id="72">
 
 												<script>
 												$('#71').click(function()

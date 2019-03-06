@@ -14,6 +14,10 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
 	<!-- Data tables -->
 	<link rel="stylesheet" type="text/css" href="../assets/css/datatables.min.css">
+
+	<!-- CSS LIGHTBOX -->
+	<link rel="stylesheet" type="text/css" href="../assets/css/jquery.lightbox.css">
+
 </head>
 <body>
 
@@ -25,3 +29,5 @@ session_start();
 
 <script type="text/javascript" charset="utf8" src="../assets/js/datatables.min.js"></script>
 
+<!-- JQUERY LIGHTBOX -->
+<script type="text/javascript" src="../assets/js/jquery.lightbox.min.js"></script>

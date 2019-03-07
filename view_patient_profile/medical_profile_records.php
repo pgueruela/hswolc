@@ -9,7 +9,7 @@ include '../includes/admin_navigationbar.php';
 
 $id = $_GET['id'];
 
-$result = $conn->query("SELECT firstname, lastname, gender, patient_address, patient_number, birthdate, department, position, civil_status, blood_type FROM patient_pd_tbl WHERE id=$id");
+$result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 
 	$row = mysqli_fetch_assoc($result); ?>
 

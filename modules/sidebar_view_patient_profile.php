@@ -34,7 +34,7 @@ include '../includes/admin_navigationbar.php';
 
  	$id = $_GET['id'];	
 
- 	$result = $conn->query("SELECT firstname, lastname, gender, patient_address, patient_number, birthdate, department, position, civil_status, blood_type FROM patient_pd_tbl WHERE id=$id");
+ 	$result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 
 	$row = mysqli_fetch_assoc($result); ?>
 
@@ -67,7 +67,7 @@ include '../includes/admin_navigationbar.php';
 							<a class="nav-link" href="../view_patient_profile/annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Physical Records</a>	
 						</li>
 						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/medical_profile_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i>Medical Profile</a>	
+							<a class="nav-link" href="../view_patient_profile/medical_profile_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Medical Profile</a>	
 						</li>
 						<li class="list-group-item">
 							<a class="nav-link" href="../view_patient_profile/medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
@@ -128,10 +128,10 @@ include '../includes/admin_navigationbar.php';
 						<div class="card-body card-body-header">
 							<div class="row">
 								<div class="col-md-6">
-									<h4>Personal Data</h4>
+									<h5><i class="fas fa-user"></i> Personal Data</h5>
 								</div>
-								<div class="col-md-6">
-									<a href="edit_personal_data.php?id=<?php echo $id ?>"><i class="fas fa-user"></i> Edit</a>
+								<div class="col-md-2 offset-4">
+									<a href="edit_personal_data.php?id=<?php echo $id ?>"><i class="fas fa-edit"></i> Edit</a>
 								</div>
 							</div>
 						</div>
@@ -142,13 +142,15 @@ include '../includes/admin_navigationbar.php';
 			 	<div class="card-body">
  					<div class="row">
  						<div class="col-md-6">
+ 							<p>Name: <?php echo $row['firstname'] . " ". $row['lastname']; ?></p>
+ 							<hr>
  							<p>Gender: <?php echo $row['gender']; ?></p>
  							<hr>
 						  	<p>Patient Address: <?php echo $row['patient_address']; ?></p>
 						  	<hr>
 						  	<p>Patient Number : <?php echo $row['patient_number']; ?></p>
 						  	<hr>
-						  	<p>Birthdate: <?php echo $row['birthdate']; ?></p>
+						  	<p>Age: <?php echo $row['age']; ?></p>
  						</div>
  						<div class="col-md-6">
  							<p>Department : <?php echo $row['department']; ?></p>
@@ -158,6 +160,14 @@ include '../includes/admin_navigationbar.php';
 						  	<p>Civil Status: <?php echo $row['civil_status']; ?></p>
 						  	<hr>
 						  	<p>Blood Type: <?php echo $row['blood_type']; ?></p>
+ 						</div>
+ 					</div>
+ 					<div class="row">
+ 						<div class="col-md-12">
+ 							<p><b>Contact Person in Case of Emergency</b></p>
+ 							<p>Name: <?php echo $row['contact_person']; ?> </p>
+ 							<hr>
+ 							<p>Contact #: <?php echo $row['person_contact_emergency_number']; ?></p>
  						</div>
  					</div>
  				</div>

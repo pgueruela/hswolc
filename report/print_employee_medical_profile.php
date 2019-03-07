@@ -45,7 +45,7 @@ $row = mysqli_fetch_assoc($result);
 				</div>
 				<div class="col-md-4 offset-2">
 					<p>SEX: <b><?php echo $row['gender']; ?></b></p>
-					<p>AGE: <b><?php echo $row['birthdate']; ?></b> </p>
+					<p>AGE: <b><?php echo $row['age']; ?></b> </p>
 					<p>STATUS: <b><?php echo $row['civil_status']; ?></b></p>
 				</div>
 			</div>

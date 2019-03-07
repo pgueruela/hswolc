@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-style">
+<nav class="navbar navbar-expand-lg navbar-style fixed-top">
         <div class="container">
           <a class="navbar-brand" href="#" style="color: #fff;">HSWOLCIS</a>
           <div id="navbarNavDropdown" class="navbar-collapse collapse">
@@ -18,6 +18,7 @@
         </div>
         </div>
 </nav>
+<div style="margin-bottom: 60px;"></div>
 <?php 
 include 'includes/header.php';
 include 'process/add_account_process.php';

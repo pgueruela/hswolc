@@ -8,7 +8,13 @@ include_once '../includes/db.php';
 	$lastname = $_POST['lastname'];
 	$gender = $_POST['gender'];
 	$address = $_POST['patient_address'];
-	$birthdate = $_POST['birthdate'];
+
+	//birthdate to age calculation
+	$dateOfBirth = $_POST['birthdate'];
+	$today = date("Y-m-d");
+	$diff = date_diff(date_create($dateOfBirth), date_create($today));
+	$age = $diff->format('%y');
+
 	$patient_number = $_POST['patient_number'];
 	$position = $_POST['position'];
 	$contact_person = $_POST['contact_person'];
@@ -17,7 +23,7 @@ include_once '../includes/db.php';
 	$civil_status = $_POST['civil_status'];
 	$blood_type = $_POST['blood_type'];
 	
-	$sql = "INSERT INTO patient_pd_tbl (firstname, lastname, gender, patient_address, birthdate, patient_number, contact_person, person_contact_emergency_number, position, department, civil_status,blood_type) VALUES('$firstname', '$lastname', '$gender', '$address', '$birthdate', $patient_number,  '$contact_person', '$person_contact_emergency_number','$position', '$department','$civil_status','$blood_type');";
+	$sql = "INSERT INTO patient_pd_tbl (firstname, lastname, gender, patient_address, age, patient_number, contact_person, person_contact_emergency_number, position, department, civil_status,blood_type) VALUES('$firstname', '$lastname', '$gender', '$address', $age, $patient_number,  '$contact_person', '$person_contact_emergency_number','$position', '$department','$civil_status','$blood_type');";
 
 
 	if ($conn->query($sql) === TRUE) {

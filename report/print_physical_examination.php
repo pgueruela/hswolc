@@ -31,7 +31,7 @@ $row = mysqli_fetch_assoc($result);
 				<p>Name: <b> <?php echo $row['firstname'] . " " . $row['lastname']; ?></b></p>
 			</div>
 			<div class="col-md-2">
-				<p>Age: <b> <?php echo $row['birthdate']; ?></b></p>
+				<p>Age: <b> <?php echo $row['age']; ?></b></p>
 			</div>
 			<div class="col-md-2">
 				<p>Sex: <b> <?php echo $row['gender']; ?></b></p>

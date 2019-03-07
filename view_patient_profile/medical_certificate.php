@@ -8,7 +8,7 @@ include '../includes/admin_navigationbar.php';
 
 $id = $_GET['id'];
 
-$result = $conn->query("SELECT firstname, lastname, gender, patient_address, patient_number, birthdate, department, position, civil_status, blood_type FROM patient_pd_tbl WHERE id=$id");
+$result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 
   $row = mysqli_fetch_assoc($result); ?>
   <div class="row">
@@ -40,7 +40,7 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
               <a class="nav-link" href="../view_patient_profile/annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Physical Records</a> 
             </li>
             <li class="list-group-item">
-              <a class="nav-link" href="../view_patient_profile/medical_profile_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i>Medical Profile</a> 
+              <a class="nav-link" href="../view_patient_profile/medical_profile_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Medical Profile</a> 
             </li>
             <li class="list-group-item">
               <a class="nav-link" href="../view_patient_profile/medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>  
@@ -95,59 +95,56 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
   }
   ?>
     <div class="col-md-9">
-    <?php  
-    if (isset($_POST["med_cert_submit"])) {
-      $filetmp = $_FILES["medical_cert_img"] ["tmp_name"];
-      $filename = $_FILES["medical_cert_img"] ["name"];
-      $filetype = $_FILES["medical_cert_img"] ["type"];
-      $filepath = "../photos/" . $filename;
+      <?php  
+      if (isset($_POST["med_cert_submit"])) {
+        $filetmp = $_FILES["medical_cert_img"] ["tmp_name"];
+        $filename = $_FILES["medical_cert_img"] ["name"];
+        $filetype = $_FILES["medical_cert_img"] ["type"];
+        $filepath = "../photos/" . $filename;
 
-      move_uploaded_file($filetmp, $filepath);
+        move_uploaded_file($filetmp, $filepath);
 
-      $sql = "INSERT INTO medical_cert_tbl (patient_id, image_name, image_path, image_type) VALUES ($id,'$filename', '$filepath', '$filetype')";
-      if ($conn->query($sql) === TRUE) {
-        echo "<script>alert('Image successfully uploaded! ');</script>";
-      } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;  
-      } 
-     }
-    ?> 
-    <?php
+        $sql = "INSERT INTO medical_cert_tbl (patient_id, image_name, image_path, image_type) VALUES ($id,'$filename', '$filepath', '$filetype')";
+        if ($conn->query($sql) === TRUE) {
+          echo "<script>alert('Image successfully uploaded! ');</script>";
+        } else {
+          echo "Error: " . $sql . "<br>" . $conn->error;  
+        } 
+       }
+      ?> 
+      <?php
 
-    $mysql_query = "SELECT * FROM medical_cert_tbl WHERE patient_id = $id";
+      $mysql_query = "SELECT * FROM medical_cert_tbl WHERE patient_id = $id";
 
-    $img = mysqli_query($conn, $mysql_query); ?>
+      $img = mysqli_query($conn, $mysql_query); ?>
 
-    <div class="col-md-12">
       <div class="card">
-        <div class="card-margin">
-          <h4>Medical Laboratories</h4>
+        <div class="card-body card-body-header">
+          <h5><i class="fas fa-certificate"></i> Medical Certificate</h5>
         </div>
       </div>
-      <?php
-      while($image_result = mysqli_fetch_array($img)) { ?>
-          <ul class="nav">
-            <li class="nav-item"><img src="../photos/<?php echo $image_result['image_path']; ?>" height= "200" width="200"></li>
-          </ul>
-          <br>
-      <?php  
-      }
-      ?>
-    </div>
 
-    <div class="row">
-      <div class="col-md-12">
+      <div>
+        <?php
+        while($image_result = mysqli_fetch_array($img)) { ?>
+            <ul class="nav">
+              <li class="nav-item"><img src="../photos/<?php echo $image_result['image_path']; ?>" height= "200" width="200"></li>
+            </ul>
+            <br>
+        <?php  
+        }
+        ?>
+
         <form class="form-inline" method="post" enctype="multipart/form-data">
         <div class="form-group mx-sm-1 mb-1">
           <input type="file" class="form-control-file" id="image" name="medical_cert_img">
           <br>  
         </div>
         <input type="submit" class="btn btn-primary mb-2" id="insert" value="Upload" name="med_cert_submit">
-        </div>
         </form>
       </div>
     </div>
-</div>
+
 
 
  <script>  

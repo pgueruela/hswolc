@@ -9,7 +9,7 @@ include '../includes/admin_navigationbar.php';
 
 $id = $_GET['id'];
 
-$result = $conn->query("SELECT firstname, lastname, gender, patient_address, patient_number, birthdate, department, position, civil_status, blood_type FROM patient_pd_tbl WHERE id=$id");
+$result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 
 	$row = mysqli_fetch_assoc($result); ?>
 
@@ -102,7 +102,7 @@ $result = $conn->query("SELECT firstname, lastname, gender, patient_address, pat
 				<div class="col-md-12">
 						<div class="card">
 				<div class="card-body card-body-header">
-					<h5>Annual Physical Records</h5>
+					<h5><i class="fas fa-notes-medical"></i> Annual Physical Records</h5>
 				</div>
 			</div>
 				</div>

@@ -15,7 +15,7 @@ $result = $conn->query("SELECT * FROM admin_tbl WHERE id = $id");
 $row = mysqli_fetch_assoc($result);
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-style">
+<nav class="navbar navbar-expand-lg navbar-style topnav">
         <div class="container">
           <a class="navbar-brand" href="#" style="color: #fff;">HSWOLCIS</a>
           <div id="navbarNavDropdown" class="navbar-collapse collapse">
@@ -51,7 +51,7 @@ $row = mysqli_fetch_assoc($result);
 			<div class="accordion" id="patient_accordion">
 			  <div class="card card-side-panel">
 			    <div class="card-header card-header-side-panel" id="headingOne">
-			      <h5 class="mb-0">
+		 	      <h5 class="mb-0">
 			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
 			          Patient
 			        </button>

@@ -127,9 +127,9 @@ if (!isset($_SESSION['id'])) {
 									<label for="blood-pressure">Height</label>
 									<div class="input-group mb-3">
 			  						<div class="input-group-prepend">
-			    					<span class="input-group-text" id="basic-addon1">cm</span>
+			    					<span class="input-group-text" id="basic-addon1">m</span>
 			  						</div>
-		  							<input type="text" class="form-control" placeholder="E.G.183" aria-label="height" aria-describedby="basic-addon1" name="patient_height" required/ >
+		  							<input type="text" class="form-control" placeholder="(in Meter)" aria-label="height" aria-describedby="basic-addon1" name="patient_height" required/ >
 									</div>
 								</div>	
 							</div>
@@ -143,20 +143,12 @@ if (!isset($_SESSION['id'])) {
 			  						<div class="input-group-prepend">
 			    					<span class="input-group-text" id="basic-addon1">kg</span>
 			  						</div>
-		  							<input type="text" class="form-control" placeholder="E.G.63" aria-label="height" aria-describedby="basic-addon1" name="patient_weight" required/ >
+		  							<input type="text" class="form-control" placeholder="(in Kg)" aria-label="height" aria-describedby="basic-addon1" name="patient_weight" required/ >
 									</div>
 								</div>	
 							</div>
 						</div>
 
-					  	<div class="form-group">
-							<div class="row">
-								<div class="col-md-8">
-									<label for="exampleInputEmail1">BMI</label>
-							    	<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="bmi" required/>
-								</div>
-							</div>
-						</div>
 						<hr>
 
 					  	<div class="form-group">
@@ -166,6 +158,7 @@ if (!isset($_SESSION['id'])) {
 								</div>
 							</div>
 						</div>
+
 						<div class="form-group row">
 						    <label for="inputPassword" class="col-sm-2 col-form-label">OS No Glasses</label>
 						    <div class="col-sm-4">

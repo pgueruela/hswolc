@@ -11,8 +11,7 @@ if (!isset($_SESSION['id'])) {
 
 $id = $_GET['id'];
 
-$result = $conn->query("SELECT * 
-						FROM patient_pd_tbl WHERE id =  $id ");
+$result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id =  $id ");
 
 $row = mysqli_fetch_assoc($result);
 
@@ -91,7 +90,7 @@ if ($row['gender'] == 'M') {?>
 
 						<div class="row">
 								<div class="col-md-8">
-						    		<input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient temperature number" name="visit_reason" value="Physical Examination" required/>
+						    		<input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="visit_reason" value="Medical Profile" required/>
 								</div>
 						</div>
 

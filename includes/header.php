@@ -11,7 +11,7 @@ session_start();
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
 	<!-- CUSTOM CSS -->
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/another_styles.css">
 	<!-- Data tables -->
 	<link rel="stylesheet" type="text/css" href="assets/css/datatables.min.css">
 </head>

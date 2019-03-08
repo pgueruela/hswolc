@@ -11,7 +11,7 @@ if (!isset($_SESSION['id'])) {
 
 $id = $_GET['id'];
 
-$result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id =  $id ");
+$result = $conn->query("SELECT gender FROM patient_pd_tbl WHERE id =  $id ");
 
 $row = mysqli_fetch_assoc($result);
 
@@ -103,15 +103,15 @@ if ($row['gender'] == 'M') {?>
 							</div>
 				  		</div>
 
-						<div class="form-group">
+							<div class="form-group">
 				 			<div class="row">
 								<div class="col-md-8">
 									<label for="blood-pressure">Height</label>
 									<div class="input-group mb-3">
 			  						<div class="input-group-prepend">
-			    					<span class="input-group-text" id="basic-addon1">cm</span>
+			    					<span class="input-group-text" id="basic-addon1">m</span>
 			  						</div>
-		  							<input type="number" class="form-control" placeholder="E.G.183" aria-label="height" aria-describedby="basic-addon1" name="patient_height" required/>
+		  							<input type="text" class="form-control" placeholder="(in Meter, e.g 1.75)" aria-label="height" aria-describedby="basic-addon1" name="patient_height" required/ >
 									</div>
 								</div>	
 							</div>
@@ -125,20 +125,12 @@ if ($row['gender'] == 'M') {?>
 			  						<div class="input-group-prepend">
 			    					<span class="input-group-text" id="basic-addon1">kg</span>
 			  						</div>
-		  							<input type="number" class="form-control" placeholder="E.G.63" aria-label="height" aria-describedby="basic-addon1" name="patient_weight" required/>
+		  							<input type="text" class="form-control" placeholder="(in Kg, e.g 85)" aria-label="height" aria-describedby="basic-addon1" name="patient_weight" required/ >
 									</div>
 								</div>	
 							</div>
 						</div>
 
-					  	<div class="form-group">
-							<div class="row">
-								<div class="col-md-8">
-									<label for="exampleInputEmail1">BMI</label>
-							    	<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="bmi" required/>
-								</div>
-							</div>
-						</div>
 						<hr>	
 						<div class="form-group">
 					 		<div class="row">
@@ -429,9 +421,9 @@ if ($row['gender'] == 'M') {?>
 									<label for="blood-pressure">Height</label>
 									<div class="input-group mb-3">
 			  						<div class="input-group-prepend">
-			    					<span class="input-group-text" id="basic-addon1">cm</span>
+			    					<span class="input-group-text" id="basic-addon1">m</span>
 			  						</div>
-		  							<input type="number" class="form-control" placeholder="E.G.183" aria-label="height" aria-describedby="basic-addon1" name="patient_height" required/>
+		  							<input type="text" class="form-control" placeholder="(in Meter, e.g 1.75)" aria-label="height" aria-describedby="basic-addon1" name="patient_height" required/ >
 									</div>
 								</div>	
 							</div>
@@ -445,18 +437,9 @@ if ($row['gender'] == 'M') {?>
 			  						<div class="input-group-prepend">
 			    					<span class="input-group-text" id="basic-addon1">kg</span>
 			  						</div>
-		  							<input type="number" class="form-control" placeholder="E.G.63" aria-label="height" aria-describedby="basic-addon1" name="patient_weight" required/>
+		  							<input type="text" class="form-control" placeholder="(in Kg, e.g 85)" aria-label="height" aria-describedby="basic-addon1" name="patient_weight" required/ >
 									</div>
 								</div>	
-							</div>
-						</div>
-
-					  	<div class="form-group">
-							<div class="row">
-								<div class="col-md-8">
-									<label for="exampleInputEmail1">BMI</label>
-							    	<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="bmi">
-								</div>
 							</div>
 						</div>
 						<hr>	

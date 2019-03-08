@@ -1,11 +1,47 @@
 <?php 
 include 'includes/header-img.php';
 include 'includes/header.php';
+ ?>
+<style>
+#magic-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 4px;
+  background: #fff;
+}
+
+.navbar-style {
+  background-color: #005533 !important;
+}
+
+.navbar-style a {
+  color: #fff !important;
+}
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-style">
+	<div class="container">
+	    <ul class="navbar-nav">
+	    	<li class="nav-item active">
+	        <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Home</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="add_account.php"><i class="fas fa-user-plus"></i> Add User</a>
+	      </li>
+	    </ul>
+	</div>
+</nav>
+<div style="margin-bottom: 15px;"></div>
+
+<?php 
+
 include 'includes/db.php';
 
 $id = $_SESSION['id'];
 
-if (!isset($_SESSION['id'])) {
+if (!isset($_SESSION['id']) ) {
 	header("Location: login_account.php");
 	exit();
 }
@@ -15,26 +51,6 @@ $result = $conn->query("SELECT * FROM admin_tbl WHERE id = $id");
 $row = mysqli_fetch_assoc($result);
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-style topnav">
-        <div class="container">
-          <a class="navbar-brand" href="#" style="color: #fff;">HSWOLCIS</a>
-          <div id="navbarNavDropdown" class="navbar-collapse collapse">
-            <ul class="navbar-nav mr-auto">
-                 <li class="nav-item">
-          <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
-        </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="add_account.php"><i class="fas fa-user-plus"></i> Add user</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="process/logout_account_process.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                </li>
-            </ul>
-        </div>
-        </div>
-</nav>
 <div class="container">
 
  	<div class="row">
@@ -44,7 +60,6 @@ $row = mysqli_fetch_assoc($result);
 			    <p style="text-align: center;"><?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname']; ?></p>
 			    <p style="text-align: center"><?php echo $_SESSION['user_type']; ?></p>
 			    <a style="text-align: center" href="modules/edit_user_account.php?id=<?php echo $row['id']; ?>" class="nav-link card-link"><i class="fas fa-user-edit"></i> Edit Profile</a>
-			    <a style="text-align: center" href="modules/changepassword.php?id=<?php echo $row['id']; ?>" class="nav-link card-link"><i class="fas fa-key"></i> Change Password</a>
 			  </div>
 			</div>
 
@@ -59,17 +74,19 @@ $row = mysqli_fetch_assoc($result);
 			    </div>
 
 			    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#patient_accordion">
-			      <div class="card-body">
+			      <div style="text-align: center;" class="card-body">
 			         <ul class="list-group list-group-flush">
-				    	<li class="list-group-item">
-				    		<a class="nav-link" href="modules/add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
-				    	</li>
+			         	<li class="list-group-item">
+							<a class="nav-link" href="modules/view_employee_patient.php"><i class="fas fa-user-tie"></i> View Employee</a>
+						</li>
+				    	
 						<li class="list-group-item">
 							<a class="nav-link" href="modules/view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
 						</li>
+
 						<li class="list-group-item">
-							<a class="nav-link" href="modules/view_employee_patient.php"><i class="fas fa-user-tie"></i> View Employee</a>
-						</li>
+				    		<a class="nav-link" href="modules/add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
+				    	</li>
 			 		 </ul>
 			      </div>
 			    </div>
@@ -81,20 +98,17 @@ $row = mysqli_fetch_assoc($result);
 			    <div class="card-header card-header-side-panel" id="headingOne">
 			      <h5 class="mb-0">
 			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
-			          Reports
+			          User
 			        </button>
 			      </h5>
 			    </div>
 
 			    <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#reports_accordion">
-			      <div class="card-body">
+			      <div style="text-align: center;" class="card-body">
 			        <ul class="list-group list-group-flush">
-				    	<li class="list-group-item"><a class="nav-link" href="../display/view_monthly_report.php">View Monthly Report</a>
+				    	<li class="list-group-item"><a style="text-align: center" href="modules/changepassword.php?id=<?php echo $row['id']; ?>" class="nav-link card-link"><i class="fas fa-key"></i> Change Password</a>
 				    	</li>
-						<li class="list-group-item"><a class="nav-link" href="../display/view_daily_report.php">View Daily Report</a>
-						</li>
-						<li class="list-group-item"><a class="nav-link" href="../display/view_visits_report.php">View Visits Report</a>
-						</li>
+				    	<li class="list-group-item"><a class="nav-link" href="process/logout_account_process.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
 			  		</ul>
 			      </div>
 			    </div>
@@ -153,6 +167,42 @@ $row = mysqli_fetch_assoc($result);
 		$(document).ready( function() {
 		    $('#logs_data').DataTable();
 		});
+
+		//magin-underline
+		$(function() {
+		  var $el,
+		    leftPos,
+		    newWidth,
+		    $mainNav = $(".navbar-nav");
+
+		  $mainNav.append("<li id='magic-line'></li>");
+		  var $magicLine = $("#magic-line");
+
+		  $magicLine
+		    .width($(".active").width())
+		    .css("left", $(".active a").position().left)
+		    .data("origLeft", $magicLine.position().left)
+		    .data("origWidth", $magicLine.width());
+
+		  $(".navbar-nav li a").hover(
+		    function() {
+		      $el = $(this);
+		      leftPos = $el.position().left;
+		      newWidth = $el.parent().width();
+		      $magicLine.stop().animate({
+		        left: leftPos,
+		        width: newWidth
+		      });
+		    },
+		    function() {
+		      $magicLine.stop().animate({
+		        left: $magicLine.data("origLeft"),
+		        width: $magicLine.data("origWidth")
+		      });
+		    }
+		  );
+		});
+
 		</script>
 
 		<?php 

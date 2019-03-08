@@ -1,4 +1,7 @@
 <?php
+
+include 'includes/header.php';
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -13,36 +16,25 @@ if ($conn->connect_error) {
 }  ?>
 
 <form method="post" action="test.php">
-	<label>height</label>
-	<input type="text" name="height">
-	<br>
-	<label>weight</label>
-	<input type="text" name="weight">
-	<br>
-	<input type="submit" name="submit" value="submit">
+
+  <input  type="hidden" name="status" value="1" checked>
+  <input  type="submit" name="submit" value="submit" >
+
 </form>
-<?php  
 
+<?php 
 if (isset($_POST['submit'])) {
+  # code...
+  $status = $_POST['status'];
 
-	$height = $_POST['height'];
-	$weight = $_POST['weight'];
+  $sql = "INSERT INTO test (status)
+  VALUES ($status)";
 
-	$age = $weight/($height*$height);
-
-	$rounded_bmi = round($age);
-	
-	$sql = "INSERT INTO test (age)
-	VALUES ($rounded_bmi)";
-
-	if ($conn->query($sql) === TRUE) {
-	    echo "BMI inserted!";
-	    echo round($age);
-	} else {
-	    echo "Error: " . $sql . "<br>" . $conn->error;
-	}
+  if ($conn->query($sql) === TRUE) {
+      echo "New record created successfully";
+  } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+  }
 
 }
-
-
-?>
+ ?>

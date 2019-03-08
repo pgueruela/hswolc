@@ -25,12 +25,28 @@
 <?php 
 
 include '../includes/db.php';
-
-include '../includes/admin_navigationbar.php';
  ?>
 
- <div class="container">
- 	<?php 
+ <style>
+#magic-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 4px;
+  background: #fff;
+}
+
+.navbar-style {
+  background-color: #005533 !important;
+}
+
+.navbar-style a {
+  color: #fff !important;
+}
+</style>
+
+<?php 
 
  	$id = $_GET['id'];	
 
@@ -38,6 +54,61 @@ include '../includes/admin_navigationbar.php';
 
 	$row = mysqli_fetch_assoc($result); ?>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-style fixed-top">
+  <div class="container">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.php"><i class="fas fa-home"></i> Home</a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="../modules/sidebar_view_patient_profile.php?id=<?php echo $id ?>"> Personal Data</a>
+        </li>
+      </ul>
+  </div>
+</nav>
+
+<div style="margin-bottom: 60px;"></div>
+
+<script>
+    //magin-underline
+    $(function() {
+      var $el,
+        leftPos,
+        newWidth,
+        $mainNav = $(".navbar-nav");
+
+      $mainNav.append("<li id='magic-line'></li>");
+      var $magicLine = $("#magic-line");
+
+      $magicLine
+        .width($(".active").width())
+        .css("left", $(".active a").position().left)
+        .data("origLeft", $magicLine.position().left)
+        .data("origWidth", $magicLine.width());
+
+      $(".navbar-nav li a").hover(
+        function() {
+          $el = $(this);
+          leftPos = $el.position().left;
+          newWidth = $el.parent().width();
+          $magicLine.stop().animate({
+            left: leftPos,
+            width: newWidth
+          });
+        },
+        function() {
+          $magicLine.stop().animate({
+            left: $magicLine.data("origLeft"),
+            width: $magicLine.data("origWidth")
+          });
+        }
+      );
+    });
+
+    </script>
+
+ <div class="container">
 	<div class="row">
 
 	<?php 
@@ -57,9 +128,6 @@ include '../includes/admin_navigationbar.php';
 			    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#patient_accordion">
 			      <div class="card-body">
 			         <ul class="list-group list-group-flush">
-				    	<li class="list-group-item">
-				    		<a class="nav-link" href="sidebar_view_patient_profile.php?id=<?php echo $id ?>"><i class="far fa-user"></i> Personal Data</a>
-				    	</li>
 						<li class="list-group-item">
 							<a class="nav-link" href="../view_patient_profile/consultation.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Consultation Records</a>
 						</li>
@@ -130,9 +198,6 @@ include '../includes/admin_navigationbar.php';
 								<div class="col-md-6">
 									<h5><i class="fas fa-user"></i> Personal Data</h5>
 								</div>
-								<div class="col-md-2 offset-4">
-									<a href="edit_personal_data.php?id=<?php echo $id ?>"><i class="fas fa-edit"></i> Edit</a>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -142,6 +207,8 @@ include '../includes/admin_navigationbar.php';
 			 	<div class="card-body">
  					<div class="row">
  						<div class="col-md-6">
+ 							<p>Status: <?php echo $row['status']; ?></p>
+ 							<hr>
  							<p>Name: <?php echo $row['firstname'] . " ". $row['lastname']; ?></p>
  							<hr>
  							<p>Gender: <?php echo $row['gender']; ?></p>
@@ -150,9 +217,10 @@ include '../includes/admin_navigationbar.php';
 						  	<hr>
 						  	<p>Patient Number : <?php echo $row['patient_number']; ?></p>
 						  	<hr>
-						  	<p>Age: <?php echo $row['age']; ?></p>
  						</div>
  						<div class="col-md-6">
+ 							<p>Age: <?php echo $row['age']; ?></p>
+ 							<hr>
  							<p>Department : <?php echo $row['department']; ?></p>
  							<hr>
 						  	<p>Position: <?php echo $row['position']; ?></p>
@@ -160,6 +228,7 @@ include '../includes/admin_navigationbar.php';
 						  	<p>Civil Status: <?php echo $row['civil_status']; ?></p>
 						  	<hr>
 						  	<p>Blood Type: <?php echo $row['blood_type']; ?></p>
+						  	<hr>
  						</div>
  					</div>
  					<div class="row">
@@ -169,6 +238,11 @@ include '../includes/admin_navigationbar.php';
  							<hr>
  							<p>Contact #: <?php echo $row['person_contact_emergency_number']; ?></p>
  						</div>
+ 					</div>
+ 					<div class="row">
+ 						<div class="col-md-2 offset-10">
+							<a href="edit_personal_data.php?id=<?php echo $id ?>"><i class="fas fa-edit"></i> Edit</a>
+						</div>
  					</div>
  				</div>
 			</div>

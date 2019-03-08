@@ -121,7 +121,7 @@ if (!isset($_SESSION['id'])) {
 								</div>
 							</div>
 						</div>
-						<div class="form-group">
+							<div class="form-group">
 				 			<div class="row">
 								<div class="col-md-8">
 									<label for="blood-pressure">Height</label>
@@ -129,7 +129,7 @@ if (!isset($_SESSION['id'])) {
 			  						<div class="input-group-prepend">
 			    					<span class="input-group-text" id="basic-addon1">m</span>
 			  						</div>
-		  							<input type="text" class="form-control" placeholder="(in Meter)" aria-label="height" aria-describedby="basic-addon1" name="patient_height" required/ >
+		  							<input type="text" class="form-control" placeholder="(in Meter, e.g 1.75)" aria-label="height" aria-describedby="basic-addon1" name="patient_height" required/ >
 									</div>
 								</div>	
 							</div>
@@ -143,7 +143,7 @@ if (!isset($_SESSION['id'])) {
 			  						<div class="input-group-prepend">
 			    					<span class="input-group-text" id="basic-addon1">kg</span>
 			  						</div>
-		  							<input type="text" class="form-control" placeholder="(in Kg)" aria-label="height" aria-describedby="basic-addon1" name="patient_weight" required/ >
+		  							<input type="text" class="form-control" placeholder="(in Kg, e.g 85)" aria-label="height" aria-describedby="basic-addon1" name="patient_weight" required/ >
 									</div>
 								</div>	
 							</div>
@@ -219,22 +219,7 @@ if (!isset($_SESSION['id'])) {
 											</div>
 											<input class="form control col-sm-4" type="text" name="skin_abnormal"  id="input_four">
 
-											<script>
-												$('#input_three').click(function()
-													{
-													  $('#input_four').removeAttr("disabled");
-													});
-
-													$('#input_one').click(function()
-													{
-													  $('#input_four').attr("disabled","disabled");
-													});
-
-													$('#input_two').click(function()
-													{
-													  $('#input_four').attr("disabled","disabled");
-													});
-											</script>
+								
 										
 											
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Nose</label>
@@ -252,23 +237,7 @@ if (!isset($_SESSION['id'])) {
 											</div>
 											<input class="form control col-sm-4" type="" name="nose_abnormal"  id="input_eight">
 
-											<script>
-												$('#input_seven').click(function()
-													{
-													  $('#input_eight').removeAttr("disabled");
-													});
-
-													$('#input_five').click(function()
-													{
-													  $('#input_eight').attr("disabled","disabled");
-													});
-
-													$('#input_six').click(function()
-													{
-													  $('#input_eight').attr("disabled","disabled");
-													});
-											</script>
-										
+											
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Mouth</label>
 											<div class="form-check form-check-inline">
@@ -285,24 +254,7 @@ if (!isset($_SESSION['id'])) {
 											</div>
 											<input class="form control col-sm-4" type="text" name="mouth_abnormal"  id="12" >
 
-											<script>
-												$('#11').click(function()
-													{
-													  $('#12').removeAttr("disabled");
-													});
-
-													$('#9').click(function()
-													{
-													  $('#12').attr("disabled","disabled");
-													});
-
-													$('#10').click(function()
-													{
-													  $('#12').attr("disabled","disabled");
-													});
-											</script>
-
-
+											
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Pharynx</label>
 											<div class="form-check form-check-inline">
 											  <input class="form-check-input" type="radio" id="13" name="pharynx"  value="Normal"   checked/>
@@ -318,22 +270,7 @@ if (!isset($_SESSION['id'])) {
 											</div>
 											<input class="form control col-sm-4" type="text" name="pharynx_abnormal" id="16">
 
-											<script>
-												$('#15').click(function()
-													{
-													  $('#16').removeAttr("disabled");
-													});
-
-													$('#9').click(function()
-													{
-													  $('#13').attr("disabled","disabled");
-													});
-
-													$('#14').click(function()
-													{
-													  $('#16').attr("disabled","disabled");
-													});
-											</script>
+										
 
 										
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Tonsils</label>
@@ -351,23 +288,7 @@ if (!isset($_SESSION['id'])) {
 											</div>
 											<input class="form control col-sm-4" type="text" name="tonsil_abnormal" id="20">
 
-											<script>
-												$('#19').click(function()
-													{
-													  $('#20').removeAttr("disabled");
-													});
-
-													$('#17').click(function()
-													{
-													  $('#20').attr("disabled","disabled");
-													});
-
-													$('#18').click(function()
-													{
-													  $('#20').attr("disabled","disabled");
-													});
-											</script>
-
+									
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Gums</label>
 											<div class="form-check form-check-inline">
 											  <input class="form-check-input" type="radio" id="21" name="gums"  value="Normal"   checked/>
@@ -383,22 +304,7 @@ if (!isset($_SESSION['id'])) {
 											</div>
 											<input class="form control col-sm-4" type="text" name="gums_abnormal" id="24">
 
-											<script>
-												$('#23').click(function()
-													{
-													  $('#24').removeAttr("disabled");
-													});
-
-													$('#21').click(function()
-													{
-													  $('#24').attr("disabled","disabled");
-													});
-
-													$('#22').click(function()
-													{
-													  $('#24').attr("disabled","disabled");
-													});
-											</script>
+									
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Lymph</label>
 											<div class="form-check form-check-inline">
@@ -415,23 +321,7 @@ if (!isset($_SESSION['id'])) {
 											</div>
 											<input class="form control col-sm-4" type="text" name="lymph_nodes_abnormal" id="28">
 
-											<script>
-												$('#27').click(function()
-													{
-													  $('#28').removeAttr("disabled");
-													});
-
-													$('#25').click(function()
-													{
-													  $('#28').attr("disabled","disabled");
-													});
-
-													$('#26').click(function()
-													{
-													  $('#28').attr("disabled","disabled");
-													});
-											</script>
-
+										
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Neck</label>
 											<div class="form-check form-check-inline">
 											  <input class="form-check-input" type="radio" id="29" name="neck"  value="Normal"   checked/>
@@ -447,23 +337,7 @@ if (!isset($_SESSION['id'])) {
 											</div>
 											<input class="form control col-sm-4" type="text" name="neck_abnormal" id="32">
 
-												<script>
-												$('#31').click(function()
-													{
-													  $('#32').removeAttr("disabled");
-													});
-
-													$('#29').click(function()
-													{
-													  $('#32').attr("disabled","disabled");
-													});
-
-													$('#30').click(function()
-													{
-													  $('#32').attr("disabled","disabled");
-													});
-											</script>
-
+											
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Chest</label>
 											<div class="form-check form-check-inline">
@@ -480,22 +354,7 @@ if (!isset($_SESSION['id'])) {
 											</div>
 											<input class="form control col-sm-4" type="text" name="chest_abnormal" id="36">
 
-											<script>
-												$('#35').click(function()
-													{
-													  $('#36').removeAttr("disabled");
-													});
-
-													$('#33').click(function()
-													{
-													  $('#36').attr("disabled","disabled");
-													});
-
-													$('#34').click(function()
-													{
-													  $('#36').attr("disabled","disabled");
-													});
-											</script>
+										
 									</div>
 
 										<div class="col-md-6">	
@@ -514,22 +373,6 @@ if (!isset($_SESSION['id'])) {
 											</div>
 											<input class="form control col-sm-4" type="text" name="lungs_abnormal" id="40">
 
-											<script>
-												$('#39').click(function()
-													{
-													  $('#40').removeAttr("disabled");
-													});
-
-													$('#37').click(function()
-													{
-													  $('#40').attr("disabled","disabled");
-													});
-
-													$('#38').click(function()
-													{
-													  $('#40').attr("disabled","disabled");
-													});
-											</script>
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Heart</label>
 											<div class="form-check form-check-inline">
@@ -546,22 +389,6 @@ if (!isset($_SESSION['id'])) {
 											</div>
 											<input class="form control col-sm-4" type="text" name="heart_abnormal" id="44">
 
-											<script>
-												$('#43').click(function()
-													{
-													  $('#44').removeAttr("disabled");
-													});
-
-													$('#41').click(function()
-													{
-													  $('#44').attr("disabled","disabled");
-													});
-
-													$('#42').click(function()
-													{
-													  $('#44').attr("disabled","disabled");
-													});
-											</script>
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Abdomen</label>
 											<div class="form-check form-check-inline">
@@ -578,23 +405,6 @@ if (!isset($_SESSION['id'])) {
 											</div>
 											<input class="form control col-sm-4" type="text" name="abdomen_abnormal" id="48">
 
-											<script>
-												$('#47').click(function()
-													{
-													  $('#48').removeAttr("disabled");
-													});
-
-													$('#45').click(function()
-													{
-													  $('#48').attr("disabled","disabled");
-													});
-
-													$('#46').click(function()
-													{
-													  $('#48').attr("disabled","disabled");
-													});
-											</script>
-
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Rectum</label>
 											<div class="form-check form-check-inline">
 											  <input class="form-check-input" type="radio" id="49" name="rectum"  value="Normal"   checked/>
@@ -610,23 +420,6 @@ if (!isset($_SESSION['id'])) {
 											</div>
 											<input class="form control col-sm-4" type="" name="rectum_abnormal" id="52" >
 
-											<script>
-												$('#51').click(function()
-													{
-													  $('#52').removeAttr("disabled");
-													});
-
-													$('#50').click(function()
-													{
-													  $('#52').attr("disabled","disabled");
-													});
-
-													$('#49').click(function()
-													{
-													  $('#52').attr("disabled","disabled");
-													});
-											</script>
-										
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Genitalia</label>
 											<div class="form-check form-check-inline">
 											  <input class="form-check-input" type="radio" id="53" name="genitalia"  value="Normal"   checked/>
@@ -643,23 +436,6 @@ if (!isset($_SESSION['id'])) {
 											<input class="form control col-sm-4" type="" name="genitalia_abnormal" id="56">
 
 
-											<script>
-												$('#55').click(function()
-													{
-													  $('#56').removeAttr("disabled");
-													});
-
-													$('#53').click(function()
-													{
-													  $('#56').attr("disabled","disabled");
-													});
-
-													$('#54').click(function()
-													{
-													  $('#56').attr("disabled","disabled");
-													});
-											</script>
-
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Spine</label>
 											<div class="form-check form-check-inline">
 											  <input class="form-check-input" type="radio" id="57" name="spine"  value="Normal"   checked/>
@@ -674,23 +450,6 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="inlineradio3">A</label>
 											</div>
 											<input class="form control col-sm-4" type="" name="spine_abnormal" id="60">
-
-											<script>
-												$('#59').click(function()
-													{
-													  $('#60').removeAttr("disabled");
-													});
-
-													$('#57').click(function()
-													{
-													  $('#60').attr("disabled","disabled");
-													});
-
-													$('#58').click(function()
-													{
-													  $('#60').attr("disabled","disabled");
-													});
-											</script>
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Arms</label>
 											<div class="form-check form-check-inline">
@@ -707,22 +466,6 @@ if (!isset($_SESSION['id'])) {
 											</div>
 											<input class="form control col-sm-4" type="" name="arms_abnormal"  id="64">
 
-											<script>
-												$('#63').click(function()
-													{
-													  $('#64').removeAttr("disabled");
-													});
-
-													$('#61').click(function()
-													{
-													  $('#64').attr("disabled","disabled");
-													});
-
-													$('#62').click(function()
-													{
-													  $('#64').attr("disabled","disabled");
-													});
-											</script>
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Legs</label>
 											<div class="form-check form-check-inline">
@@ -739,22 +482,6 @@ if (!isset($_SESSION['id'])) {
 											</div>
 											<input class="form control col-sm-4" type="" name="legs_abnormal"  id="68">
 
-											<script>
-												$('#67').click(function()
-													{
-													  $('#68').removeAttr("disabled");
-													});
-
-													$('#65').click(function()
-													{
-													  $('#68').attr("disabled","disabled");
-													});
-
-													$('#66').click(function()
-													{
-													  $('#68').attr("disabled","disabled");
-													});
-											</script>
 
 											<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Feet</label>
 											<div class="form-check form-check-inline">
@@ -770,23 +497,6 @@ if (!isset($_SESSION['id'])) {
 											  <label class="form-check-label" for="input_disabled">A</label>
 											</div>
 											<input class="form control col-sm-4" type="text" name="feet_abnormal" id="72">
-
-												<script>
-												$('#71').click(function()
-													{
-													  $('#72').removeAttr("disabled");
-													});
-
-													$('#69').click(function()
-													{
-													  $('#72').attr("disabled","disabled");
-													});
-
-													$('#70').click(function()
-													{
-													  $('#72').attr("disabled","disabled");
-													});
-											</script>
 									</div>
 								</div>
 							</div>
@@ -880,7 +590,7 @@ if (!isset($_SESSION['id'])) {
 
 						<div class="row">
 				  			<div class="col-md-8">
-				  				<button type="submit" class="btn btn-primary" name="add_physical_examination" required/> Add</button>
+				  				<button type="submit" class="btn btn-success" name="add_physical_examination" required/> Add</button>
 				  			</div>
 				  		</div>
 					</form>

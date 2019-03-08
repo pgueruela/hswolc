@@ -126,7 +126,7 @@ $row = mysqli_fetch_assoc($result);
 				</div>
 				<div class="col-md-4 offset-2">
 					<p>SEX: <b><?php echo $row['gender']; ?></b></p>
-					<p>AGE: <b><?php echo $row['birthdate']; ?></b> </p>
+					<p>AGE: <b><?php echo $row['age']; ?></b> </p>
 					<p>STATUS: <b><?php echo $row['civil_status']; ?></b></p>
 				</div>
 			</div>
@@ -145,7 +145,7 @@ $row = mysqli_fetch_assoc($result);
 				</div>
 			</div>
 			<hr>
-			<div>
+			<div style="line-height: 15px;">
 				<div class="row">
 					<div class="col-md-10 offset-2">
 						<p>MEDICAL HISTORY:<b><?php echo $row['medical_history']; ?></b></p>
@@ -165,17 +165,17 @@ $row = mysqli_fetch_assoc($result);
 				<hr>
 			</div>
 
-			<div class="">
+			<div style="line-height: 15px;">
  				<div class="row">
  					<div class="col-md-10 offset-2">
- 						<p>DO YOU PRACTICE SELF-BREAST EXAM?<b><?php echo $row['self_breast_exam']; ?></b></p>
- 						<p>HOW OFTEN?<b><?php echo $row['how_often']; ?></b></p>
- 						<p>HAD YOU HAD MAMMOGRAPHY<b><?php echo $row['mammography']; ?></b></p>
- 						<p>ARE YOU PREGNANT<b><?php echo $row['pregnant']; ?></b></p>
- 						<p>(if YES, how many month?)<b><?php echo $row['month_pregnant']; ?></b></p>
- 						<p>(if NO, are you using any contraceptive/s)<b><?php echo $row['contraceptives']; ?></b></p>
+ 						<p>DO YOU PRACTICE SELF-BREAST EXAM?<b> <?php echo $row['self_breast_exam']; ?></b></p>
+ 						<p>HOW OFTEN?<b> <?php echo $row['how_often']; ?></b></p>
+ 						<p>HAD YOU HAD MAMMOGRAPHY? <b> <?php echo $row['mammography']; ?></b></p>
+ 						<p>ARE YOU PREGNANT? <b> <?php echo $row['pregnant']; ?></b></p>
+ 						<p>(if YES, how many month?) <b><?php echo $row['month_pregnant']; ?></b></p>
+ 						<p>(if NO, are you using any contraceptive/s)<b> <?php echo $row['contraceptives']; ?></b></p>
  						<p>WHAT METHOD DO YOU USE? <b><?php echo $row['method']; ?></b></p>
- 						<p>NUMBER OF PREGNANCIES <b><?php echo $row['number_pregnancies']; ?></b></p>
+ 						<p>NUMBER OF PREGNANCIES: <b> <?php echo $row['number_pregnancies']; ?></b></p>
  						<p>HAVE YOU HAD ANY ABORTED PREGNANICES? <b><?php echo $row['number_pregnancies']; ?></b></p>
  						<p>REASON/S: <b><?php echo $row['reasons']; ?></b></p>
  					</div>

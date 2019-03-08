@@ -6,6 +6,7 @@ session_start();
 <head>
   <title>Health Services and Wealth Office Lorma Colleges Carlatan Campus</title>
   <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
 
@@ -14,44 +15,52 @@ session_start();
 
 <style>
 
-  #magic-line {
+#magic-line {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100px;
   height: 4px;
-  background: #fe4902;
+  background: #fff;
+}
+
+.navbar-style {
+  background-color: #005533 !important;
+}
+
+.navbar-style a {
+  color: #fff !important;
 }
 
 </style>
 <!-- JQUERY -->
 <script src="../assets/js/jquery-3.3.1.min.js"></script>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-style">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <form class="form-inline my-2 my-lg-0">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link" href="#">Register</a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link" href="#">Logout</a>
-          </li>
-       </ul>
-    </form>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="">HSWOLC</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fas fa-user"></i> Add User</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </li>
+    </ul>
   </div>
-    </div>
 </nav>
-    <div style="margin-bottom: 60px;"></div>
+<div style="margin-bottom: 60px;"></div>
 
 <script type="">
   $(function() {

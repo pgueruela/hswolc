@@ -1,11 +1,3 @@
-<div class="container-fluid header">
-	<div class="row">
-		<div class="col-md-12">
-			<img src="../assets/img/lormacolleges_logo.png" width="215"
-    height="60">
-		</div>
-	</div>
-</div>
 <?php 
 include '../header-include.php';
 include '../includes/admin_navigationbar.php';

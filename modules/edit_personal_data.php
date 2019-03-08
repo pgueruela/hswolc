@@ -105,7 +105,7 @@ $result1 = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 		$row = mysqli_fetch_assoc($result);
 
 		 if (isset($_POST['update_data'])) {
-
+		 	$status = $_POST['status'];
 			$firstname = $_POST['firstname'];
 			$lastname = $_POST['lastname'];
 			$address = $_POST['patient_address'];
@@ -117,7 +117,7 @@ $result1 = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 			$department = $_POST['department'];
 			$civil_status = $_POST['civil_status'];
 			
-			$sql = "UPDATE patient_pd_tbl SET firstname = '$firstname', lastname = '$lastname', patient_address = '$address', gender = '$gender', patient_number = $patient_number, position = '$position', department = '$department', civil_status = '$civil_status', contact_person = '$contact_person', person_contact_emergency_number = $person_contact_emergency_number WHERE id=$id ";
+			$sql = "UPDATE patient_pd_tbl SET status= '$status', firstname = '$firstname', lastname = '$lastname', patient_address = '$address', gender = '$gender', patient_number = $patient_number, position = '$position', department = '$department', civil_status = '$civil_status', contact_person = '$contact_person', person_contact_emergency_number = $person_contact_emergency_number WHERE id=$id ";
 
 
 			if ($conn->query($sql) === TRUE) {
@@ -139,6 +139,27 @@ $result1 = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 				</div>
 			<hr>
 			<div class="form-group">
+
+							<fieldset class="form-group">
+							    <div class="row">
+							      <legend class="col-form-label col-sm-2 pt-0">Status</legend>
+							      <div class="col-sm-10">
+							        <div class="form-check">
+							          <input class="form-check-input" type="radio" name="status" value="Active" <?php if ($row['status'] != "Inactive" ) echo "checked"; ?> >
+							          <label class="form-check-label" for="gridRadios1">
+							            Active
+							          </label>	
+							        </div>
+							        <div class="form-check">
+							          <input class="form-check-input" type="radio" name="status" value="Inactive"  <?php if ($row['status']== "Inactive") echo "checked"; ?>>
+							          <label class="form-check-label" for="gridRadios2">
+							            Inactive
+							          </label>
+							        </div>
+							      </div>
+							    </div>
+							  </fieldset>
+<hr>
 					 			<div class="row">
 									<div class="col-md-8">
 										<label for="firstname">Firstname</label>

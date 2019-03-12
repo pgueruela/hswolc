@@ -98,7 +98,7 @@ $row = mysqli_fetch_assoc($result);
 			    <div class="card-header card-header-side-panel" id="headingOne">
 			      <h5 class="mb-0">
 			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
-			          User
+			          Account
 			        </button>
 			      </h5>
 			    </div>

@@ -24,7 +24,7 @@ if (!isset($_SESSION['id'])) {
 			    </div>
 
 			    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#patient_accordion">
-			      <div class="card-body">
+			      <div style="text-align: center;" class="card-body">
 			         <ul class="list-group list-group-flush">
 				    	<li class="list-group-item">
 				    		<a class="nav-link" href="../modules/add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
@@ -36,31 +36,6 @@ if (!isset($_SESSION['id'])) {
 							<a class="nav-link" href="../modules/view_employee_patient.php"><i class="fas fa-user-tie"></i> View Employee</a>
 						</li>
 			 		 </ul>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-
-			<div class="accordion" id="reports_accordion" aria-expanded="false">
-			  <div class="card">
-			    <div class="card-header card-header-side-panel" id="headingOne">
-			      <h5 class="mb-0">
-			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
-			          Reports
-			        </button>
-			      </h5>
-			    </div>
-
-			    <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#reports_accordion">
-			      <div class="card-body">
-			        <ul class="list-group list-group-flush">
-				    	<li class="list-group-item"><a class="nav-link" href="../display/view_monthly_report.php">View Monthly Report</a>
-				    	</li>
-						<li class="list-group-item"><a class="nav-link" href="../display/view_daily_report.php">View Daily Report</a>
-						</li>
-						<li class="list-group-item"><a class="nav-link" href="../display/view_visits_report.php">View Visits Report</a>
-						</li>
-			  		</ul>
 			      </div>
 			    </div>
 			  </div>
@@ -193,7 +168,7 @@ if (!isset($_SESSION['id'])) {
 
 						<div class="row">
 				  			<div class="col-md-8">
-				  				<button type="submit" class="btn btn-primary" name="add_consultation_patient">Add Consultation</button>
+				  				<button type="submit" class="btn btn-success" name="add_consultation_patient">Add Consultation</button>
 				  		</div>
 					</form>
 				</div>

@@ -113,7 +113,7 @@ include '../header-include.php';
 		<?php
 		$id= $_SESSION['id'];
 
-		$result = $conn->query("SELECT firstname, lastname FROM admin_tbl WHERE id=$id");
+		$result = $conn->query("SELECT firstname, lastname, username FROM admin_tbl WHERE id=$id");
 
 		$row = mysqli_fetch_assoc($result);
 
@@ -121,8 +121,9 @@ include '../header-include.php';
 		if (isset($_POST['save_changes'])) {
 				 	$firstname = $_POST['firstname'];
 				 	$lastname = $_POST['lastname'];
+				 	$username = $_POST['username'];
 
-					$sql = "UPDATE admin_tbl SET firstname = '$firstname', lastname = '$lastname' WHERE id=$id ";
+					$sql = "UPDATE admin_tbl SET firstname = '$firstname', lastname = '$lastname', username = '$username' WHERE id=$id ";
 					if ($conn->query($sql) === TRUE) {
 							echo "<script>alert('Updated Successfully!');</script>";
 			}
@@ -158,6 +159,14 @@ include '../header-include.php';
 											<div class="col-md-8">
 												<label for="exampleInputEmail1">Lastname</label>
 								    <input type="text" class="form-control" placeholder="Enter email" name="lastname" value="<?php echo $row['lastname']; ?>" required/>
+											</div>
+										</div>
+								  </div> 
+								  <div class="form-group">
+								 		<div class="row">
+											<div class="col-md-8">
+												<label for="exampleInputEmail1">Username</label>
+								    <input type="text" class="form-control" placeholder="Enter email" name="username" value="<?php echo $row['username']; ?>" required/>
 											</div>
 										</div>
 								  </div>

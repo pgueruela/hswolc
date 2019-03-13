@@ -23,7 +23,7 @@ include_once '../includes/db.php';
 	$civil_status = $_POST['civil_status'];
 	$blood_type = $_POST['blood_type'];
 	
-	$sql = "INSERT INTO patient_pd_tbl (status,firstname, lastname, gender, patient_address, age, patient_number, contact_person, person_contact_emergency_number, position, department, civil_status,blood_type) VALUES($status,'$firstname', '$lastname', '$gender', '$address', $age, $patient_number,  '$contact_person', '$person_contact_emergency_number','$position', '$department','$civil_status','$blood_type');";
+	$sql = "INSERT INTO patient_pd_tbl (status,firstname, lastname, gender, patient_address, age, patient_number, contact_person, person_contact_emergency_number, position, department, civil_status,blood_type) VALUES('$status','$firstname', '$lastname', '$gender', '$address', $age, $patient_number,  '$contact_person', '$person_contact_emergency_number','$position', '$department','$civil_status','$blood_type');";
 
 
 	if ($conn->query($sql) === TRUE) {

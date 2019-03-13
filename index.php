@@ -127,7 +127,9 @@ $row = mysqli_fetch_assoc($result);
 			</div>
 		<?php 
 
-		$query = "SELECT pt.id, pt.firstname, pt.lastname, vt.patient_id, vt.visit_reason, vt.date_recorded, vt.assesed_by FROM patient_pd_tbl as pt, visit_tbl as vt WHERE pt.id=vt.patient_id ORDER BY vt.id DESC";
+		$query = "SELECT vt.*, pt.* FROM visit_tbl as vt
+						LEFT JOIN patient_pd_tbl AS pt
+						ON vt.patient_id = pt.id";
 		$result = mysqli_query($conn, $query);?>
 			<!-- Table -->
 			<div>
@@ -163,8 +165,12 @@ $row = mysqli_fetch_assoc($result);
 		</div>
 
 		<script>
+		//Data Table
+		
 		$(document).ready( function() {
-		    $('#logs_data').DataTable();
+		    $('#logs_data').DataTable({
+		    	"order": [[ 3, "desc" ]]
+		    });
 		});
 
 		//magin-underline

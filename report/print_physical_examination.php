@@ -5,9 +5,9 @@ include '../includes/db.php';
 $id = $_GET['id'];
 
 $result = $conn->query("SELECT phy.*, pt.* FROM physical_examination_tbl as phy
-LEFT JOIN patient_pd_tbl AS pt
-ON phy.patient_id = pt.id
-WHERE phy.id = $id ");
+						LEFT JOIN patient_pd_tbl AS pt
+						ON phy.patient_id = pt.id
+						WHERE phy.id = $id ");
 
 $row = mysqli_fetch_assoc($result);
 ?>

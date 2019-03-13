@@ -13,5 +13,4 @@
  				<br>
  				<small>Lorma Colleges | IT Services <a href="gmail:itservices@lorma.edu">< itservices@lorma.edu ></a></small>
  			</div>
- 		</div>
- </div>
+ 		</div

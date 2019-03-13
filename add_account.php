@@ -31,6 +31,7 @@ include 'process/add_account_process.php';
 	      </li>
 	      <li class="nav-item active">
 	        <a class="nav-link" href="add_account.php"><i class="fas fa-user-plus"></i> Add User</a>
+
 	      </li>
 	    </ul>
 	</div>
@@ -60,10 +61,13 @@ include 'process/add_account_process.php';
 						<li class="list-group-item">
 							<a class="nav-link" href="modules/view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
 						</li>
+<<<<<<< HEAD
 
 						<li class="list-group-item">
 				    		<a class="nav-link" href="modules/add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
 				    	</li>
+=======
+>>>>>>> 34525678ef9b3c7cce1958f17bcbf6f36a412dd0
 			 		 </ul>
 			      </div>
 			    </div>

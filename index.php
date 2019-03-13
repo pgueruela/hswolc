@@ -1,5 +1,4 @@
 <?php 
-include 'includes/header-img.php';
 include 'includes/header.php';
  ?>
 <style>
@@ -21,7 +20,7 @@ include 'includes/header.php';
 }
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-style">
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-style fixed-top">
 	<div class="container">
 	    <ul class="navbar-nav">
 	    	<li class="nav-item active">
@@ -33,7 +32,7 @@ include 'includes/header.php';
 	    </ul>
 	</div>
 </nav>
-<div style="margin-bottom: 15px;"></div>
+<div style="margin-bottom: 60px;"></div>
 
 <?php 
 
@@ -205,6 +204,20 @@ $row = mysqli_fetch_assoc($result);
 
 		</script>
 
-		<?php 
-		include 'includes/footer.php';
-		 ?>
+		 <div class="container">
+ 		<div class="row">
+ 			<div class="col-md-9 offset-3">
+ 				<hr>
+ 			</div>
+ 		</div>
+ 		<div class="row">
+ 			<div class="col-md-3 offset-3">
+ 				<img src="assets/img/lormacolleges_logo.png" height="50" width="250">
+ 			</div>
+ 			<div style="margin:auto;text-align: center; font-size: 13px;" class="col-md-6">
+ 				<small>Copyright &copy; 2019 Health Services and Wealth Office Lorma Colleges Information System.</small>
+ 				<br>
+ 				<small>Lorma Colleges | IT Services <a href="gmail:itservices@lorma.edu">< itservices@lorma.edu ></a></small>
+ 			</div>
+ 		</div>
+ </div>

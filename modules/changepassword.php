@@ -113,9 +113,11 @@ include '../includes/db.php';
 						echo "<script> alert('Password has been reset!');</script>";
 					}
 					else{
-						echo "Error: " . $sql . "<br>" . $conn->error;
+						echo "<script> alert('Wrong password!');</script>";
 					}
-			}
+				}else {
+					echo "<script> alert('Wrong password!');</script>";
+				}
 
 		}
 	}

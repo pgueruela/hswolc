@@ -15,6 +15,7 @@ $id = $_GET['id'];
 	$bmi = $patient_weight / ($patient_height*$patient_height); 
 
 	$medical_history = $_POST['medical_history'];
+	$past_illness = $_POST['past_illness'];
 	$hospitalization_history = $_POST['hospitalization_history'];
 	$currently_taking_drugs = $_POST['currently_taking_drugs'];
 	$drug_name = $_POST['drug_name'];
@@ -38,9 +39,9 @@ $id = $_GET['id'];
 	$aborted_pregnancies = $_POST['aborted_pregnancies'];
 	$assesed_by = $_POST['assesed_by'];
 
-	$sql = "INSERT INTO employee_medical_profile (patient_id, blood_pressure, patient_height, patient_weight, bmi, currently_taking_drugs, hospitalization_history, drug_name, why_taking_drugs, allergies_to_drugs, name_drug, family_doctor, doctor_name,doctor_add, doctor_num, blood_donor, self_breast_exam, how_often, mammography, pregnant, month_pregnant, contraceptives, method, number_pregnancies, reasons, aborted_pregnancies, assesed_by )
+	$sql = "INSERT INTO employee_medical_profile (patient_id, blood_pressure, patient_height, patient_weight, bmi, medical_history , past_illness, hospitalization_history, currently_taking_drugs, drug_name, why_taking_drugs, allergies_to_drugs, name_drug, family_doctor, doctor_name,doctor_add, doctor_num, blood_donor, self_breast_exam, how_often, mammography, pregnant, month_pregnant, contraceptives, method, number_pregnancies, reasons, aborted_pregnancies, assesed_by )
 
-		VALUES($id, '$blood_pressure', $patient_height, $patient_weight, $bmi, '$currently_taking_drugs', '$hospitalization_history','$drug_name', '$why_taking_drugs', '$allergies_to_drugs', '$name_drug','$family_doctor', '$doctor_name','$doctor_add', '$doctor_num', '$blood_donor', '$self_breast_exam','$how_often', '$mammography', '$pregnant', '$month_pregnant', '$contraceptives' , '$method', '$number_pregnancies', '$reasons', '$aborted_pregnancies', '$assesed_by' );";
+		VALUES($id, '$blood_pressure', $patient_height, $patient_weight, $bmi, '$medical_history',  '$past_illness','$hospitalization_history', '$currently_taking_drugs','$drug_name', '$why_taking_drugs', '$allergies_to_drugs', '$name_drug','$family_doctor', '$doctor_name','$doctor_add', '$doctor_num', '$blood_donor', '$self_breast_exam','$how_often', '$mammography', '$pregnant', '$month_pregnant', '$contraceptives' , '$method', '$number_pregnancies', '$reasons', '$aborted_pregnancies', '$assesed_by' );";
 	$sql .= "INSERT INTO visit_tbl (patient_id, visit_reason,assesed_by, date_recorded) VALUES ($id, '$visit_reason', '$assesed_by', now())";
 
 	if ($conn->multi_query($sql) === TRUE) {

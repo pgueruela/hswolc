@@ -100,7 +100,7 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 			    <div class="card-header card-header-side-panel" id="headingOne">
 			      <h5 class="mb-0">
 			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-			          Patient Informations
+			          Records
 			        </button>
 			      </h5>
 			    </div>
@@ -108,21 +108,52 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 			    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#patient_accordion">
 			      <div class="card-body">
 			         <ul class="list-group list-group-flush">
-				    	<li class="list-group-item">
-				    		<a class="nav-link" href="../modules/sidebar_view_patient_profile.php?id=<?php echo $id ?>"><i class="far fa-user"></i> Personal Data</a>
+			         	 <li class="list-group-item">
+			                <a class="nav-link" href="../modules/sidebar_view_patient_profile.php?id=<?php echo $id ?>"><i class="far fa-user"></i> Personal Data</a>
+			             </li>
+						<li class="list-group-item">
+							<a class="nav-link" href="consultation.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Consultation Records</a>
+						</li>
+
+						<li class="list-group-item">
+							<a class="nav-link" href="consultation.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Physical Records</a>
+						</li>
+						<li class="list-group-item">
+							<a class="nav-link" href="medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
+						</li>
+						<li class="list-group-item">
+							<a class="nav-link" href="medical_certificate.php?id=<?php echo $id ?>"><i class="fas fa-certificate"></i> Medical Certificate</a>	
+						</li>
+			 		 </ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="accordion" id="dashboard_accordion">
+			  <div class="card card-side-panel">
+			    <div class="card-header card-header-side-panel" id="headingOne">
+		 	      <h5 class="mb-0">
+			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="" aria-controls="collapseTwo">
+			          Dashboard
+			        </button>
+			      </h5>
+			    </div>
+
+			    <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#dashboard_accordion">
+			      <div style="text-align: center;" class="card-body">
+			         <ul class="list-group list-group-flush">
+			         	<li class="list-group-item">
+							<a class="nav-link" href="../modules/view_employee_patient.php"><i class="fas fa-user-tie"></i> View Employee</a>
+						</li>
+				    	
+						<li class="list-group-item">
+							<a class="nav-link" href="../modules/view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
+						</li>
+
+						<li class="list-group-item">
+				    		<a class="nav-link" href="../modules/add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
 				    	</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/consultation.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Consultation Records</a>
-						</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Physical Records</a>	
-						</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
-						</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/medical_certificate.php?id=<?php echo $id ?>"><i class="fas fa-certificate"></i> Medical Certificate</a>	
-						</li>
 			 		 </ul>
 			      </div>
 			    </div>
@@ -131,13 +162,13 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 		</div>
 	<?php
 	}else{ ?>
-		<div class="col-md-3 side-panel">
+				<div class="col-md-3 side-panel">
 			<div class="accordion" id="patient_accordion" aria-expanded="true">
 			  <div class="card card-side-panel">
 			    <div class="card-header card-header-side-panel" id="headingOne">
 			      <h5 class="mb-0">
 			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-			          Patient Informations
+			          Records
 			        </button>
 			      </h5>
 			    </div>
@@ -145,21 +176,52 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 			    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#patient_accordion">
 			      <div class="card-body">
 			         <ul class="list-group list-group-flush">
-				    	<li class="list-group-item">
-				    		<a class="nav-link" href="../modules/sidebar_view_patient_profile.php?id=<?php echo $id ?>"><i class="far fa-user"></i> Personal Data</a>
+			         	 <li class="list-group-item">
+			                <a class="nav-link" href="../modules/sidebar_view_patient_profile.php?id=<?php echo $id ?>"><i class="far fa-user"></i> Personal Data</a>
+			              </li>
+						<li class="list-group-item">
+							<a class="nav-link" href="consultation.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Consultation Records</a>
+						</li>
+
+						<li class="list-group-item">
+							<a class="nav-link" href="consultation.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Physical Records</a>
+						</li>
+						<li class="list-group-item">
+							<a class="nav-link" href="medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
+						</li>
+						<li class="list-group-item">
+							<a class="nav-link" href="medical_certificate.php?id=<?php echo $id ?>"><i class="fas fa-certificate"></i> Medical Certificate</a>	
+						</li>
+			 		 </ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="accordion" id="dashboard_accordion"  aria-expanded="true">
+			  <div class="card card-side-panel">
+			    <div class="card-header card-header-side-panel" id="headingOne">
+		 	      <h5 class="mb-0">
+			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+			          Dashboard
+			        </button>
+			      </h5>
+			    </div>
+
+			    <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#dashboard_accordion">
+			      <div style="text-align: center;" class="card-body">
+			         <ul class="list-group list-group-flush">
+			         	<li class="list-group-item">
+							<a class="nav-link" href="../modules/view_employee_patient.php"><i class="fas fa-user-tie"></i> View Employee</a>
+						</li>
+				    	
+						<li class="list-group-item">
+							<a class="nav-link" href="../modules/view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
+						</li>
+
+						<li class="list-group-item">
+				    		<a class="nav-link" href="../modules/add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
 				    	</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/consultation.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Consultation Records</a>
-						</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Physical Records</a>	
-						</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
-						</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../view_patient_profile/medical_certificate.php?id=<?php echo $id ?>"><i class="fas fa-certificate"></i> Medical Certificate</a>	
-						</li>
 			 		 </ul>
 			      </div>
 			    </div>
@@ -179,6 +241,10 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 				</div>
 			</div>
 				</div>
+			</div>
+
+			<div style="margin-top: 5px;">
+				<a href="../modules/emp_medical_profile.php?id=<?php echo $row['id']; ?>"><i class="fas fa-plus"></i> Add Medical Profile</a>
 			</div>
 		<?php 
 
@@ -213,7 +279,9 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 
 		<script>
 		$(document).ready( function() {
-		    $('#logs_data').DataTable();
+		    $('#logs_data').DataTable({
+		    	"order": [[ 0, "desc" ]]
+		    });
 		});
 		</script>
 

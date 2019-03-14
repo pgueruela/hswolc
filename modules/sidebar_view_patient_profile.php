@@ -120,7 +120,7 @@ include '../includes/db.php';
 			    <div class="card-header card-header-side-panel" id="headingOne">
 			      <h5 class="mb-0">
 			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-			          Patient Informations
+			          Records
 			        </button>
 			      </h5>
 			    </div>
@@ -148,16 +148,46 @@ include '../includes/db.php';
 			    </div>
 			  </div>
 			</div>
+
+			<div class="accordion" id="dashboard_accordion">
+			  <div class="card card-side-panel">
+			    <div class="card-header card-header-side-panel" id="headingOne">
+		 	      <h5 class="mb-0">
+			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="" aria-controls="collapseTwo">
+			          Dashboard
+			        </button>
+			      </h5>
+			    </div>
+
+			    <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#dashboard_accordion">
+			      <div style="text-align: center;" class="card-body">
+			         <ul class="list-group list-group-flush">
+			         	<li class="list-group-item">
+							<a class="nav-link" href="view_employee_patient.php"><i class="fas fa-user-tie"></i> View Employee</a>
+						</li>
+				    	
+						<li class="list-group-item">
+							<a class="nav-link" href="view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
+						</li>
+
+						<li class="list-group-item">
+				    		<a class="nav-link" href="add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
+				    	</li>
+			 		 </ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
 		</div>
 	<?php
 	}else{ ?>
-		<div class="col-md-3 side-panel">
+				<div class="col-md-3 side-panel">
 			<div class="accordion" id="patient_accordion" aria-expanded="true">
 			  <div class="card card-side-panel">
 			    <div class="card-header card-header-side-panel" id="headingOne">
 			      <h5 class="mb-0">
 			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-			          Patient Informations
+			          Records
 			        </button>
 			      </h5>
 			    </div>
@@ -165,9 +195,6 @@ include '../includes/db.php';
 			    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#patient_accordion">
 			      <div class="card-body">
 			         <ul class="list-group list-group-flush">
-				    	<li class="list-group-item">
-				    		<a class="nav-link" href="sidebar_view_patient_profile.php?id=<?php echo $id ?>"><i class="far fa-user"></i> Personal Data</a>
-				    	</li>
 						<li class="list-group-item">
 							<a class="nav-link" href="../view_patient_profile/consultation.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Consultation Records</a>
 						</li>
@@ -180,6 +207,36 @@ include '../includes/db.php';
 						<li class="list-group-item">
 							<a class="nav-link" href="../view_patient_profile/medical_certificate.php?id=<?php echo $id ?>"><i class="fas fa-certificate"></i> Medical Certificate</a>	
 						</li>
+			 		 </ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="accordion" id="dashboard_accordion"  aria-expanded="true">
+			  <div class="card card-side-panel">
+			    <div class="card-header card-header-side-panel" id="headingOne">
+		 	      <h5 class="mb-0">
+			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+			          Dashboard
+			        </button>
+			      </h5>
+			    </div>
+
+			    <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#dashboard_accordion">
+			      <div style="text-align: center;" class="card-body">
+			         <ul class="list-group list-group-flush">
+			         	<li class="list-group-item">
+							<a class="nav-link" href="view_employee_patient.php"><i class="fas fa-user-tie"></i> View Employee</a>
+						</li>
+				    	
+						<li class="list-group-item">
+							<a class="nav-link" href="view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
+						</li>
+
+						<li class="list-group-item">
+				    		<a class="nav-link" href="add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
+				    	</li>
 			 		 </ul>
 			      </div>
 			    </div>

@@ -67,12 +67,12 @@ $row = mysqli_fetch_assoc($result);
 			    <div class="card-header card-header-side-panel" id="headingOne">
 		 	      <h5 class="mb-0">
 			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-			          Patient
+			          Dashboard
 			        </button>
 			      </h5>
 			    </div>
 
-			    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#patient_accordion">
+			    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#patient_accordion">
 			      <div style="text-align: center;" class="card-body">
 			         <ul class="list-group list-group-flush">
 			         	<li class="list-group-item">
@@ -140,14 +140,16 @@ $row = mysqli_fetch_assoc($result);
 							<thead>	
 								<tr>
 									<td>Name</td>
+									<td>Position</td>
 									<td>Reason of Visit</td>
 									<td>Assesed by</td>
-									<td>Date Visited</td>
+									<td>Date and Time Visited</td>
 								</tr>
 							</thead>
 					<?php while($row = mysqli_fetch_array($result)) { ?>
 							<tr>
 								<td><?php echo $row["firstname"]. " " . $row["lastname"]; ?></td>
+								<td><?php echo $row["position"]; ?></td>
 								<td><?php echo $row["visit_reason"]; ?></td>
 								<td><?php echo $row["assesed_by"]; ?></td>
 								<td><?php echo $row["date_recorded"]; ?></td>
@@ -223,7 +225,7 @@ $row = mysqli_fetch_assoc($result);
  			<div style="margin:auto;text-align: center; font-size: 13px;" class="col-md-6">
  				<small>Copyright &copy; 2019 Health Services and Wealth Office Lorma Colleges Information System.</small>
  				<br>
- 				<small>Lorma Colleges | IT Services <a href="gmail:itservices@lorma.edu">< itservices@lorma.edu ></a></small>
+ 				<small>Lorma Colleges | IT Services <a href="itservices@mail.lorma.edu">< itservices@mail.lorma.edu ></a></small>
  			</div>
  		</div>
  </div>

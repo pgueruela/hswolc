@@ -131,28 +131,28 @@ $row = mysqli_fetch_assoc($result);
 	<div class="">
 		<div class="row">
 			<div class="col-md-4 offset-2">
-				<p>Skin: <b><?php echo $row['skin']; ?></b></p>
-				<p>Mouth: <b><?php echo $row['mouth']; ?></b></p>
-				<p>Nose: <b><?php echo $row['nose']; ?></b></p>
-				<p>Pharynx: <b><?php echo $row['pharynx']; ?></b></p>
-				<p>Tonsils: <b><?php echo $row['tonsils']; ?></b></p>
-				<p>Gums: <b><?php echo $row['gums']; ?></b></p>
-				<p>Lymph: <b><?php echo $row['lymph_nodes']; ?></b></p>
-				<p>Neck: <b><?php echo $row['neck']; ?></b></p>
-				<p>Chest: <b><?php echo $row['chest']; ?></b></p>
- 			</div>
+								<p>Skin: <b><?php echo $row['skin']; ?></b> <?php echo $row['skin_abnormal']; ?> </p>
+								<p>Mouth: <b><?php echo $row['mouth']; ?></b> <?php echo $row['mouth_abnormal']; ?></p>
+								<p>Nose: <b><?php echo $row['nose']; ?></b> <?php echo $row['nose_abnormal']; ?></p>
+								<p>Pharynx: <b><?php echo $row['pharynx']; ?></b> <?php echo $row['pharynx_abnormal']; ?></p>
+								<p>Tonsils: <b><?php echo $row['tonsils']; ?></b> <?php echo $row['tonsils_abnormal']; ?></p>
+								<p>Gums: <b><?php echo $row['gums']; ?></b> <?php echo $row['gums_abnormal']; ?></p>
+								<p>Lymph: <b><?php echo $row['lymph_nodes']; ?></b> <?php echo $row['lymph_nodes_abnormal']; ?></p>
+								<p>Neck: <b><?php echo $row['neck']; ?></b> <?php echo $row['neck_abnormal']; ?></p>
+								<p>Chest: <b><?php echo $row['chest']; ?></b> <?php echo $row['chest_abnormal']; ?></p>
+			</div>
 
- 			<div class="col-md-6">
- 				<p>Lungs: <b><?php echo $row['lungs']; ?></b></p>
-				<p>Heart: <b><?php echo $row['heart']; ?></b></p>
-				<p>Abdomen: <b><?php echo $row['abdomen']; ?></b></p>
-				<p>Rectum: <b><?php echo $row['rectum']; ?></b> </p>
-				<p>Genitalia:<b><?php echo $row['genitalia']; ?></b> </p>
-				<p>Spine: <b><?php echo $row['spine']; ?></b></p>
-				<p>Arms:<b><?php echo $row['arms']; ?></b> </p>
-				<p>Legs: <b><?php echo $row['legs']; ?></b></p>
-				<p>Feet: <b><?php echo $row['feet']; ?></b></p>
- 			</div>
+				 			<div class="col-md-6">
+				 				<p>Lungs: <b><?php echo $row['lungs']; ?></b> <?php echo $row['lungs_abnormal']; ?></p>
+								<p>Heart: <b><?php echo $row['heart']; ?></b> <?php echo $row['heart_abnormal']; ?></p>
+								<p>Abdomen: <b><?php echo $row['abdomen']; ?></b> <?php echo $row['abdomen_abnormal']; ?></p>
+								<p>Rectum: <b><?php echo $row['rectum']; ?></b> <?php echo $row['rectum_abnormal']; ?></p>
+								<p>Genitalia:<b><?php echo $row['genitalia']; ?></b> <?php echo $row['genitalia_abnormal']; ?></p>
+								<p>Spine: <b><?php echo $row['spine']; ?></b> <?php echo $row['spine_abnormal']; ?></p>
+								<p>Arms:<b><?php echo $row['arms']; ?></b> <?php echo $row['arms_abnormal']; ?></p>
+								<p>Legs: <b><?php echo $row['legs']; ?></b> <?php echo $row['legs_abnormal']; ?></p>
+								<p>Feet: <b><?php echo $row['feet']; ?></b> <?php echo $row['feet_abnormal']; ?></p>
+				 			</div>
 		</div>				
 	</div>
 	<div class="row">
@@ -170,17 +170,7 @@ $row = mysqli_fetch_assoc($result);
  	</div>
  	<div class="row">
  		<div class="col-md-10 offset-2">
- 		<p>Essentially Normal Physical Examination Findings: <b><?php echo $row['essentially']; ?></b> </p>
- 		</div>
- 	</div>
- 	<div class="row">
- 		<div class="col-md-10 offset-2">
- 			<p>With Limitation of activities: <b><?php echo $row['limitation']; ?></b> </p>
- 		</div>
- 	</div>
- 	<div class="row">
- 		<div class="col-md-10 offset-2">
- 			<p>Requires special attention: <b><?php echo $row['special_attention']; ?></b> </p>
+ 		<p>Observation: <b><?php echo $row['observation']; ?></b> </p>
  		</div>
  	</div>
  	<hr>

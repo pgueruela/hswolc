@@ -18,7 +18,7 @@ if (!isset($_SESSION['id'])) {
 			    <div class="card-header card-header-side-panel" id="headingOne">
 			      <h5 class="mb-0">
 			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-			          Patient
+			          Dashboard
 			        </button>
 			      </h5>
 			    </div>
@@ -26,15 +26,19 @@ if (!isset($_SESSION['id'])) {
 			    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#patient_accordion">
 			      <div style="text-align: center; " class="card-body">
 			         <ul class="list-group list-group-flush">
-				    	<li class="list-group-item">
-				    		<a class="nav-link" href="../modules/add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
-				    	</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../modules/view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
-						</li>
+				    	
 						<li class="list-group-item">
 							<a class="nav-link" href="../modules/view_employee_patient.php"><i class="fas fa-user-tie"></i> View Employee</a>
 						</li>
+
+						<li class="list-group-item">
+							<a class="nav-link" href="../modules/view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
+						</li>
+
+						<li class="list-group-item">
+				    		<a class="nav-link" href="../modules/add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
+				    	</li>
+						
 			 		 </ul>
 			      </div>
 			    </div>
@@ -488,58 +492,13 @@ if (!isset($_SESSION['id'])) {
 						<div class="form-group row">
 							<div class="container">
 								<div class="row">
-									<div class="col-md-12">	
-										<div>
-											<label for="colFormLabelSm" class="col-m-7 col-form-label col-form-label-m">Essentially Normal Physical Examination Findings</label>
-											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="essentially"  value="Yes" checked/>
-											  <label class="form-check-label" for="inlineradio1">YES</label>
-											</div>
-											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="essentially" value="No">
-											  <label class="form-check-label" for="inlineradio2">NO</label>
-											</div>
-										</div>	
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group row">
-							<div class="container">
-								<div class="row">
-									<div class="col-md-12">	
-										<div>
-											<label for="colFormLabelSm" class="col-m-7 col-form-label col-form-label-m">With Limitation of activities</label>
-											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="limitation"  value="Yes" checked/>
-											  <label class="form-check-label" for="inlineradio1">YES</label>
-											</div>
-											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="limitation" value="No">
-											  <label class="form-check-label" for="inlineradio2">NO</label>
-											</div>
-										</div>	
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group row">
-							<div class="container">
-								<div class="row">
-									<div class="col-md-12">	
-										<div>
-											<label for="colFormLabelSm" class="col-m-7 col-form-label col-form-label-m">Requires special attention</label>
-											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio1" name="special_attention"  value="Yes" checked/>
-											  <label class="form-check-label" for="inlineradio1">YES</label>
-											</div>
-											<div class="form-check form-check-inline">
-											  <input class="form-check-input" type="radio" id="inlineradio2" name="special_attention" value="No">
-											  <label class="form-check-label" for="inlineradio2">NO</label>
-											</div>
-										</div>	
+									<div class="col-md-8">	
+									 	<label for="exampleFormControlSelect1">Observation</label>
+									    <select class="form-control" id="exampleFormControlSelect1" name="observation">
+									      <option>Essentially Normal Physical Examination Findings</option>
+									      <option>With Limitation of activities</option>
+									      <option>Requires special attention</option>
+									    </select>
 									</div>
 								</div>
 							</div>

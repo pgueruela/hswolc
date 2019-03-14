@@ -46,7 +46,7 @@ include 'process/add_account_process.php';
 			    <div class="card-header card-header-side-panel" id="headingOne">
 			      <h5 class="mb-0">
 			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-			          Patient
+			          Dashboard
 			        </button>
 			      </h5>
 			    </div>
@@ -61,13 +61,10 @@ include 'process/add_account_process.php';
 						<li class="list-group-item">
 							<a class="nav-link" href="modules/view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
 						</li>
-<<<<<<< HEAD
 
 						<li class="list-group-item">
 				    		<a class="nav-link" href="modules/add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
 				    	</li>
-=======
->>>>>>> 34525678ef9b3c7cce1958f17bcbf6f36a412dd0
 			 		 </ul>
 			      </div>
 			    </div>

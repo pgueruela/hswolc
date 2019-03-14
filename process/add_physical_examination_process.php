@@ -27,6 +27,8 @@ $id = $_GET['id'];
 	$skin_abnormal  = $_POST['skin_abnormal'];
 	$nose = $_POST['nose'];
 	$nose_abnormal  = $_POST['nose_abnormal'];
+	$mouth = $_POST['mouth'];
+	$mouth_abnormal  = $_POST['mouth_abnormal'];
 	$pharynx = $_POST['pharynx'];
 	$pharynx_abnormal = $_POST['pharynx_abnormal'];
 	$tonsils = $_POST['tonsils'];
@@ -58,15 +60,13 @@ $id = $_GET['id'];
 	$feet_abnormal = $_POST['feet_abnormal'];
 	$feet = $_POST['feet'];
 	$remarks = $_POST['remarks'];
-	$essentially = $_POST['essentially'];
-	$limitation = $_POST['limitation'];
-	$special_attention = $_POST['special_attention'];
+	$observation = $_POST['observation'];
 	$reccomendation = $_POST['reccomendation'];
 	$physician = $_POST['physician'];
 
-	$sql = "INSERT INTO physical_examination_tbl (patient_id, blood_pressure, respiratory_rate, heart_rate, temperature, patient_height, patient_weight, bmi, os_no_glasses, os_with_glasses, od_with_glasses, od_no_glasses, ears_right, ears_left, skin, skin_abnormal, nose, nose_abnormal,pharynx, pharynx_abnormal, tonsils, tonsils_abnormal,gums, gums_abnormal, lymph_nodes,  lymph_nodes_abnormal,neck, neck_abnormal, chest, chest_abnormal,lungs, lungs_abnormal, heart, heart_abnormal ,abdomen, abdomen_abnormal, rectum, rectum_abnormal, genitalia, genitalia_abnormal,spine,  spine_abnormal,arms,arms_abnormal, legs, legs_abnormal, feet, feet_abnormal,remarks, essentially, limitation, special_attention, reccomendation, assesed_by, date_recorded)
+	$sql = "INSERT INTO physical_examination_tbl (patient_id, blood_pressure, respiratory_rate, heart_rate, temperature, patient_height, patient_weight, bmi, os_no_glasses, os_with_glasses, od_with_glasses, od_no_glasses, ears_right, ears_left, skin, skin_abnormal, mouth, mouth_abnormal, nose, nose_abnormal,pharynx, pharynx_abnormal, tonsils, tonsils_abnormal,gums, gums_abnormal, lymph_nodes,  lymph_nodes_abnormal,neck, neck_abnormal, chest, chest_abnormal,lungs, lungs_abnormal, heart, heart_abnormal, abdomen, abdomen_abnormal, rectum, rectum_abnormal, genitalia, genitalia_abnormal,spine,  spine_abnormal,arms,arms_abnormal, legs, legs_abnormal, feet, feet_abnormal,remarks, observation, reccomendation, assesed_by, date_recorded)
 		
-		VALUES($id,'$blood_pressure', $respiratory_rate, $heart_rate, '$temperature','$patient_height', '$patient_weight', $bmi, '$os_no_glasses', '$os_with_glasses', '$od_with_glasses', '$od_no_glasses','$ears_right', '$ears_left', '$skin', '$skin_abnormal','$nose', '$nose_abnormal','$pharynx', '$pharynx_abnormal', '$tonsils', '$tonsils_abnormal','$gums', '$gums_abnormal', '$lymph_nodes' , '$lymph_nodes_abnormal', '$neck' ,  '$neck_abnormal','$chest' , '$chest_abnormal' , '$lungs' , '$lungs_abnormal','$heart', '$heart_abnormal', '$abdomen' ,'$abdomen_abnormal' ,'$rectum', '$rectum_abnormal','$genitalia', '$genitalia_abnormal','$spine', '$spine_abnormal','$arms', '$arms_abnormal','$legs', '$legs_abnormal', '$feet', '$feet_abnormal', '$remarks', '$essentially', '$limitation', '$special_attention', '$reccomendation', '$physician', now()); ";
+		VALUES($id,'$blood_pressure', $respiratory_rate, $heart_rate, '$temperature','$patient_height', '$patient_weight', $bmi, '$os_no_glasses', '$os_with_glasses', '$od_with_glasses', '$od_no_glasses','$ears_right', '$ears_left', '$skin', '$skin_abnormal', '$mouth', '$mouth_abnormal', '$nose', '$nose_abnormal','$pharynx', '$pharynx_abnormal', '$tonsils', '$tonsils_abnormal','$gums', '$gums_abnormal', '$lymph_nodes' , '$lymph_nodes_abnormal', '$neck' ,  '$neck_abnormal','$chest' , '$chest_abnormal' , '$lungs' , '$lungs_abnormal','$heart', '$heart_abnormal', '$abdomen' ,'$abdomen_abnormal' ,'$rectum', '$rectum_abnormal','$genitalia', '$genitalia_abnormal','$spine', '$spine_abnormal','$arms', '$arms_abnormal','$legs', '$legs_abnormal', '$feet', '$feet_abnormal', '$remarks', '$observation', '$reccomendation', '$physician', now()); ";
 
 	$sql .= "INSERT INTO visit_tbl (patient_id, visit_reason, assesed_by, date_recorded) VALUES ($id, '$visit_reason', '$physician', now())";
 

@@ -87,7 +87,7 @@ include '../header-include.php';
 			    <div class="card-header card-header-side-panel" id="headingOne">
 			      <h5 class="mb-0">
 			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-			          Patient
+			          Dashboard
 			        </button>
 			      </h5>
 			    </div>

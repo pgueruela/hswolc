@@ -4,14 +4,10 @@ include '../includes/db.php';
 include '../includes/admin_navigationbar.php';
 include '../process/emp_medical_profile_process.php';
 
-if (!isset($_SESSION['id'])) {
-	header("Location: login_account.php");
-	exit();
-}
 
 $id = $_GET['id'];
 
-$result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id =  $id ");
+$result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id = $id ");
 
 $row = mysqli_fetch_assoc($result);
 
@@ -24,7 +20,7 @@ if ($row['gender'] == 'M') {?>
 			    <div class="card-header card-header-side-panel" id="headingOne">
 			      <h5 class="mb-0">
 			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-			          Patient
+			          Dashboard
 			        </button>
 			      </h5>
 			    </div>
@@ -313,7 +309,7 @@ if ($row['gender'] == 'M') {?>
 			    <div class="card-header card-header-side-panel" id="headingOne">
 			      <h5 class="mb-0">
 			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-			          Patient
+			          Dashboard
 			        </button>
 			      </h5>
 			    </div>

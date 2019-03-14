@@ -86,22 +86,19 @@ include '../includes/db.php';
 			    <div class="card-header card-header-side-panel" id="headingOne">
 			      <h5 class="mb-0">
 			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-			          Patient
+			          Dashboard
 			        </button>
 			      </h5>
 			    </div>
 
-			    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#patient_accordion">
+			    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#patient_accordion">
 			      <div style="text-align: center;" class="card-body">
 			         <ul class="list-group list-group-flush">
-				    	<li class="list-group-item">
-				    		<a class="nav-link" href="add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
-				    	</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
+							<li class="list-group-item">
+							<a class="nav-link" href="view_employee_patient.php"><i class="fas fa-user-tie"></i> View Employee</a>
 						</li>
 						<li class="list-group-item">
-							<a class="nav-link" href="view_employee_patient.php"><i class="fas fa-user-tie"></i> View Employee</a>
+							<a class="nav-link" href="view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
 						</li>
 			 		 </ul>
 			      </div>

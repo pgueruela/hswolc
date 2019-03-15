@@ -77,94 +77,94 @@ include '../includes/db.php';
     </script>
 
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-3">
-			<div class="accordion" id="patient_accordion">
-			  <div class="card card-side-panel">
-			    <div class="card-header card-header-side-panel" id="headingOne">
-			      <h5 class="mb-0">
-			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-			          Dashboard
-			        </button>
-			      </h5>
-			    </div>
-
-			    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#patient_accordion">
-			      <div style="text-align: center;" class="card-body">
-			         <ul class="list-group list-group-flush">
-
-						<li class="list-group-item">
-							<a class="nav-link" href="view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
-						</li>
-						<li class="list-group-item">
-				    		<a class="nav-link" href="add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
-				    	</li>
-			 		 </ul>
-			      </div>
-			    </div>
-			  </div>
-			</div>
- 		</div>
-
-		<div class="col-md-9">
+	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
-				<div class="card card-body-margins">
-					<div class="card-body card-body-header">
-						<h4>Employees</h4>
+			<div class="col-md-3">
+				<div class="accordion" id="patient_accordion">
+				  <div class="card card-side-panel">
+				    <div class="card-header card-header-side-panel" id="headingOne">
+				      <h5 class="mb-0">
+				        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+				          Dashboard
+				        </button>
+				      </h5>
+				    </div>
+
+				    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#patient_accordion">
+				      <div style="text-align: center;" class="card-body">
+				         <ul class="list-group list-group-flush">
+
+							<li class="list-group-item">
+								<a class="nav-link" href="view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
+							</li>
+							<li class="list-group-item">
+					    		<a class="nav-link" href="add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
+					    	</li>
+				 		 </ul>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+	 		</div>
+
+			<div class="col-md-9">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card card-body-margins">
+						<div class="card-body card-body-header">
+							<h4>Employees</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<?php 
+			$query = "SELECT * FROM patient_pd_tbl WHERE position ='Employee' ORDER BY id DESC";
+			$result = mysqli_query($conn, $query);
+			?>
+			<!-- Table -->
+			<div>
+				<div class="card card-body-header">
+					<div class="card-body">
+						<div class="row">
+					<div class="col-md-12">
+						<table id="employee_data" class="table table-hover">
+							<thead>
+								<tr>
+									<td>View</td>
+									<td>Consultation</td>
+									<td>Physical Examination</td>
+									<td>Medical Profile</td>
+								</tr>
+							</thead>
+					<?php while($row = mysqli_fetch_array($result)) { ?>
+							<tr>
+								<td><a href="../modules/sidebar_view_patient_profile.php?id=<?php echo $row['id']; ?>"><?php echo $row["firstname"]. " " . $row["lastname"]; ?></a></td>
+								<th><a href="../modules/add_consultation_patient.php?id=<?php echo $row['id']; ?>"><i class="fas fa-plus"></i> Add</a></th>
+								<th><a href="../modules/add_physical_examination_patient.php?id=<?php echo $row['id']; ?>"><i class="fas fa-plus"></i> Add</a></th>
+								<th><a href="../modules/emp_medical_profile.php?id=<?php echo $row['id']; ?>"><i class="fas fa-plus"></i> Add</a></th>
+							</tr>		
+					<?php 
+					}
+					 ?>
+						</table>
+					</div>
+				</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<?php 
-		$query = "SELECT * FROM patient_pd_tbl WHERE position ='Employee' ORDER BY id DESC";
-		$result = mysqli_query($conn, $query);
-		?>
-		<!-- Table -->
-		<div>
-			<div class="card card-body-header">
-				<div class="card-body">
-					<div class="row">
-				<div class="col-md-12">
-					<table id="employee_data" class="table table-hover">
-						<thead>
-							<tr>
-								<td>View</td>
-								<td>Consultation</td>
-								<td>Physical Examination</td>
-								<td>Medical Profile</td>
-							</tr>
-						</thead>
-				<?php while($row = mysqli_fetch_array($result)) { ?>
-						<tr>
-							<td><a href="../modules/sidebar_view_patient_profile.php?id=<?php echo $row['id']; ?>"><?php echo $row["firstname"]. " " . $row["lastname"]; ?></a></td>
-							<th><a href="../modules/add_consultation_patient.php?id=<?php echo $row['id']; ?>"><i class="fas fa-plus"></i> Add</a></th>
-							<th><a href="../modules/add_physical_examination_patient.php?id=<?php echo $row['id']; ?>"><i class="fas fa-plus"></i> Add</a></th>
-							<th><a href="../modules/emp_medical_profile.php?id=<?php echo $row['id']; ?>"><i class="fas fa-plus"></i> Add</a></th>
-						</tr>		
-				<?php 
-				}
-				 ?>
-					</table>
-				</div>
-			</div>
-				</div>
-			</div>
 		</div>
 	</div>
-	</div>
-</div>
-<script>
-$(document).ready( function() {
-    $('#employee_data').DataTable();
-});
-</script>
+	<script>
+	$(document).ready( function() {
+	    $('#employee_data').DataTable();
+	});
+	</script>
 
- <?php 
-//includes footer
- include '../includes/footer.php';
+	 <?php 
+	//includes footer
+	 include '../includes/footer.php';
 
-  ?>
- 
+	  ?>
+	 

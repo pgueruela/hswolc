@@ -111,7 +111,7 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 						</li>
 
 						<li class="list-group-item">
-							<a class="nav-link" href="medical_profile_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Medical Profile</a>	
+							<a class="nav-link" href="medical_profile_records.php?id=<?php echo $id ?>"><i class="far fa-user"></i> Medical Profile</a>	
 						</li>
 						<li class="list-group-item">
 							<a class="nav-link" href="medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	

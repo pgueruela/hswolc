@@ -165,15 +165,9 @@ $row = mysqli_fetch_assoc($result);
  	<hr>
  	<div class="row">
  		<div class="col-md-10 offset-2">
- 		<p><b>Assesment</b></p>
- 	</div>
- 	</div>
- 	<div class="row">
- 		<div class="col-md-10 offset-2">
  		<p>Observation: <b><?php echo $row['observation']; ?></b> </p>
  		</div>
  	</div>
- 	<hr>
  	<div class="row">
  		<div class="col-md-10 offset-2">
  			<p>Reccomendation: <b><?php echo $row['reccomendation']; ?></b></p>

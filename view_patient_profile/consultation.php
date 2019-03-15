@@ -109,11 +109,11 @@ $row = mysqli_fetch_assoc($result); ?>
 			                <a class="nav-link" href="../modules/sidebar_view_patient_profile.php?id=<?php echo $id ?>"><i class="far fa-user"></i> Personal Data</a>
 			             </li>
 						<li class="list-group-item">
-							<a class="nav-link" href="annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Physical Records</a>
+							<a class="nav-link" href="annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Physical Records</a>
 						</li>
 
 						<li class="list-group-item">
-							<a class="nav-link" href="medical_profile_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Medical Profile</a>	
+							<a class="nav-link" href="medical_profile_records.php?id=<?php echo $id ?>"><i class="far fa-user"></i> Medical Profile</a>	
 						</li>
 						<li class="list-group-item">
 							<a class="nav-link" href="medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
@@ -177,7 +177,7 @@ $row = mysqli_fetch_assoc($result); ?>
 			                <a class="nav-link" href="../modules/sidebar_view_patient_profile.php?id=<?php echo $id ?>"><i class="far fa-user"></i> Personal Data</a>
 			              </li>
 						<li class="list-group-item">
-							<a class="nav-link" href="annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Physical Records</a>
+							<a class="nav-link" href="annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Physical Records</a>
 						</li>
 						<li class="list-group-item">
 							<a class="nav-link" href="medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
@@ -225,7 +225,7 @@ $row = mysqli_fetch_assoc($result); ?>
 	}
  	?>
 				<!-- Dashboard -->
-				<div class="col-md-9">
+	<div class="col-md-9">
 			<div class="row">
 				<div class="col-md-12">
 						<div class="card">
@@ -254,7 +254,7 @@ $row = mysqli_fetch_assoc($result); ?>
 							<table id="logs_data" class="table table-hover">
 								<thead>	
 									<tr>
-										<td>Date</td>
+										<td>Date and Time</td>
 										<td>Chief Complain</td>
 										<td>Temp</td>
 										<td>BP</td>
@@ -281,6 +281,11 @@ $row = mysqli_fetch_assoc($result); ?>
 						}
 						 ?>
 							</table>
+							<div class="row">
+		 						<div class="col-md-1 offset-11">
+		 							<a href="../report/print_consultation_records.php?id=<?php echo $id; ?>"><i style="font-size: 20px;" class="fas fa-print"></i></a>
+		 						</div>
+ 							</div>
 						
 						<!-- else -->
 

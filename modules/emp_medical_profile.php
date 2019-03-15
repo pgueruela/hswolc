@@ -7,11 +7,8 @@ include '../process/emp_medical_profile_process.php';
 
 $id = $_GET['id'];
 
-$result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id = $id ");
+$result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id = $id ");?>
 
-$row = mysqli_fetch_assoc($result);
-
-if ($row['gender'] == 'M') {?>
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
@@ -59,8 +56,13 @@ if ($row['gender'] == 'M') {?>
 
 			<div class="card">
 				<div class="card-body">
-					<form method="post">
+<?php 
 
+$row = mysqli_fetch_assoc($result);
+
+if ($row['gender'] == 'M') {?>
+					<form method="post">
+						<?php echo $row['gender']; ?>
 						<div class="row">
 								<div class="col-md-8">
 						    		<input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="visit_reason" value="Medical Profile" required/>
@@ -82,9 +84,9 @@ if ($row['gender'] == 'M') {?>
 									<label for="blood-pressure">Height</label>
 									<div class="input-group mb-3">
 			  						<div class="input-group-prepend">
-			    					<span class="input-group-text" id="basic-addon1">m</span>
+			    					<span class="input-group-text" id="basic-addon1">cm</span>
 			  						</div>
-		  							<input type="text" class="form-control" placeholder="(in Meter, e.g 1.75)" aria-label="height" aria-describedby="basic-addon1" name="patient_height" required/ >
+		  							<input type="text" class="form-control" placeholder="(in Centimeter, e.g 175)" aria-label="height" aria-describedby="basic-addon1" name="patient_height" required/ >
 									</div>
 								</div>	
 							</div>
@@ -98,7 +100,7 @@ if ($row['gender'] == 'M') {?>
 			  						<div class="input-group-prepend">
 			    					<span class="input-group-text" id="basic-addon1">kg</span>
 			  						</div>
-		  							<input type="text" class="form-control" placeholder="(in Kg, e.g 85)" aria-label="height" aria-describedby="basic-addon1" name="patient_weight" required/ >
+		  							<input type="text" class="form-control" placeholder="(in Kilogram, e.g 85)" aria-label="height" aria-describedby="basic-addon1" name="patient_weight" required/ >
 									</div>
 								</div>	
 							</div>
@@ -288,66 +290,14 @@ if ($row['gender'] == 'M') {?>
 
 						<div class="row">
 				  			<div class="col-md-8">
-				  				<button type="submit" class="btn btn-primary" name="add_employee_medical_profile">Add</button>
+				  				<button type="submit" class="btn btn-success" name="add_employee_medical_profile">Add</button>
 				  			</div>
 				  		</div>
 					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-	
-
 <?php  
 }else{ ?>
-<div class="container">
-	<div class="row">
-		<div class="col-md-3">
-			<div class="accordion" id="patient_accordion">
-			  <div class="card card-side-panel">
-			    <div class="card-header card-header-side-panel" id="headingOne">
-			      <h5 class="mb-0">
-			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-			          Dashboard
-			        </button>
-			      </h5>
-			    </div>
-
-			    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#patient_accordion">
-			      <div style="text-align: center;" class="card-body">
-			         <ul class="list-group list-group-flush">
-				    	<li class="list-group-item">
-							<a class="nav-link" href="../modules/view_employee_patient.php"><i class="fas fa-user-tie"></i> View Employee</a>
-						</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="../modules/view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
-						</li>
-						<li class="list-group-item">
-				    		<a class="nav-link" href="../modules/add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
-				    	</li>
-			 		 </ul>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-		</div>
-
-		<div class="col-md-9">
-			<div class="row">
-				<div class="col-md-12">
-						<div class="card card-body-margins">
-				<div class="card-body card-body-header">
-					<h5>Employee Medical Profile</h5>
-				</div>
-			</div>
-				</div>
-			</div>
-
-			<div class="card">
-				<div class="card-body">
 					<form method="post">
-
+						<?php echo $row['gender']; ?>
 						<div class="row">
 								<div class="col-md-8">
 						    		<input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="visit_reason" value="Medical Profile" required/>
@@ -369,9 +319,9 @@ if ($row['gender'] == 'M') {?>
 									<label for="blood-pressure">Height</label>
 									<div class="input-group mb-3">
 			  						<div class="input-group-prepend">
-			    					<span class="input-group-text" id="basic-addon1">m</span>
+			    					<span class="input-group-text" id="basic-addon1">cm</span>
 			  						</div>
-		  							<input type="text" class="form-control" placeholder="(in Meter, e.g 1.75)" aria-label="height" aria-describedby="basic-addon1" name="patient_height" required/ >
+		  							<input type="text" class="form-control" placeholder="(in Centimeter, e.g 175)" aria-label="height" aria-describedby="basic-addon1" name="patient_height" required/ >
 									</div>
 								</div>	
 							</div>
@@ -709,20 +659,18 @@ if ($row['gender'] == 'M') {?>
 
 						<div class="row">
 				  			<div class="col-md-8">
-				  				<button type="submit" class="btn btn-primary" name="add_employee_medical_profile">Add</button>
+				  				<button type="submit" class="btn btn-success" name="add_employee_medical_profile">Add</button>
 				  			</div>
 				  		</div>
 					</form>
+<?php
+}
+?>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
-
-<?php
-}
-?>
 
 
 

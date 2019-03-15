@@ -116,7 +116,7 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 						</li>
 
 						<li class="list-group-item">
-							<a class="nav-link" href="consultation.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Physical Records</a>
+							<a class="nav-link" href="consultation.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i></i> Physical Records</a>
 						</li>
 						<li class="list-group-item">
 							<a class="nav-link" href="medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
@@ -184,7 +184,7 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 						</li>
 
 						<li class="list-group-item">
-							<a class="nav-link" href="consultation.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Physical Records</a>
+							<a class="nav-link" href="consultation.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i></i> Physical Records</a>
 						</li>
 						<li class="list-group-item">
 							<a class="nav-link" href="medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
@@ -237,7 +237,7 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 				<div class="col-md-12">
 						<div class="card">
 				<div class="card-body card-body-header">
-					<h5>Medical Profile</h5>
+					<h5><i class="far fa-user"></i> Medical Profile</h5>
 				</div>
 			</div>
 				</div>

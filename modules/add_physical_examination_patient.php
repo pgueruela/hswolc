@@ -106,9 +106,9 @@ if (!isset($_SESSION['id'])) {
 									<label for="blood-pressure">Height</label>
 									<div class="input-group mb-3">
 			  						<div class="input-group-prepend">
-			    					<span class="input-group-text" id="basic-addon1">m</span>
+			    					<span class="input-group-text" id="basic-addon1">cm</span>
 			  						</div>
-		  							<input type="text" class="form-control" placeholder="(in Meter, e.g 1.75)" aria-label="height" aria-describedby="basic-addon1" name="patient_height" required/ >
+		  							<input type="text" class="form-control" placeholder="(in Centimeter, e.g 175)" aria-label="height" aria-describedby="basic-addon1" name="patient_height" required/ >
 									</div>
 								</div>	
 							</div>
@@ -122,7 +122,7 @@ if (!isset($_SESSION['id'])) {
 			  						<div class="input-group-prepend">
 			    					<span class="input-group-text" id="basic-addon1">kg</span>
 			  						</div>
-		  							<input type="text" class="form-control" placeholder="(in Kg, e.g 85)" aria-label="height" aria-describedby="basic-addon1" name="patient_weight" required/ >
+		  							<input type="text" class="form-control" placeholder="(in Kilogram, e.g 85)" aria-label="height" aria-describedby="basic-addon1" name="patient_weight" required/ >
 									</div>
 								</div>	
 							</div>
@@ -496,8 +496,8 @@ if (!isset($_SESSION['id'])) {
 									 	<label for="exampleFormControlSelect1">Observation</label>
 									    <select class="form-control" id="exampleFormControlSelect1" name="observation">
 									      <option>Essentially Normal Physical Examination Findings</option>
-									      <option>With Limitation of activities</option>
-									      <option>Requires special attention</option>
+									      <option>With Limitation of Activities</option>
+									      <option>Requires Special Attention</option>
 									    </select>
 									</div>
 								</div>

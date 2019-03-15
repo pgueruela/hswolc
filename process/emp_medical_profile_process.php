@@ -12,7 +12,10 @@ $id = $_GET['id'];
 	$patient_weight = $_POST['patient_weight'];
 	
 	//Calculation of BMI 
-	$bmi = $patient_weight / ($patient_height*$patient_height); 
+	$height = $_POST['patient_height']/100;
+	$height = $height*$height;
+	$bmi = $_POST['patient_weight']/ $height;
+	$bmi = round($bmi, 2);
 
 	$medical_history = $_POST['medical_history'];
 	$past_illness = $_POST['past_illness'];
@@ -46,6 +49,7 @@ $id = $_GET['id'];
 
 	if ($conn->multi_query($sql) === TRUE) {
 			 echo "<script> alert('Successfully recorded! '); </script>";
+			 
 	} else {
 	    	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}

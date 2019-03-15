@@ -171,7 +171,7 @@ $row = mysqli_fetch_assoc($result);
 		
 		$(document).ready( function() {
 		    $('#logs_data').DataTable({
-		    	"order": [[ 3, "desc" ]]
+		    	"order": [[ 4, "desc" ]]
 		    });
 		});
 
@@ -223,7 +223,7 @@ $row = mysqli_fetch_assoc($result);
  				<img src="assets/img/lormacolleges_logo.png" height="50" width="250">
  			</div>
  			<div style="margin:auto;text-align: center; font-size: 13px;" class="col-md-6">
- 				<small>Copyright &copy; 2019 Health Services and Wealth Office Lorma Colleges Information System.</small>
+ 				<small>Copyright &copy; 2019 Health Services and Wellness Office Lorma Colleges Information System.</small>
  				<br>
  				<small>Lorma Colleges | IT Services <a href="itservices@mail.lorma.edu">< itservices@mail.lorma.edu ></a></small>
  			</div>

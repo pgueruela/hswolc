@@ -112,11 +112,11 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
                    <a class="nav-link" href="consultation.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Consultation Records</a>  
                </li>
             <li class="list-group-item">
-              <a class="nav-link" href="annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Physical Records</a>
+              <a class="nav-link" href="annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Physical Records</a>
             </li>
 
             <li class="list-group-item">
-              <a class="nav-link" href="medical_profile_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Medical Profile</a>  
+              <a class="nav-link" href="medical_profile_records.php?id=<?php echo $id ?>"><i class="far fa-user"></i> Medical Profile</a>  
             </li>
             <li class="list-group-item">
               <a class="nav-link" href="medical_certificate.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Certificate</a>  
@@ -180,7 +180,7 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
                    <a class="nav-link" href="consultation.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Consultation Records</a>  
                </li>
             <li class="list-group-item">
-              <a class="nav-link" href="annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Physical Records</a>
+              <a class="nav-link" href="annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Physical Records</a>
             </li>
             <li class="list-group-item">
               <a class="nav-link" href="medical_certificate.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Certificate</a>  

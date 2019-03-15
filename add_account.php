@@ -158,7 +158,7 @@ include 'process/add_account_process.php';
 		</div>
 
 
-				<script>
+		<script>
 		//magin-underline
 		$(function() {
 		  var $el,

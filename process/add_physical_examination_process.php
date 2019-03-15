@@ -15,7 +15,10 @@ $id = $_GET['id'];
 	$patient_weight = $_POST['patient_weight'];
 
 	//Calculation of BMI 
-	$bmi = $patient_weight / ($patient_height*$patient_height); 
+	$height = $_POST['patient_height']/100;
+	$height = $height*$height;
+	$bmi = $_POST['patient_weight']/ $height;
+	$bmi = round($bmi, 2);
 	
 	$os_no_glasses = $_POST['os_no_glasses'];
 	$os_with_glasses = $_POST['os_with_glasses'];

@@ -31,7 +31,7 @@ include '../includes/db.php';
         </li>
 
         <li class="nav-item active">
-          <a class="nav-link" href="view_employee_patient"><i class="fas fa-user-plus"></i> Add Patient</a>
+          <a class="nav-link" href="add_patient.php"><i class="fas fa-user-plus"></i> Add Patient</a>
         </li>
       </ul>
   </div>

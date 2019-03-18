@@ -4,8 +4,6 @@ include '../header-include.php';
 include '../includes/admin_navigationbar.php';
 include '../process/emp_medical_profile_process.php';
 
-echo 'The id is ' . $id . '.';
-
 ?>
 
 <div class="container">
@@ -60,7 +58,6 @@ if ($row['gender'] == 'M') {?>
 					<form method="post">
 						<?php echo '<input type="hidden" name="id" value="' . $id . '" />'; ?>
 
-						<?php echo $row['gender']; ?>
 						<div class="row">
 								<div class="col-md-8">
 						    		<input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="visit_reason" value="Medical Profile" required/>

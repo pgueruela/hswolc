@@ -117,11 +117,15 @@ include 'process/add_account_process.php';
 							</div>
 						</div>
 				  </div>
-				<div class="form-group">
-					<div class="row">
-						<div class="col-md-8">
-							<label for="exampleFormControlSelect1">Username</label>
-				    		<input type="text" class="form-control" placeholder="Enter username" name="username" value="<?php echo $username ?>" required/>
+
+				<div class="row">
+					<div class="col-md-8">
+							<label for="exampleInputEmail1">Username</label>
+						<div class="input-group mb-3">
+	  						<div class="input-group-prepend">
+	    					<span class="input-group-text" id="basic-addon1">@</span>
+	  						</div>
+  							<input type="email" class="form-control" placeholder="Enter email address" name="username" required/>
 						</div>
 					</div>
 				</div>

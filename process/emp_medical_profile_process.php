@@ -2,9 +2,9 @@
 
 include_once '../includes/db.php';
 
-$id = $_GET['id'];
+$id = $_REQUEST['id'];
 
- if (isset($_POST['add_employee_medical_profile'])) {
+if (isset($_POST['add_employee_medical_profile'])) {
 
  	$visit_reason = $_POST['visit_reason'];
 	$blood_pressure = $_POST['blood_pressure'];
@@ -45,14 +45,37 @@ $id = $_GET['id'];
 	$sql = "INSERT INTO employee_medical_profile (patient_id, blood_pressure, patient_height, patient_weight, bmi, medical_history , past_illness, hospitalization_history, currently_taking_drugs, drug_name, why_taking_drugs, allergies_to_drugs, name_drug, family_doctor, doctor_name,doctor_add, doctor_num, blood_donor, self_breast_exam, how_often, mammography, pregnant, month_pregnant, contraceptives, method, number_pregnancies, reasons, aborted_pregnancies, assesed_by )
 
 		VALUES($id, '$blood_pressure', $patient_height, $patient_weight, $bmi, '$medical_history',  '$past_illness','$hospitalization_history', '$currently_taking_drugs','$drug_name', '$why_taking_drugs', '$allergies_to_drugs', '$name_drug','$family_doctor', '$doctor_name','$doctor_add', '$doctor_num', '$blood_donor', '$self_breast_exam','$how_often', '$mammography', '$pregnant', '$month_pregnant', '$contraceptives' , '$method', '$number_pregnancies', '$reasons', '$aborted_pregnancies', '$assesed_by' );";
-	$sql .= "INSERT INTO visit_tbl (patient_id, visit_reason,assesed_by, date_recorded) VALUES ($id, '$visit_reason', '$assesed_by', now())";
 
+	$result = $conn->query($sql);
+
+	if (!$result) {
+		echo 'Failed to record Medical Profile.';
+		return;
+	}
+
+	$sql = "INSERT INTO visit_tbl (patient_id, visit_reason,assesed_by, date_recorded) VALUES ($id, '$visit_reason', '$assesed_by', now())";
+
+	$result = $conn->query($sql);
+	echo "<script>alert('Medical Profile successfully recorded! ');</script>";
+
+	if (!$result) {
+		// Roll back previous query
+		// ------------
+
+		// Inform user about failed visitation
+		echo 'Failed to record visitation.';
+		return;
+	}
+
+	/*
 	if ($conn->multi_query($sql) === TRUE) {
-			 echo "<script> alert('Successfully recorded! '); </script>";
+			 // echo "<script> alert('Successfully recorded! '); </script>";
 			 
 	} else {
 	    	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
+	*/
 }
 
- ?>
+$result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id = $id ");
+$row = mysqli_fetch_assoc($result);

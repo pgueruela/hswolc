@@ -1,13 +1,12 @@
 <?php 
 include '../header-include.php';
-include '../includes/db.php';
+// include '../includes/db.php';
 include '../includes/admin_navigationbar.php';
 include '../process/emp_medical_profile_process.php';
 
+echo 'The id is ' . $id . '.';
 
-$id = $_GET['id'];
-
-$result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id = $id ");?>
+?>
 
 <div class="container">
 	<div class="row">
@@ -57,11 +56,10 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id = $id ");?>
 			<div class="card">
 				<div class="card-body">
 <?php 
-
-$row = mysqli_fetch_assoc($result);
-
 if ($row['gender'] == 'M') {?>
 					<form method="post">
+						<?php echo '<input type="hidden" name="id" value="' . $id . '" />'; ?>
+
 						<?php echo $row['gender']; ?>
 						<div class="row">
 								<div class="col-md-8">
@@ -297,7 +295,7 @@ if ($row['gender'] == 'M') {?>
 <?php  
 }else{ ?>
 					<form method="post">
-						<?php echo $row['gender']; ?>
+						<?php echo '<input type="hidden" name="id" value="' . $id . '" />'; ?>
 						<div class="row">
 								<div class="col-md-8">
 						    		<input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="visit_reason" value="Medical Profile" required/>

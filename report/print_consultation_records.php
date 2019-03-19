@@ -1,4 +1,5 @@
 <?php 
+
 include '../header-include.php';
 include '../includes/db.php';
 
@@ -12,11 +13,17 @@ $result = $conn->query("SELECT pt.*, ct.* FROM patient_pd_tbl as pt
 $row = mysqli_fetch_assoc($result);
 ?>
 
+<style type="text/css">
+	body * {
+		font-size: 18px;
+	}
+</style>
+
 <div class="container-fluid">
 
 	<div class="row">
 		<div class="col-md-4 offset-4">
-			<div style="line-height: 1.5px; margin-top: 60px; text-align: center;">
+			<div style="line-height: 5px; margin-top: 60px; text-align: center;">
 				<p><b>School Health Consultation Records</b></p>
 				<p><b>Lorma Colleges</b></p>
 				<p><b>Carlatan, San Fernando City, La Union</b></p>

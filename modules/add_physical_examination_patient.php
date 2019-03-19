@@ -130,7 +130,7 @@ if (!isset($_SESSION['id'])) {
 
 						<hr>
 
-					  	<div class="form-group">
+						<div class="form-group">
 							<div class="row">
 								<div class="col-md-8">
 									<label for="exampleInputEmail1">Eyes</label>
@@ -139,25 +139,36 @@ if (!isset($_SESSION['id'])) {
 						</div>
 
 						<div class="form-group row">
-						    <label for="inputPassword" class="col-sm-2 col-form-label">OS No Glasses</label>
-						    <div class="col-sm-4">
-						      <input type="text" class="form-control" id="inputPassword" name="os_no_glasses" required/>
-						    </div>
-						    <label for="inputPassword" class="col-sm-2 col-form-label">with Glasses</label>
-						    <div class="col-sm-4">
-						      <input type="text" class="form-control" id="inputPassword" name="os_with_glasses" required/>
-						    </div>
-						</div>
-						<div class="form-group row">
-						    <label for="inputPassword" class="col-sm-2 col-form-label">OD No Glasses</label>
-						    <div class="col-sm-4">
-						      <input type="text" class="form-control" id="inputPassword" name="od_no_glasses" required/>
-						    </div>
-						    <label for="inputPassword" class="col-sm-2 col-form-label">with Glasses</label>
-						    <div class="col-sm-4">
-						      <input type="text" class="form-control" id="inputPassword" name="od_with_glasses" required/>
-						    </div>
-						</div>
+							<div class="container">
+								<div class="row">
+									<div class="col-md-6">	
+										<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">OS No GLasses</label>
+										<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="input_one" name="os_no_glasses"  value="Yes" checked/>
+										 	  <label class="form-check-label" for="inlineradio1">Yes</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="input_two" name="os_no_glasses" value="No"  >
+											  <label class="form-check-label" for="inlineradio2">No</label>
+											</div>
+											<input class="form control col-sm-5" type="text" name="os_with_glasses" placeholder="with Glasses" id="input_four">
+										</div>
+
+										<div class="col-md-6">	
+										<label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">OD No GLasses</label>
+										<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="input_one" name="od_no_glasses"  value="Yes" checked/>
+										 	  <label class="form-check-label" for="inlineradio1">Yes</label>
+											</div>
+											<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="radio" id="input_two" name="od_no_glasses" value="No"  >
+											  <label class="form-check-label" for="inlineradio2">No</label>
+											</div>
+											<input class="form control col-sm-5" type="text" name="od_with_glasses" placeholder="with Glasses" id="input_four">
+										</div>
+									</div>
+								</div>
+							</div>
 						<hr>	
 						<div class="form-group">
 							<div class="row">

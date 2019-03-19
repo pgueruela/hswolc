@@ -1,3 +1,8 @@
+<style type="text/css">
+	body * {
+		font-size: 20px;
+	}
+</style>
 <?php 
 
 include '../header-include.php';
@@ -12,7 +17,7 @@ $result = $conn->query("SELECT emp.*, pt.* FROM employee_medical_profile as emp
 $row = mysqli_fetch_assoc($result);
 ?>
 
-<div class="container">
+<div class="container-fluid">
 	<?php 
 	if ($row['gender'] =='M') { ?>
 		<div style="line-height: 1.5px;margin-top: 50px;text-align: center;" class="emp-title">

@@ -1,3 +1,8 @@
+<style type="text/css">
+	body * {
+		font-size: 18px;
+	}
+</style>
 <?php 
 include '../header-include.php';
 include '../includes/db.php';
@@ -12,11 +17,11 @@ $result = $conn->query("SELECT phy.*, pt.* FROM physical_examination_tbl as phy
 $row = mysqli_fetch_assoc($result);
 ?>
 
-<div class="container">
+<div class="container-fluid">
 
 	<div class="row">
 		<div class="col-md-4 offset-4">
-			<div style="line-height: 1.5px; margin-top: 50px; text-align: center;">
+			<div style="line-height: 3px; margin-top: 60px; text-align: center;">
 				<p><b>School Health Record</b></p>
 				<p><b>Annnual Physical Examination</b></p>
 				<p><b>Lorma Colleges</b></p>
@@ -110,10 +115,10 @@ $row = mysqli_fetch_assoc($result);
 
  		 <div class="row">
  			<div class="col-md-3 offset-2">
- 				<p>OD No Glasses: <b><?php echo $row['os_no_glasses']; ?></b></p>
+ 				<p>OD No Glasses: <b><?php echo $row['od_no_glasses']; ?></b></p>
  			</div>
  			<div class="col-md-3">
- 				<p>OD with Glasses: <b><?php echo $row['os_with_glasses']; ?></b></p>
+ 				<p>OD with Glasses: <b><?php echo $row['od_with_glasses']; ?></b></p>
  			</div>
  		</div>
 

@@ -5,6 +5,8 @@ session_start();
 <html>
 <head>
 	<title>Health Services and Wellness Office Lorma Colleges Carlatan Campus</title>
+	<link rel="icon" type="image/ico" href="../assets/img/lc-small-logo.png" />
+
 	<!-- FONT AWESOME -->
 	<link rel="stylesheet" type="text/css" href="../assets/css/all.css">
 	<!-- Bootstrap CSS -->

@@ -64,10 +64,10 @@ include '../includes/admin_navigationbar.php';
 
  					 <div class="row">
  						<div class="col-md-4">
- 							<p>OD No Glasses: <b><?php echo $row['os_no_glasses']; ?></b></p>
+ 							<p>OD No Glasses: <b><?php echo $row['od_no_glasses']; ?></b></p>
  						</div>
  						<div class="col-md-4">
- 							<p>OD with Glasses: <b><?php echo $row['os_with_glasses']; ?></b></p>
+ 							<p>OD with Glasses: <b><?php echo $row['od_with_glasses']; ?></b></p>
  						</div>
  					</div>
  					 <hr>
@@ -88,7 +88,7 @@ include '../includes/admin_navigationbar.php';
 							<div class="col-md-6">
 								<p>Skin: <b><?php echo $row['skin']; ?></b> <?php echo $row['skin_abnormal']; ?></p>
 								<p>Nose: <b><?php echo $row['nose']; ?></b> <?php echo $row['nose_abnormal']; ?></p>
-								<p>Mouth: <b><?php echo $row['mouth']; ?></b> <?php echo $row['skin_abnormal']; ?></p>
+								<p>Mouth: <b><?php echo $row['mouth']; ?></b> <?php echo $row['mouth_abnormal']; ?></p>
 								<p>Pharynx: <b><?php echo $row['pharynx']; ?></b> <?php echo $row['pharynx_abnormal']; ?></p>
 								<p>Tonsils: <b><?php echo $row['tonsils']; ?></b> <?php echo $row['tonsils_abnormal']; ?></p>
 								<p>Gums: <b><?php echo $row['gums']; ?></b> <?php echo $row['gums_abnormal']; ?></p>

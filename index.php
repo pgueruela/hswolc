@@ -97,12 +97,33 @@ $row = mysqli_fetch_assoc($result);
 			    <div class="card-header card-header-side-panel" id="headingOne">
 			      <h5 class="mb-0">
 			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
-			          Account
+			          Reports
 			        </button>
 			      </h5>
 			    </div>
 
 			    <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#reports_accordion">
+			      <div style="text-align: center;" class="card-body">
+			        <ul class="list-group list-group-flush">
+				    	<li class="list-group-item"><a style="text-align: center" href="modules/visits_report.php" class="nav-link card-link"><i class="fas fa-chart-bar"></i> Visits Report</a>
+				    	</li>
+			  		</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="accordion" id="account_accordion" aria-expanded="false">
+			  <div class="card">
+			    <div class="card-header card-header-side-panel" id="headingOne">
+			      <h5 class="mb-0">
+			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseOne">
+			          Account
+			        </button>
+			      </h5>
+			    </div>
+
+			    <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#account_accordion">
 			      <div style="text-align: center;" class="card-body">
 			        <ul class="list-group list-group-flush">
 				    	<li class="list-group-item"><a style="text-align: center" href="modules/changepassword.php?id=<?php echo $row['id']; ?>" class="nav-link card-link"><i class="fas fa-key"></i> Change Password</a>

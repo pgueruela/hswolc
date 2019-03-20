@@ -1,147 +1,308 @@
 <?php 
-
-include '../header-include.php';
+require_once '../dompdf/autoload.inc.php';
 include '../includes/db.php';
-include '../includes/admin_navigationbar.php';
+
+use Dompdf\Dompdf;	
+
+$document = new Dompdf();
+
+
+$id = $_GET['id'];
+$result = $conn->query("SELECT phy.*, pt.* FROM physical_examination_tbl as phy
+						LEFT JOIN patient_pd_tbl AS pt
+						ON phy.patient_id = pt.id
+						WHERE phy.id = $id");
+$output = "
+
+
+<div style='text-align:center; line-height:1px important;'>
+	<h4><b>SCHOOL HEALTH RECORD</b></h4>
+	<h4><b>ANNUAL PHYSICAL EXAMINATION</b></h4>	
+	<h4><b>LORMA COLLEGES</b></h4>
+	<p>Carlatan, San Fernando City, La Union</p>
+</div>";
+
+$row = mysqli_fetch_assoc($result);
+
+$output .= '
+<style>
+table.vital-sign-table {
+	margin-top: 20px;
+}
+table.eyes {
+	margin-top: 20px;
+}
+
+table.table-footer tr td {
+	border:none;
+}
+table.table-footer tr th {
+	border:none;
+}
+.char {
+	margin-top: 20px;
+	width: 40%;
+}
+
+table {
+  font-size: 15px;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+td, th {
+  border: 1px solid black;
+  text-align: left;
+  padding: 3px;
+  text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>Name:</th>
+    <th>Age:</th>
+    <th>Sex:</th>
+  </tr>
+  <tr>
+    <td>'.$row["firstname"]. " " . $row["lastname"].'</td>
+    <td>'.$row["age"].'</td>
+    <td>'.$row["gender"].'</td>
+  </tr>
+</table>
+  
+<table>
+  <tr>
+    <th colspan="2">Address:</th>
+    <th>Tel#</th>
+   
+  </tr>
+  <tr>
+    <td colspan="2">'.$row["patient_address"].'</td>
+    <td>'.$row["patient_number"].'</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th colspan="2" >Contact Person in Case of Emergency:</th>
+    <th>Tel#</th>
+  </tr>
+  <tr>
+    <td colspan="2">'.$row["contact_person"].'</td>
+    <td>'.$row["person_contact_emergency_number"].'</td>
+  </tr>
+</table>
+
+</hr>
+
+
+<table class="vital-sign-table">
+  <tr>
+    <th>BLOOD PRESSURE:</th>
+    <th>TEMPERATURE:</th>
+    <th>HEART RATE:</th>
+    <th>RR:</th>
+  </tr>
+  <tr>
+    <td>'.$row["blood_pressure"].'</td>
+    <td>'.$row["temperature"].'</td>
+    <td>'.$row["heart_rate"].'</td>
+    <td>'.$row["respiratory_rate"].'</td>
+  </tr>
+</table>
+
+<table >
+  <tr>
+    <th>HEIGHT:</th>
+    <th>WEIGHT:</th>
+    <th>BMI:</th>
+    <th>BLOOD TYPE:</th>
+  </tr>
+  <tr>
+    <td>'.$row["patient_height"].'</td>
+    <td>'.$row["patient_weight"].'</td>
+    <td>'.$row["bmi"].'</td>
+    <td>'.$row["blood_type"].'</td>
+  </tr>
+</table>
+
+<table class="eyes" >
+  <tr>
+    <th>Eyes: OS NO GLASSES:</th>
+    <th>with Glasses:</th>
+  </tr>
+  <tr>
+    <td>'.$row["os_no_glasses"].'</td>
+    <td>'.$row["os_with_glasses"].'</td>
+  </tr>
+</table>
+
+<table >
+  <tr>
+    <th>Eyes: OD NO GLASSES:</th>
+    <th>with Glasses:</th>
+  </tr>
+  <tr>
+    <td>'.$row["od_no_glasses"].'</td>
+    <td>'.$row["od_with_glasses"].'</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Ears: Right</th>
+    <th>Left</th>
+  </tr>
+  <tr>
+    <td>'.$row["ears_right"].'</td>
+    <td>'.$row["ears_left"].'</td>
+  </tr>
+</table>
+
+
+<table style="margin-top:20px; font-size:10px;">
+  <tr>
+    <th colspan="2"></th>
+    <th>ABNORMALLY</th>
+  </tr>
+  <tr>
+    <td>SKIN</td>
+    <td><b>'.$row["skin"].'</b></td>
+    <td><b>'.$row["skin_abnormal"].'</b></td>
+  </tr><tr>
+    <td>NOSE</td>
+    <td><b>'.$row["nose"].'</b></td>
+    <td><b>'.$row["nose_abnormal"].'</b></td>
+  </tr><tr>
+    <td>mouth</td>
+    <td><b>'.$row["mouth"].'</b></td>
+    <td><b>'.$row["mouth_abnormal"].'</b></td>
+  </tr><tr>
+    <td>pharynx</td>
+    <td><b>'.$row["pharynx"].'</b></td>
+    <td><b>'.$row["pharynx_abnormal"].'</b></td>
+  </tr><tr>
+    <td>tonsils</td>
+    <td><b>'.$row["tonsils"].'</b></td>
+    <td><b>'.$row["tonsils_abnormal"].'</b></td>
+  </tr><tr>
+    <td>gums</td>
+    <td><b>'.$row["gums"].'</b></td>
+    <td><b>'.$row["gums_abnormal"].'</b></td>
+  </tr><tr>
+    <td>lymph nodes</td>
+    <td><b>'.$row["lymph_nodes"].'</b></td>
+    <td><b>'.$row["lymph_nodes_abnormal"].'</b></td>
+  </tr><tr>
+    <td>neck</td>
+    <td><b>'.$row["neck"].'</b></td>
+    <td><b>'.$row["neck_abnormal"].'</b></td>
+  </tr><tr>
+    <td>chest</td>
+    <td><b>'.$row["chest"].'</b></td>
+    <td><b>'.$row["chest_abnormal"].'</b></td>
+  </tr><tr>
+    <td>lungs</td>
+    <td><b>'.$row["lungs"].'</b></td>
+    <td><b>'.$row["lungs_abnormal"].'</b></td>
+  </tr><tr>
+    <td>heart</td>
+    <td><b>'.$row["heart"].'</b></td>
+    <td><b>'.$row["heart_abnormal"].'</b></td>
+  </tr><tr>
+    <td>abdomen</td>
+    <td><b>'.$row["abdomen"].'</b></td>
+    <td><b>'.$row["abdomen_abnormal"].'</b></td>
+  </tr><tr>
+    <td>rectum</td>
+    <td><b>'.$row["rectum"].'</b></td>
+    <td><b>'.$row["rectum_abnormal"].'</b></td>
+  </tr><tr>
+    <td>Genitalia</td>
+    <td><b>'.$row["genitalia"].'</b></td>
+    <td><b>'.$row["genitalia_abnormal"].'</b></td>
+  </tr><tr>
+    <td>spine</td>
+    <td><b>'.$row["spine"].'</b></td>
+    <td><b>'.$row["spine_abnormal"].'</b></td>
+  </tr><tr>
+    <td>arms</td>
+    <td><b>'.$row["arms"].'</b></td>
+    <td><b>'.$row["arms_abnormal"].'</b></td>
+  </tr>
+  <tr>
+    <td>legs</td>
+    <td><b>'.$row["legs"].'</b></td>
+    <td><b>'.$row["legs_abnormal"].'</b></td>
+  </tr>
+  <tr>
+    <td>feet</td>
+    <td><b>'.$row["feet"].'</b></td>
+    <td><b>'.$row["feet_abnormal"].'</b></td>
+  </tr>
+</table>
+
+
+<table style="margin-top:20px;">
+  <tr>
+    <th>Remarks</th>
+  </tr>
+  <tr>
+    <td>'.$row["remarks"].'</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Assesment</th>
+  </tr>
+  <tr>
+    <td>'.$row["observation"].'</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Recommendation</th>
+  </tr>
+  <tr>
+    <td>'.$row["reccomendation"].'</td>
+  </tr>
+</table>
+
+<table class="table-footer" style="margin-top: 90px;">
+  <tr>
+    <th>'.$row["date_recorded"].'</th>
+    <th>'.$row["assesed_by"].'</th>
+  </tr>
+  <tr>
+    <td>Date Examined</td>
+    <td>Physician</td>
+  </tr>
+</table>
+
+';
+
+
+$document->loadHtml($output);
+
+//set page size and orientation
+
+$document->setPaper('A4', 'landscape');
+
+//Render the HTML as PDF
+
+$document->render();
+
+//Get output of generated pdf in Browser
+
+$document->stream("Physical Record", array("Attachment"=>0));
 ?>
- <div class="container">
- 
-  <?php   
-  $id = $_GET['id'];
-  $result = $conn->query("SELECT * FROM physical_examination_tbl WHERE id=$id");
-
-  $row = mysqli_fetch_assoc($result);?>
-		<div class="col-md-9">
-			<div class="card">
-			 	<div class="card-body">
- 					<!-- VS -->
- 						<div class="row">
- 						<div class="col-md-12">
- 							<small style="color: red;"><i>This annual physical record was recorded on <?php echo $row['date_recorded']; ?></i></small>
- 						</div>
- 					</div>
- 					<hr>
- 					<div class="row">
- 						<div class="col-md-4">
- 							<p>Temperature: <b><?php echo $row['temperature']; ?></b> </p>
- 						</div>
- 						<div class="col-md-4">
- 							<p>Blood Pressure: <b><?php echo $row['blood_pressure']; ?></b></p>
- 						</div>
- 						<div class="col-md-4">
- 							<p>Heart Rate: <b><?php echo $row['heart_rate']; ?></b></p>
- 						</div>
- 					</div>
-
- 					<!-- Measure -->
- 					<div class="row">
- 						<div class="col-md-4">
- 							<p>Respiratory Rate: <b><?php echo $row['respiratory_rate']; ?></b></p>
- 						</div>
- 						<div class="col-md-4">
- 							<p>Height: <b><?php echo $row['patient_height']; ?></b></p>
- 						</div>
- 						<div class="col-md-4">
- 							<p>Weight: <b><?php echo $row['patient_height']; ?></b></p>
- 						</div>
- 					</div>
- 					<div class="row">
- 						<div class="col-md-4">
- 							<p>BMI: <b><?php echo $row['bmi']; ?></b></p>
- 						</div>
- 					</div>
- 					<hr>
- 					<p>Eyes</p>
- 					<div class="row">
- 						<div class="col-md-4">
- 							<p>OS No Glasses: <b><?php echo $row['os_no_glasses']; ?></b></p>
- 						</div>
-
- 						<div class="col-md-4">
- 							<p>OS with Glasses: <b><?php echo $row['os_with_glasses']; ?></b></p>
- 						</div>
- 					</div>
-
- 					 <div class="row">
- 						<div class="col-md-4">
- 							<p>OD No Glasses: <b><?php echo $row['od_no_glasses']; ?></b></p>
- 						</div>
- 						<div class="col-md-4">
- 							<p>OD with Glasses: <b><?php echo $row['od_with_glasses']; ?></b></p>
- 						</div>
- 					</div>
- 					 <hr>
- 					<p>Ears</p>
- 					<div class="row">
- 						<div class="col-md-4">
- 							<p>Right: <b><?php echo $row['ears_right']; ?></b></p>
- 						</div>
-
- 						<div class="col-md-4">
- 							<p>Left: <b><?php echo $row['ears_left']; ?></b></p>
- 						</div>
- 					</div>
- 					<hr>
-
-	 				<div class="">
-						<div class="row">
-							<div class="col-md-6">
-								<p>Skin: <b><?php echo $row['skin']; ?></b> <?php echo $row['skin_abnormal']; ?></p>
-								<p>Nose: <b><?php echo $row['nose']; ?></b> <?php echo $row['nose_abnormal']; ?></p>
-								<p>Mouth: <b><?php echo $row['mouth']; ?></b> <?php echo $row['mouth_abnormal']; ?></p>
-								<p>Pharynx: <b><?php echo $row['pharynx']; ?></b> <?php echo $row['pharynx_abnormal']; ?></p>
-								<p>Tonsils: <b><?php echo $row['tonsils']; ?></b> <?php echo $row['tonsils_abnormal']; ?></p>
-								<p>Gums: <b><?php echo $row['gums']; ?></b> <?php echo $row['gums_abnormal']; ?></p>
-								<p>Lymph: <b><?php echo $row['lymph_nodes']; ?></b> <?php echo $row['lymph_nodes_abnormal']; ?></p>
-								<p>Neck: <b><?php echo $row['neck']; ?></b> <?php echo $row['neck_abnormal']; ?></p>
-								<p>Chest: <b><?php echo $row['chest']; ?></b> <?php echo $row['chest_abnormal']; ?></p>
-
-				 			</div>
-
-				 			<div class="col-md-6">
-				 				<p>Lungs: <b><?php echo $row['lungs']; ?></b> <?php echo $row['lungs_abnormal']; ?></p>
-								<p>Heart: <b><?php echo $row['heart']; ?></b> <?php echo $row['heart_abnormal']; ?></p>
-								<p>Abdomen: <b><?php echo $row['abdomen']; ?></b> <?php echo $row['abdomen_abnormal']; ?></p>
-								<p>Rectum: <b><?php echo $row['rectum']; ?></b> <?php echo $row['rectum_abnormal']; ?></p>
-								<p>Genitalia: <b><?php echo $row['genitalia']; ?></b> <?php echo $row['genitalia_abnormal']; ?></p>
-								<p>Spine: <b><?php echo $row['spine']; ?></b> <?php echo $row['spine_abnormal']; ?></p>
-								<p>Arms: <b><?php echo $row['arms']; ?></b> <?php echo $row['arms_abnormal']; ?></p>
-								<p>Legs: <b><?php echo $row['legs']; ?></b> <?php echo $row['legs_abnormal']; ?></p>
-								<p>Feet: <b><?php echo $row['feet']; ?></b> <?php echo $row['feet_abnormal']; ?></p>
-				 			</div>
-						</div>				
-					</div>
-					<hr>
-					 <div class="row">
- 						<div class="col-md-12">
- 							<p>Remarks: <b><?php echo $row['remarks']; ?></b> </p>
- 						</div>
- 					</div>
- 					<div class="row">
- 						<div class="col-md-12">
- 							<p>Observation:<b> <?php echo $row['observation']; ?></b></p>
- 						</div>
- 					</div>
-
- 					<div class="row">
- 						<div class="col-md-12">
- 							<p>Reccomendation: <b><?php echo $row['reccomendation']; ?></b></p>
- 						</div>
- 					</div>
-
- 					<div class="row">
- 						<div class="col-md-12">
- 							<p>Assesed by: <b><?php echo $row['assesed_by']; ?></b> </p>
- 						</div>
- 					</div>
-
- 					<div class="row">
- 						<div class="col-md-1 offset-11">
- 							<a href="../report/print_physical_examination.php?id=<?php echo $id; ?>"><i style="font-size: 25px;" class="fas fa-print"></i></a>
- 						</div>
- 					</div>
- 				</div>
-			</div>
- 		</div>
-	</div>
-</div>
+		

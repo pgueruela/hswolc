@@ -6,12 +6,10 @@ use Dompdf\Dompdf;
 
 $document = new Dompdf();
 
-$id = $_GET['id'];
-
-$result = $conn->query("SELECT pt.*, ct.* FROM patient_pd_tbl as pt
-            LEFT JOIN consultation_tbl AS ct
-            ON pt.id = ct.patient_id
-            WHERE pt.id = $id ");
+$result = $conn->query("SELECT pt.*, vt.* FROM patient_pd_tbl as pt
+            LEFT JOIN visit_tbl AS vt ON vt.patient_id = pt.id 
+            WHERE YEAR(date_recorded) and MONTH(date_recorded) = month(curdate())
+            ORDER BY date_recorded DESC");
 
 $row = mysqli_fetch_assoc($result);
 
@@ -50,28 +48,8 @@ td, th {
   <h4><b>COLLEGE CLINIC</b></h4>
 
   <br>
-  <h4><b>CONSULTATION RECORDS</b></h4>
+  <h4  style='text-transform: uppercase;'><b>Clinic Monthly Visit Records</b></h4>
   </div>";
-
-$output .='
-
-<table class="personal-data">
-  <tr>
-    <th>Name:</th>
-    <th>Age:</th>
-    <th>Sex:</th>
-  </tr>
-  <tr>
-    <td>'.$row["firstname"]. " " . $row["lastname"].'</td>
-    <td>'.$row["age"].'</td>
-    <td>'.$row["gender"].'</td>
-  </tr>
-</table>
-';
-
-
-$query = "SELECT * FROM consultation_tbl WHERE patient_id=$id;";
-$result = mysqli_query($conn, $query);
 
 $output .='
 
@@ -79,16 +57,11 @@ $output .='
 
 <table>
   <tr>
-    <th>Date and Time</th>
-    <th>Chief Complain</th>
-    <th>Temp</th>
-    <th>BP</th>
-    <th>RR</th>
-    <th>PR</th>
-    <th>Medicine</th>
-    <th>QTY</th>
-    <th>Remarks</th>
-    <th>Assesed by</th>
+    <th>Date and Time</th> 
+    <th>Name</th> 
+    <th>Purpose of Visit</th> 
+    <th>Assesed by: </th> 
+
   </tr>
   ';
   while($row = mysqli_fetch_array($result))
@@ -96,19 +69,12 @@ $output .='
    $output .= '
     <tr>
      <td>'.$row["date_recorded"].'</td>
-     <td>'.$row["chief_complain"].'</td>
-     <td>'.$row["temperature"].'</td>
-     <td>'.$row["blood_pressure"].'</td>
-     <td>'.$row["respiratory_rate"].'</td>
-     <td>'.$row["heart_rate"].'</td>
-     <td>'.$row["medicines"].'</td>
-     <td>'.$row["quantity"].'</td>
-     <td>'.$row["remarks"].'</td>
+     <td>'.$row["firstname"]. " " .$row["lastname"].'</td>
+     <td>'.$row["visit_reason"].'</td>
      <td>'.$row["assesed_by"].'</td>
     </tr>
    ';
   }
-
 $output .= '</table>';
 
 
@@ -125,6 +91,6 @@ $document->render();
 
 //Get output of generated pdf in Browser
 
-$document->stream("Physical Record", array("Attachment"=>0));
+$document->stream("MonthlyVisitRecords", array("Attachment"=>0));
 ?>
     

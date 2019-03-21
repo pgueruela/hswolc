@@ -13,13 +13,14 @@ $id = $_GET['id'];
 	$respiratory_rate = $_POST['respiratory_rate'];
 	$chief_complain= $_POST['chief_complain'];
 	$physical_examination = $_POST['physical_examination'];
+	$treatment = $_POST['treatment'];
+	$diagnosis = $_POST['diagnosis'];
 	$medicines = $_POST['medicines'];
 	$quantity = $_POST['quantity'];
-	$diagnosis = $_POST['diagnosis'];
 	$remarks = $_POST['remarks'];
 	$nurse_doctor = $_POST['nurse_doctor'];
 
-	$sql = "INSERT INTO consultation_tbl (patient_id, blood_pressure, respiratory_rate, heart_rate, temperature, chief_complain, remarks, physical_examination , medicines, quantity,diagnosis, assesed_by , date_recorded) VALUES($id, '$blood_pressure', '$respiratory_rate', '$heart_rate', '$temperature' , '$chief_complain', '$remarks','$diagnosis', '$physical_examination', '$medicines', '$quantity', '$nurse_doctor', now()); ";
+	$sql = "INSERT INTO consultation_tbl (patient_id, temperature, blood_pressure, heart_rate, respiratory_rate, chief_complain, physical_examination, treatment, diagnosis , medicines, quantity, remarks, assesed_by , date_recorded) VALUES($id, '$temperature', '$blood_pressure',  '$heart_rate','$respiratory_rate', '$chief_complain' , '$physical_examination', '$treatment','$diagnosis', '$medicines', '$quantity', '$remarks', '$nurse_doctor', now()); ";
 	$sql .= "INSERT INTO visit_tbl (patient_id, visit_reason, assesed_by , date_recorded) VALUES ($id, '$visit_reason', '$nurse_doctor', now())";
 
 	if ($conn->multi_query($sql) === TRUE) {

@@ -4,6 +4,13 @@ include '../header-include.php';
 include '../includes/admin_navigationbar.php';
 include '../process/emp_medical_profile_process.php';
 
+
+$id = $_SESSION['id'];
+
+if (!isset($_SESSION['id']) ) {
+	header("Location: ../login_account.php");
+	exit();
+}
 ?>
 
 <div class="container">

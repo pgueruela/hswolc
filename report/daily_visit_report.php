@@ -48,7 +48,7 @@ td, th {
 $result = $conn->query("SELECT pt.*, vt.* FROM patient_pd_tbl as pt
             LEFT JOIN visit_tbl AS vt ON vt.patient_id = pt.id 
             WHERE date_recorded >= curdate()
-            ORDER BY date_recorded DESC");
+            ORDER BY date_recorded ASC");
 
 $output .='
 
@@ -76,6 +76,7 @@ $output .='
   }
 
 $output .= '</table>';
+
 
 $document->loadHtml($output);
 

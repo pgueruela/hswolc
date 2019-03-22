@@ -10,7 +10,7 @@ $output = "
 <style>
 
 table {
-  font-size: 15px;
+  font-size: 12px;
   font-family: arial, sans-serif;
   border-collapse: collapse;
   margin-left: auto;
@@ -48,7 +48,7 @@ $query = "SELECT pt.*, ct.* FROM patient_pd_tbl as pt
             LEFT JOIN consultation_tbl AS ct
             ON pt.id = ct.patient_id
             WHERE YEAR(date_recorded) and MONTH(date_recorded) = month(curdate())
-            ORDER BY date_recorded DESC";
+            ORDER BY date_recorded ASC";
 $result = mysqli_query($conn, $query);
 
 $output .='

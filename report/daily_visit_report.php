@@ -6,12 +6,6 @@ use Dompdf\Dompdf;
 
 $document = new Dompdf();
 
-$result = $conn->query("SELECT pt.*, vt.* FROM patient_pd_tbl as pt
-            LEFT JOIN visit_tbl AS vt ON vt.patient_id = pt.id 
-            WHERE date_recorded >= curdate()
-            ORDER BY date_recorded DESC");
-
-$row = mysqli_fetch_assoc($result);
 
 $output = "
 <style>
@@ -50,6 +44,11 @@ td, th {
   <br>
   <h4  style='text-transform: uppercase;'><b>Clinic Daily Visit Records</b></h4>
   </div>";
+
+$result = $conn->query("SELECT pt.*, vt.* FROM patient_pd_tbl as pt
+            LEFT JOIN visit_tbl AS vt ON vt.patient_id = pt.id 
+            WHERE date_recorded >= curdate()
+            ORDER BY date_recorded DESC");
 
 $output .='
 

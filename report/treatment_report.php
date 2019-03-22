@@ -41,14 +41,15 @@ td, th {
   <h4><b>COLLEGE CLINIC</b></h4>
 
   <br>
-  <h4  style='text-transform: uppercase;'><b>Clinic Monthly Visit Records</b></h4>
+  <h4><b>MONTHLY TREATMENT REPORT</b></h4>
   </div>";
 
-
-$result = $conn->query("SELECT pt.*, vt.* FROM patient_pd_tbl as pt
-            LEFT JOIN visit_tbl AS vt ON vt.patient_id = pt.id 
+$query = "SELECT pt.*, ct.* FROM patient_pd_tbl as pt
+            LEFT JOIN consultation_tbl AS ct
+            ON pt.id = ct.patient_id
             WHERE YEAR(date_recorded) and MONTH(date_recorded) = month(curdate())
-            ORDER BY date_recorded DESC");
+            ORDER BY date_recorded DESC";
+$result = mysqli_query($conn, $query);
 
 $output .='
 
@@ -56,11 +57,18 @@ $output .='
 
 <table>
   <tr>
-    <th>Date and Time</th> 
-    <th>Name</th> 
-    <th>Purpose of Visit</th> 
-    <th>Assesed by: </th> 
-
+    <th>Date and Time</th>
+    <th>Name</th>
+    <th>Department</th>
+    <th>Chief Complain</th>
+    <th>Temp</th>
+    <th>BP</th>
+    <th>RR</th>
+    <th>PR</th>
+    <th>Medicine</th>
+    <th>QTY</th>
+    <th>Remarks</th>
+    <th>Assesed by</th>
   </tr>
   ';
   while($row = mysqli_fetch_array($result))
@@ -68,14 +76,22 @@ $output .='
    $output .= '
     <tr>
      <td>'.$row["date_recorded"].'</td>
-     <td>'.$row["firstname"]. " " .$row["lastname"].'</td>
-     <td>'.$row["visit_reason"].'</td>
+     <td>'.$row["firstname"]. " ". $row["lastname"].'</td>
+     <td>'.$row["department"].'</td>
+     <td>'.$row["chief_complain"].'</td>
+     <td>'.$row["temperature"].'</td>
+     <td>'.$row["blood_pressure"].'</td>
+     <td>'.$row["respiratory_rate"].'</td>
+     <td>'.$row["heart_rate"].'</td>
+     <td>'.$row["medicines"].'</td>
+     <td>'.$row["quantity"].'</td>
+     <td>'.$row["remarks"].'</td>
      <td>'.$row["assesed_by"].'</td>
     </tr>
    ';
   }
-$output .= '</table>';
 
+$output .= '</table>';
 
 
 $document->loadHtml($output);
@@ -90,6 +106,6 @@ $document->render();
 
 //Get output of generated pdf in Browser
 
-$document->stream("MonthlyVisitRecords", array("Attachment"=>0));
+$document->stream("Physical Record", array("Attachment"=>0));
 ?>
     

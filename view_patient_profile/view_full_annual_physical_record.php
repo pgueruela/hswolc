@@ -45,7 +45,7 @@ table.table-footer tr th {
 }
 
 table {
-  font-size: 15px;
+  font-size: 11px;
   font-family: arial, sans-serif;
   border-collapse: collapse;
   margin-left: auto;
@@ -56,7 +56,7 @@ table {
 td, th {
   border: 1px solid black;
   text-align: left;
-  padding: 3px;
+  padding: 2px;
   text-transform: uppercase;
 }
 
@@ -277,7 +277,7 @@ td, th {
   </tr>
 </table>
 
-<table class="table-footer" style="margin-top: 90px;">
+<table class="table-footer" style="margin-top: 60px;">
   <tr>
     <th>'.$row["date_recorded"].'</th>
     <th>'.$row["assesed_by"].'</th>
@@ -295,7 +295,7 @@ $document->loadHtml($output);
 
 //set page size and orientation
 
-$document->setPaper('A4', 'landscape');
+$document->setPaper('A4', 'potrait');
 
 //Render the HTML as PDF
 

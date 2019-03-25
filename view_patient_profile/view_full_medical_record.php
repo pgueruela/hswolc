@@ -19,7 +19,7 @@ $output = "
 <style>
 
 table {
-  font-size: 15px;
+  font-size: 11px;
   font-family: arial, sans-serif;
   border-collapse: collapse;
   margin-left: auto;
@@ -30,7 +30,7 @@ table {
 td, th {
   border: 1px solid black;
   text-align: left;
-  padding: 3px;
+  padding: 2px;
   text-transform: uppercase;
 }
 
@@ -46,12 +46,11 @@ table.table-footer th {
 <body>
 
 <div style='text-align:center; line-height:1px important;'>
-  <h5><b>LORMA COLLEGES</b></h5>
-  <h5><b>SAN FERNANDO CITY, LA UNION</b></h5> 
-  <h4><b>COLLEGE CLINIC</b></h4>
+  <h4 style='text-transform:uppercase;'><b>Health Services and Wellness Office Lorma Colleges</b></h4>
+  <h6><b>SAN FERNANDO CITY, LA UNION</b></h6> 
 
   <br>
-  <h4><b>EMPLOYEE'S MEDICAL PROFILE</b></h4>
+  <h5><b>EMPLOYEE'S MEDICAL PROFILE</b></h5>
   </div>";
 
 if($row['gender'] == 'M') {
@@ -488,7 +487,7 @@ $document->loadHtml($output);
 
 //set page size and orientation
 
-$document->setPaper('A4', 'landscape');
+$document->setPaper('A4', 'portrait');
 
 //Render the HTML as PDF
 

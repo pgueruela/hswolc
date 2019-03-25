@@ -45,12 +45,11 @@ td, th {
 <body>
 
 <div style='text-align:center; line-height:1px important;'>
-  <h5><b>LORMA COLLEGES</b></h5>
-  <h5><b>SAN FERNANDO CITY, LA UNION</b></h5> 
-  <h4><b>COLLEGE CLINIC</b></h4>
+  <h4 style='text-transform:uppercase;'><b>Health Services and Wellness Office Lorma Colleges</b></h4>
+  <h6><b>SAN FERNANDO CITY, LA UNION</b></h6> 
 
   <br>
-  <h4><b>CONSULTATION RECORDS</b></h4>
+  <h5><b>CONSULTATION RECORDS</b></h5>
   </div>";
 
 $output .='

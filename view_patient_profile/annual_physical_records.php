@@ -27,8 +27,8 @@ include '../includes/db.php';
 $id = $_GET['id'];
 
 $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
-
-	$row = mysqli_fetch_assoc($result); ?>
+$row = mysqli_fetch_assoc($result); 
+?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-style fixed-top">
   <div class="container">

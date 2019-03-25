@@ -107,6 +107,8 @@ $row = mysqli_fetch_assoc($result);
 			        <ul class="list-group list-group-flush">
 				    	<li class="list-group-item"><a style="text-align: center" href="modules/visits_report.php" class="nav-link card-link"><i class="fas fa-chart-bar"></i> Visits Report</a>
 				    	</li>
+				    	<li class="list-group-item"><a style="text-align: center" href="report/treatment_report.php" class="nav-link card-link"><i class="fas fa-medkit"></i> Treatment Report</a>
+				    	</li>
 			  		</ul>
 			      </div>
 			    </div>

@@ -79,71 +79,92 @@ include '../includes/db.php';
 
  
 	<div class="container">
-	<div class="row">
-		<div class="col-md-3">
-			<div class="accordion" id="patient_accordion">
-			  <div class="card card-side-panel">
-			    <div class="card-header card-header-side-panel" id="headingOne">
-			      <h5 class="mb-0">
-			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-			          Dashboard
-			        </button>
-			      </h5>
-			    </div>
+  	<div class="row">
+  		<div class="col-md-3">
+  			<div class="accordion" id="patient_accordion">
+  			  <div class="card card-side-panel">
+  			    <div class="card-header card-header-side-panel" id="headingOne">
+  			      <h5 class="mb-0">
+  			        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+  			          Dashboard
+  			        </button>
+  			      </h5>
+  			    </div>
 
-			    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#patient_accordion">
-			      <div style="text-align: center;" class="card-body">
-			         <ul class="list-group list-group-flush">
-							<li class="list-group-item">
-							<a class="nav-link" href="view_employee_patient.php"><i class="fas fa-user-tie"></i> View Employee</a>
-						</li>
-						<li class="list-group-item">
-							<a class="nav-link" href="view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
-						</li>
-                        <li class="list-group-item">
-                <a class="nav-link" href="add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
-              </li>
-			 		 </ul>
-			      </div>
-			    </div>
-			  </div>
-			</div>
- 		</div>
-		<div class="col-md-9">
-			<div class="card card-body-margins">
-				<div class="card-body card-body-header">
-					<h4><i class="fas fa-chart-bar"></i> Visit Report</h4>
-				 </div>
-			</div>
+  			    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#patient_accordion">
+  			      <div style="text-align: center;" class="card-body">
+  			         <ul class="list-group list-group-flush">
+  							<li class="list-group-item">
+  							<a class="nav-link" href="view_employee_patient.php"><i class="fas fa-user-tie"></i> View Employee</a>
+  						</li>
+  						<li class="list-group-item">
+  							<a class="nav-link" href="view_student_patient.php"><i class="fas fa-user"></i> View Student</a>
+  						</li>
+                          <li class="list-group-item">
+                  <a class="nav-link" href="add_patient.php"><i class="fas fa-plus" aria-hidden="true"></i>  Add Patient</a>
+                </li>
+  			 		 </ul>
+  			      </div>
+  			    </div>
+  			  </div>
+  			</div>
+   		</div>
+  		<div class="col-md-9">
+  			<div class="card card-body-margins">
+  				<div class="card-body card-body-header">
+  					<h4><i class="fas fa-chart-bar"></i> Visit Report</h4>
+  				 </div>
+  			</div>
 
-			<div class="card">
-				
-				<div class="card-body">
+  			<div class="card">
+  				
+  				<div class="card-body">
+                <!-- Daily Visit Query -->
+                <?php  
+                
+                $query = "SELECT COUNT(*) FROM visit_tbl WHERE date_recorded >= curdate()";
+                $result = mysqli_query($conn, $query);
 
-              <?php 
+                while($row = mysqli_fetch_array($result)) { ?>
+                  <p><a href="../report/daily_visit_report.php">Daily Visit for this month: <b> <?php printf("%s\n",$row[0]); ?> </b></p></a> 
+                <?php 
+                }
+                ?> 
 
-              $sql = "SELECT COUNT(*) FROM visit_tbl WHERE date_recorded >= curdate();";
-              $sql .= "SELECT COUNT(*) FROM visit_tbl WHERE YEARWEEK(date_recorded) = yearweek(curdate());";
-              $sql .= "SELECT COUNT(*) FROM visit_tbl WHERE YEAR(date_recorded) and MONTH(date_recorded) = month(curdate())";
+                <!-- Weekly visit query -->
+                <?php  
+                
+                $query = "SELECT COUNT(*) FROM visit_tbl WHERE YEARWEEK(date_recorded) = yearweek(curdate())";
+                $result = mysqli_query($conn, $query);
 
-              // Execute multi query
-              if (mysqli_multi_query($conn,$sql))
-              {
-                do
-                  {
-                  // Store first result set
-                  if ($result=mysqli_store_result($conn)) {
-                    // Fetch one and one row
-                    while ($row=mysqli_fetch_row($result))
-                      {
-                      printf("%s\n",$row[0]);
-                      }
-                    // Free result set
-                    mysqli_free_result($result);
-                    }
-                  }
-                while (mysqli_next_result($conn));
-              }
-               ?>
+                while($row = mysqli_fetch_array($result)) { ?>
+                  <p><a href="../report/weekly_visit_report.php">Weekly Visit for this month: <b> <?php printf("%s\n",$row[0]); ?> </b></a></p>
+                <?php 
+                }
+                ?> 
+
+                <!-- Monthly visit query -->
+                <?php  
+                
+                $query = "SELECT COUNT(*) FROM visit_tbl WHERE YEAR(date_recorded) and MONTH(date_recorded) = month(curdate())";
+                $result = mysqli_query($conn, $query);
+
+                while($row = mysqli_fetch_array($result)) { ?>
+                  <p><a href="../report/monthly_visit_report.php">Monthly Visit: <b> <?php printf("%s\n",$row[0]); ?></b></a></p>
+                <?php 
+                }
+                ?> 
+          </div>
         </div>
       </div>
+    </div>
+    
+    <?php 
+      //includes footer
+      include '../includes/footer.php';
+    ?>
+  </div>
+
+
+       
+

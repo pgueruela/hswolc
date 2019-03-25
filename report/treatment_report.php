@@ -6,20 +6,11 @@ use Dompdf\Dompdf;
 
 $document = new Dompdf();
 
-$id = $_GET['id'];
-
-$result = $conn->query("SELECT pt.*, ct.* FROM patient_pd_tbl as pt
-            LEFT JOIN consultation_tbl AS ct
-            ON pt.id = ct.patient_id
-            WHERE pt.id = $id ");
-
-$row = mysqli_fetch_assoc($result);
-
 $output = "
 <style>
 
 table {
-  font-size: 15px;
+  font-size: 12px;
   font-family: arial, sans-serif;
   border-collapse: collapse;
   margin-left: auto;
@@ -50,27 +41,14 @@ td, th {
   <h4><b>COLLEGE CLINIC</b></h4>
 
   <br>
-  <h4><b>CONSULTATION RECORDS</b></h4>
+  <h4><b>MONTHLY TREATMENT REPORT</b></h4>
   </div>";
 
-$output .='
-
-<table class="personal-data">
-  <tr>
-    <th>Name:</th>
-    <th>Age:</th>
-    <th>Sex:</th>
-  </tr>
-  <tr>
-    <td>'.$row["firstname"]. " " . $row["lastname"].'</td>
-    <td>'.$row["age"].'</td>
-    <td>'.$row["gender"].'</td>
-  </tr>
-</table>
-';
-
-
-$query = "SELECT * FROM consultation_tbl WHERE patient_id=$id;";
+$query = "SELECT pt.*, ct.* FROM patient_pd_tbl as pt
+            LEFT JOIN consultation_tbl AS ct
+            ON pt.id = ct.patient_id
+            WHERE YEAR(date_recorded) and MONTH(date_recorded) = month(curdate())
+            ORDER BY date_recorded ASC";
 $result = mysqli_query($conn, $query);
 
 $output .='
@@ -80,6 +58,8 @@ $output .='
 <table>
   <tr>
     <th>Date and Time</th>
+    <th>Name</th>
+    <th>Department</th>
     <th>Chief Complain</th>
     <th>Temp</th>
     <th>BP</th>
@@ -96,6 +76,8 @@ $output .='
    $output .= '
     <tr>
      <td>'.$row["date_recorded"].'</td>
+     <td>'.$row["firstname"]. " ". $row["lastname"].'</td>
+     <td>'.$row["department"].'</td>
      <td>'.$row["chief_complain"].'</td>
      <td>'.$row["temperature"].'</td>
      <td>'.$row["blood_pressure"].'</td>
@@ -110,7 +92,6 @@ $output .='
   }
 
 $output .= '</table>';
-
 
 
 $document->loadHtml($output);

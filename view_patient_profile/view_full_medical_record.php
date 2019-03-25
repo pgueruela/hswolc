@@ -496,6 +496,6 @@ $document->render();
 
 //Get output of generated pdf in Browser
 
-$document->stream("Physical Record", array("Attachment"=>0));
+$document->stream("EmployeeMedicalProfile", array("Attachment"=>0));
 ?>
     

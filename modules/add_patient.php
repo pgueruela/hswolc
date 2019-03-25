@@ -1,6 +1,15 @@
 <?php 
 include '../header-include.php';
 include '../includes/db.php';
+
+
+$id = $_SESSION['id'];
+
+if (!isset($_SESSION['id']) ) {
+	header("Location: ../login_account.php");
+	exit();
+}
+
 ?>
 
 

@@ -19,7 +19,7 @@ $output = "
 <style>
 
 table {
-  font-size: 11px;
+  font-size: 12px;
   font-family: arial, sans-serif;
   border-collapse: collapse;
   margin-left: auto;
@@ -30,7 +30,7 @@ table {
 td, th {
   border: 1px solid black;
   text-align: left;
-  padding: 2px;
+  padding: 1px;
   text-transform: uppercase;
 }
 
@@ -48,8 +48,6 @@ table.table-footer th {
 <div style='text-align:center; line-height:1px important;'>
   <h4 style='text-transform:uppercase;'><b>Health Services and Wellness Office Lorma Colleges</b></h4>
   <h6><b>SAN FERNANDO CITY, LA UNION</b></h6> 
-
-  <br>
   <h5><b>EMPLOYEE'S MEDICAL PROFILE</b></h5>
   </div>";
 
@@ -222,7 +220,7 @@ $output .= '
 </table>
 
 
-<table class="table-footer" style="margin-top:90px; border:none;">
+<table class="table-footer" style="margin-top:60px; border:none;">
   <tr>
     <th>Assesed by: '.$row["assesed_by"].'</th>
   </tr>

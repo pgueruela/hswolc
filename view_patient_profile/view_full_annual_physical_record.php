@@ -15,11 +15,10 @@ $result = $conn->query("SELECT phy.*, pt.* FROM physical_examination_tbl as phy
 $output = "
 
 
-<div style='text-align:center; line-height:1px important;'>
-	<h4><b>SCHOOL HEALTH RECORD</b></h4>
+<div style='text-align:center; line-height:2px important;'>
+	<h4 style='text-transform:uppercase;'><b>Health Services and Wellness Office Lorma Colleges</b></h4>
+  <p>Carlatan, San Fernando City, La Union</p>
 	<h4><b>ANNUAL PHYSICAL EXAMINATION</b></h4>	
-	<h4><b>LORMA COLLEGES</b></h4>
-	<p>Carlatan, San Fernando City, La Union</p>
 </div>";
 
 $row = mysqli_fetch_assoc($result);

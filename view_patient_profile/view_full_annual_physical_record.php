@@ -102,7 +102,6 @@ td, th {
 
 </hr>
 
-
 <table class="vital-sign-table">
   <tr>
     <th>BLOOD PRESSURE:</th>

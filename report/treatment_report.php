@@ -36,9 +36,8 @@ td, th {
 <body>
 
 <div style='text-align:center; line-height:1px important;'>
-  <h5><b>LORMA COLLEGES</b></h5>
-  <h5><b>SAN FERNANDO CITY, LA UNION</b></h5> 
-  <h4><b>COLLEGE CLINIC</b></h4>
+  <h4><b>HEALTH SERVICES AND WELLNESS OFFICES LORMA COLLEGES</b></h4>
+  <h5><b>CARLATAN, SAN FERNANDO CITY, LA UNION</b></h5> 
 
   <br>
   <h4><b>MONTHLY TREATMENT REPORT</b></h4>
@@ -59,6 +58,7 @@ $output .='
   <tr>
     <th>Date and Time</th>
     <th>Name</th>
+    <th>Age</th>
     <th>Department</th>
     <th>Chief Complain</th>
     <th>Temp</th>
@@ -77,6 +77,7 @@ $output .='
     <tr>
      <td>'.$row["date_recorded"].'</td>
      <td>'.$row["firstname"]. " ". $row["lastname"].'</td>
+     <td>'.$row["age"].'</td>
      <td>'.$row["department"].'</td>
      <td>'.$row["chief_complain"].'</td>
      <td>'.$row["temperature"].'</td>

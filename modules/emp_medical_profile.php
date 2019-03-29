@@ -60,8 +60,12 @@ if (!isset($_SESSION['id']) ) {
 
 			<div class="card">
 				<div class="card-body">
-<?php 
-if ($row['gender'] == 'M') {?>
+			<?php 
+			$id = $_REQUEST['id'];
+			$result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id = $id ");
+			$row = mysqli_fetch_assoc($result);
+			if ($row['gender'] == 'M') 
+				{?>
 					<form method="post">
 						<?php echo '<input type="hidden" name="id" value="' . $id . '" />'; ?>
 
@@ -80,7 +84,7 @@ if ($row['gender'] == 'M') {?>
 							</div>
 				  		</div>
 
-							<div class="form-group">
+						<div class="form-group">
 				 			<div class="row">
 								<div class="col-md-8">
 									<label for="blood-pressure">Height</label>

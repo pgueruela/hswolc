@@ -109,6 +109,12 @@ $result1 = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 			$firstname = $_POST['firstname'];
 			$lastname = $_POST['lastname'];
 			$address = $_POST['patient_address'];
+
+			$dateOfBirth = $_POST['birthdate'];
+			$today = date("Y-m-d");
+			$diff = date_diff(date_create($dateOfBirth), date_create($today));
+			$age = $diff->format('%y');
+
 			$gender = $_POST['gender'];
 			$patient_number = $_POST['patient_number'];
 			$contact_person = $_POST['contact_person'];
@@ -116,8 +122,9 @@ $result1 = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 			$position = $_POST['position'];
 			$department = $_POST['department'];
 			$civil_status = $_POST['civil_status'];
+			$blood_type = $_POST['blood_type'];
 			
-			$sql = "UPDATE patient_pd_tbl SET status= '$status', firstname = '$firstname', lastname = '$lastname', patient_address = '$address', gender = '$gender', patient_number = $patient_number, position = '$position', department = '$department', civil_status = '$civil_status', contact_person = '$contact_person', person_contact_emergency_number = $person_contact_emergency_number WHERE id=$id ";
+			$sql = "UPDATE patient_pd_tbl SET status= '$status', firstname = '$firstname', lastname = '$lastname', patient_address = '$address', age=$age, gender = '$gender', patient_number = $patient_number, position = '$position', department = '$department', civil_status = '$civil_status', contact_person = '$contact_person', person_contact_emergency_number = $person_contact_emergency_number, blood_type = '$blood_type' WHERE id=$id ";
 
 
 			if ($conn->query($sql) === TRUE) {
@@ -180,6 +187,15 @@ $result1 = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 									<div class="col-md-8">
 										<label for="exampleInputEmail1">Address</label>
 								    	<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter patient address" name="patient_address" value="<?php echo $row['patient_address']; ?>" required/>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+						 		<div class="row">
+									<div class="col-md-8">
+										<label for="exampleInputEmail1">Birthdate</label>
+						    			<input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="birthdate" value="<?php echo $row['birthdate']; ?>" >	
 									</div>
 								</div>
 							</div>
@@ -277,6 +293,25 @@ $result1 = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 									</div>
 								</div>
 					  		</div>
+
+					  		<hr>
+
+							<div class="form-group">
+					 			<div class="row">
+									<div class="col-md-8">
+										 <label for="exampleFormControlSelect1">Blood Type</label>
+										    <select class="form-control" id="exampleFormControlSelect1" name="blood_type">
+										      <option><?php echo $row['blood_type']; ?></option>
+										      <option>A</option>
+										      <option>B</option>
+										      <option>AB</option>
+										      <option>O</option>
+										      <option>Unknown</option>
+										    </select>
+									</div>
+								</div>
+					  		</div>
+
 							<div class="row">
 					  			<div class="col-md-8">
 					  				<button type="submit" class="btn btn-success" name="update_data">Save Changes</button>

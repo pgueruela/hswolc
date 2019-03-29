@@ -174,7 +174,7 @@ if (!isset($_SESSION['id']) ) {
 				 		<div class="row">
 							<div class="col-md-8">
 								<label for="exampleInputEmail1">Birthdate</label>
-				    			<input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="birthdate" required/>	
+				    			<input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="birthdate" >	
 							</div>
 						</div>
 				</div>
@@ -267,6 +267,7 @@ if (!isset($_SESSION['id']) ) {
 								      <option>B</option>
 								      <option>AB</option>
 								      <option>O</option>
+								      <option>Unknown</option>
 								    </select>
 							</div>
 						</div>

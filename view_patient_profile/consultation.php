@@ -251,7 +251,7 @@ $row = mysqli_fetch_assoc($result); ?>
 
 							<!-- if condition -->
 							
-							<table id="logs_data" class="table table-hover">
+							<table id="logs_data" style="font-size: 8.5px; padding: 2px; font-weight: bold;" class="table table-hover">
 								<thead>	
 									<tr>
 										<td>Date and Time</td>
@@ -260,6 +260,9 @@ $row = mysqli_fetch_assoc($result); ?>
 										<td>BP</td>
 										<td>PR</td>
 										<td>RR</td>
+										<td>Treatment</td>
+										<td>Diagnosis</td>
+										<td>Physical Examination</td>
 										<td>Medicine</td>
 										<td>QTY</td>
 										<td>Remarks</td>
@@ -273,6 +276,9 @@ $row = mysqli_fetch_assoc($result); ?>
 									<td><?php echo $row["blood_pressure"]; ?></td>
 									<td><?php echo $row["heart_rate"]; ?></td>
 									<td><?php echo $row["respiratory_rate"]; ?></td>
+									<td><?php echo $row["treatment"]; ?></td>
+									<td><?php echo $row["diagnosis"]; ?></td>
+									<td><?php echo $row["physical_examination"]; ?></td>
 									<td><?php echo $row["medicines"]; ?></td>
 									<td><?php echo $row["quantity"]; ?></td>
 									<td><?php echo $row["remarks"]; ?></td>

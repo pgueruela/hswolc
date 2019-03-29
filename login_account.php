@@ -21,7 +21,7 @@ include 'process/login_account_process.php';
 	  						<div class="input-group-prepend">
 	    					<span class="input-group-text" id="basic-addon1">@</span>
 	  						</div>
-  							 <input type="email" class="form-control" placeholder="Enter your username" name="username" value="<?php echo $username; ?>" required />
+  							 <input type="email" class="form-control" placeholder="Enter your username" name="username" required />
 							</div>
 						</div>
 					  </div>

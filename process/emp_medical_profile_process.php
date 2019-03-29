@@ -49,7 +49,8 @@ if (isset($_POST['add_employee_medical_profile'])) {
 	$result = $conn->query($sql);
 
 	if (!$result) {
-		echo 'Failed to record Medical Profile.';
+
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		return;
 	}
 
@@ -77,5 +78,4 @@ if (isset($_POST['add_employee_medical_profile'])) {
 	*/
 }
 
-$result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id = $id ");
-$row = mysqli_fetch_assoc($result);
+

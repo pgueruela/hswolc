@@ -19,7 +19,7 @@ $output = "
 <style>
 
 table {
-  font-size: 15px;
+  font-size: 11px;
   font-family: arial, sans-serif;
   border-collapse: collapse;
   margin-left: auto;
@@ -36,7 +36,7 @@ table.personal-data th {
 td, th {
   border: 1px solid black;
   text-align: left;
-  padding: 3px;
+  padding: 2px;
   text-transform: uppercase;
 }
 
@@ -84,6 +84,9 @@ $output .='
     <th>BP</th>
     <th>RR</th>
     <th>PR</th>
+    <th>Treatment</th>
+    <th>Physical Examination</th>
+    <th>Diagnosis</th>
     <th>Medicine</th>
     <th>QTY</th>
     <th>Remarks</th>
@@ -100,6 +103,9 @@ $output .='
      <td>'.$row["blood_pressure"].'</td>
      <td>'.$row["respiratory_rate"].'</td>
      <td>'.$row["heart_rate"].'</td>
+     <td>'.$row["treatment"].'</td>
+     <td>'.$row["physical_examination"].'</td>
+     <td>'.$row["diagnosis"].'</td>
      <td>'.$row["medicines"].'</td>
      <td>'.$row["quantity"].'</td>
      <td>'.$row["remarks"].'</td>

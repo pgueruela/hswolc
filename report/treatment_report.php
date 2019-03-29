@@ -43,11 +43,11 @@ td, th {
   <h4><b>MONTHLY TREATMENT REPORT</b></h4>
   </div>";
 
-$query = "SELECT pt.*, ct.* FROM patient_pd_tbl as pt
-            LEFT JOIN consultation_tbl AS ct
-            ON pt.id = ct.patient_id
-            WHERE YEAR(date_recorded) and MONTH(date_recorded) = month(curdate())
-            ORDER BY date_recorded ASC";
+$query = "SELECT ct.*, pt.* FROM consultation_tbl  as ct
+            LEFT JOIN patient_pd_tbl AS pt
+            ON ct.patient_id = pt.id
+            ORDER BY date_recorded DESC
+            ";
 $result = mysqli_query($conn, $query);
 
 $output .='

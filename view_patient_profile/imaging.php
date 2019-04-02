@@ -1,7 +1,7 @@
 <?php 
 include '../header-include.php';
 include '../includes/db.php';
-require '../process/delete_medical_laboratories.php'; 
+include '../process/delete_imaging_process.php';
 ?>
 
 <style>
@@ -39,7 +39,7 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
         </li>
 
         <li class="nav-item active">
-          <a class="nav-link" href="../view_patient_profile/medical_laboratories.php?id=<?php echo $id ?>">Medical Laboratories</a>
+          <a class="nav-link" href="../view_patient_profile/medical_laboratories.php?id=<?php echo $id ?>">Imaging</a>
         </li>
       </ul>
   </div>
@@ -112,16 +112,15 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
                 <li class="list-group-item">
                    <a class="nav-link" href="consultation.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Consultation Records</a>  
                </li>
-            <li class="list-group-item">
-              <a class="nav-link" href="annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Physical Records</a>
-            </li>
 
-             <li class="list-group-item">
-              <a class="nav-link" href="imaging.php?id=<?php echo $id ?>"><i class="fas fa-x-ray"></i> Imaging</a>  
-            </li>
 
             <li class="list-group-item">
               <a class="nav-link" href="attach_medical_records.php?id=<?php echo $id ?>"><i class="fas fa-file-upload"></i> Medical Records</a> 
+            </li>
+
+
+            <li class="list-group-item">
+              <a class="nav-link" href="annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Physical Records</a>
             </li>
 
             <li class="list-group-item">
@@ -129,6 +128,10 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
             </li>
             <li class="list-group-item">
               <a class="nav-link" href="medical_certificate.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Certificate</a>  
+            </li>
+
+            <li class="list-group-item">
+              <a class="nav-link" href="medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>  
             </li>
            </ul>
             </div>
@@ -188,21 +191,20 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
                                     <li class="list-group-item">
                    <a class="nav-link" href="consultation.php?id=<?php echo $id ?>"><i class="fas fa-stethoscope"></i> Consultation Records</a>  
                </li>
-            <li class="list-group-item">
-              <a class="nav-link" href="annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Physical Records</a>
-            </li>
-
-            <li class="list-group-item">
-              <a class="nav-link" href="imaging.php?id=<?php echo $id ?>"><i class="fas fa-x-ray"></i> Imaging</a>  
-            </li>
 
             <li class="list-group-item">
               <a class="nav-link" href="attach_medical_records.php?id=<?php echo $id ?>"><i class="fas fa-file-upload"></i> Medical Records</a> 
             </li>
 
-            
+            <li class="list-group-item">
+              <a class="nav-link" href="annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Physical Records</a>
+            </li>
             <li class="list-group-item">
               <a class="nav-link" href="medical_certificate.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Certificate</a>  
+            </li>
+
+            <li class="list-group-item">
+              <a class="nav-link" href="medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>  
             </li>
            </ul>
             </div>
@@ -245,15 +247,15 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
   ?>
     <div class="col-md-9">
       <?php  
-      if (isset($_POST["med_lab_submit"])) {
-        $filetmp = $_FILES["medical_lab_img"] ["tmp_name"];
-        $filename = $_FILES["medical_lab_img"] ["name"];
-        $filetype = $_FILES["medical_lab_img"] ["type"];
+      if (isset($_POST["imaging"])) {
+        $filetmp = $_FILES["imaging_img"] ["tmp_name"];
+        $filename = $_FILES["imaging_img"] ["name"];
+        $filetype = $_FILES["imaging_img"] ["type"];
         $filepath = "../photos/" . $filename;
 
         move_uploaded_file($filetmp, $filepath);
 
-        $sql = "INSERT INTO medical_lab_tbl (patient_id, image_name, image_path, image_type) VALUES ($id,'$filename', '$filepath', '$filetype')";
+        $sql = "INSERT INTO imaging_tbl (patient_id, image_name, image_path, image_type) VALUES ($id,'$filename', '$filepath', '$filetype')";
         if ($conn->query($sql) === TRUE) {
           echo "<script>alert('Image successfully uploaded! ');</script>";
         } else {
@@ -263,13 +265,14 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
       ?> 
       <?php
 
-      $mysql_query = "SELECT * FROM medical_lab_tbl WHERE patient_id = $id";
+      $mysql_query = "SELECT * FROM imaging_tbl WHERE patient_id = $id";
 
       $img = mysqli_query($conn, $mysql_query); ?>
 
       <div class="card">
         <div class="card-body card-body-header">
-          <h5><i class="fas fa-vials"></i> Medical Laboratories</h5>
+          <h5><i class="fas fa-x-ray"></i> Imaging</h5>
+           <small style="color: red;"><i>You can upload the X-RAY and ECG results here </i></small>
         </div>
       </div>
 
@@ -280,9 +283,9 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
           <a>
             <img src="../photos/<?php echo $image_result['image_path']; ?>" height="300" width="250">
           </a>
-            <div>
-            <button class="btn btn-danger" data-toggle="modal" data-target="#delete_medical_laboratories" data-ml_id="<?php echo $image_result['id']; ?>"><i class="fas fa-trash"></i></button>
-          </div>
+                 <div>
+            <button class="btn btn-danger" data-toggle="modal" data-target="#delete_imaging" data-i_id="<?php echo $image_result['id']; ?>"><i class="fas fa-trash"></i></button>
+        </div>
       <?php  
       }
       ?>
@@ -291,10 +294,10 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
         <div class="col-md-8 offset-6">
             <form class="form-inline" method="post" enctype="multipart/form-data">
               <div class="form-group mx-sm-1 mb-1">
-                <input type="file" class="form-control-file" id="image" name="medical_lab_img">
+                <input type="file" class="form-control-file" id="image" name="imaging_img">
                 <br>  
               </div>
-              <input type="submit" class="btn btn-primary mb-2" id="insert" value="Upload" name="med_lab_submit">
+              <input type="submit" class="btn btn-primary mb-2" id="insert" value="Upload" name="imaging">
             </form>
         </div>
         </div>

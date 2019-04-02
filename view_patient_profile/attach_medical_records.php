@@ -1,7 +1,7 @@
 <?php 
-include '../header-include.php';
-include '../includes/db.php';
-require '../process/delete_medical_laboratories.php'; 
+require '../header-include.php';
+require'../includes/db.php';
+require '../process/delete_attach_medical_records.php'; 
 ?>
 
 <style>
@@ -39,7 +39,7 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
         </li>
 
         <li class="nav-item active">
-          <a class="nav-link" href="../view_patient_profile/medical_laboratories.php?id=<?php echo $id ?>">Medical Laboratories</a>
+          <a class="nav-link" href="../view_patient_profile/medical_laboratories.php?id=<?php echo $id ?>"> Attach Medical Records</a>
         </li>
       </ul>
   </div>
@@ -116,19 +116,22 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
               <a class="nav-link" href="annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Physical Records</a>
             </li>
 
-             <li class="list-group-item">
+            
+            <li class="list-group-item">
               <a class="nav-link" href="imaging.php?id=<?php echo $id ?>"><i class="fas fa-x-ray"></i> Imaging</a>  
             </li>
 
-            <li class="list-group-item">
-              <a class="nav-link" href="attach_medical_records.php?id=<?php echo $id ?>"><i class="fas fa-file-upload"></i> Medical Records</a> 
-            </li>
 
             <li class="list-group-item">
               <a class="nav-link" href="medical_profile_records.php?id=<?php echo $id ?>"><i class="far fa-user"></i> Medical Profile</a>  
             </li>
             <li class="list-group-item">
               <a class="nav-link" href="medical_certificate.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Certificate</a>  
+            </li>
+
+            
+            <li class="list-group-item">
+              <a class="nav-link" href="medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>  
             </li>
            </ul>
             </div>
@@ -192,17 +195,18 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
               <a class="nav-link" href="annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Physical Records</a>
             </li>
 
+            
             <li class="list-group-item">
               <a class="nav-link" href="imaging.php?id=<?php echo $id ?>"><i class="fas fa-x-ray"></i> Imaging</a>  
             </li>
 
             <li class="list-group-item">
-              <a class="nav-link" href="attach_medical_records.php?id=<?php echo $id ?>"><i class="fas fa-file-upload"></i> Medical Records</a> 
+              <a class="nav-link" href="medical_certificate.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Certificate</a>  
             </li>
 
-            
+
             <li class="list-group-item">
-              <a class="nav-link" href="medical_certificate.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Certificate</a>  
+              <a class="nav-link" href="medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>  
             </li>
            </ul>
             </div>
@@ -243,17 +247,19 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
   <?php   
   }
   ?>
+  
     <div class="col-md-9">
       <?php  
-      if (isset($_POST["med_lab_submit"])) {
-        $filetmp = $_FILES["medical_lab_img"] ["tmp_name"];
-        $filename = $_FILES["medical_lab_img"] ["name"];
-        $filetype = $_FILES["medical_lab_img"] ["type"];
+
+      if (isset($_POST["medical_records"])) {
+        $filetmp = $_FILES["medical_records_img"] ["tmp_name"];
+        $filename = $_FILES["medical_records_img"] ["name"];
+        $filetype = $_FILES["medical_records_img"] ["type"];
         $filepath = "../photos/" . $filename;
 
         move_uploaded_file($filetmp, $filepath);
 
-        $sql = "INSERT INTO medical_lab_tbl (patient_id, image_name, image_path, image_type) VALUES ($id,'$filename', '$filepath', '$filetype')";
+        $sql = "INSERT INTO medical_records_tbl(patient_id, image_name, image_path, image_type) VALUES ($id,'$filename', '$filepath', '$filetype')";
         if ($conn->query($sql) === TRUE) {
           echo "<script>alert('Image successfully uploaded! ');</script>";
         } else {
@@ -263,13 +269,14 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
       ?> 
       <?php
 
-      $mysql_query = "SELECT * FROM medical_lab_tbl WHERE patient_id = $id";
+      $mysql_query = "SELECT * FROM medical_records_tbl WHERE patient_id = $id";
 
       $img = mysqli_query($conn, $mysql_query); ?>
 
       <div class="card">
         <div class="card-body card-body-header">
-          <h5><i class="fas fa-vials"></i> Medical Laboratories</h5>
+          <h5><i class="fas fa-file-upload"></i> Attach file</h5>
+           <small style="color: red;"><i>You can attach an old/new medical records here </i></small>
         </div>
       </div>
 
@@ -278,28 +285,29 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
       while($image_result = mysqli_fetch_array($img)) { ?>
         <hr>
           <a>
-            <img src="../photos/<?php echo $image_result['image_path']; ?>" height="300" width="250">
+            <img src="../photos/<?php echo $image_result['image_path']; ?>" height="400" width="400">
           </a>
-            <div>
-            <button class="btn btn-danger" data-toggle="modal" data-target="#delete_medical_laboratories" data-ml_id="<?php echo $image_result['id']; ?>"><i class="fas fa-trash"></i></button>
+
+          <div>
+            <button class="btn btn-danger" data-toggle="modal" data-target="#delete_attach_medical_records" data-aid="<?php echo $image_result['id']; ?>"><i class="fas fa-trash"></i></button>
           </div>
       <?php  
-      }
+      }  
       ?>
-    </div>
-      <div class="row">
-        <div class="col-md-8 offset-6">
-            <form class="form-inline" method="post" enctype="multipart/form-data">
-              <div class="form-group mx-sm-1 mb-1">
-                <input type="file" class="form-control-file" id="image" name="medical_lab_img">
-                <br>  
-              </div>
-              <input type="submit" class="btn btn-primary mb-2" id="insert" value="Upload" name="med_lab_submit">
-            </form>
-        </div>
-        </div>
       </div>
-
+      
+       <div class="row">
+          <div class="col-md-8 offset-6">
+              <form class="form-inline" method="post" enctype="multipart/form-data">
+                <div class="form-group mx-sm-1 mb-1">
+                  <input type="file" class="form-control-file" id="image" name="medical_records_img">
+                  <br>  
+                </div>
+                <input type="submit" class="btn btn-primary mb-2" id="insert" value="Upload" name="medical_records">
+              </form>
+          </div>
+        </div>
+    </div>
 
  <script>  
 //Insert Image
@@ -326,8 +334,9 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 
 //View image 
 $('img').zoomify();
- </script> 
 
-<?php 
+</script> 
+
+<?php  
 include '../includes/footer.php';
  ?>

@@ -40,7 +40,7 @@ td, th {
   <h5><b>CARLATAN, SAN FERNANDO CITY, LA UNION</b></h5> 
 
   <br>
-  <h4><b>MONTHLY TREATMENT REPORT</b></h4>
+  <h4><b>TREATMENT REPORT</b></h4>
   </div>";
 
 $query = "SELECT ct.*, pt.* FROM consultation_tbl  as ct

@@ -1,6 +1,7 @@
  <?php 
 include '../header-include.php';
 include '../includes/db.php';
+require '../process/delete_medical_certificate.php'; 
 ?>
 
 <style>
@@ -119,6 +120,15 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
             </li>
 
             <li class="list-group-item">
+              <a class="nav-link" href="imaging.php?id=<?php echo $id ?>"><i class="fas fa-x-ray"></i> Imaging</a>  
+            </li>
+
+            <li class="list-group-item">
+              <a class="nav-link" href="attach_medical_records.php?id=<?php echo $id ?>"><i class="fas fa-file-upload"></i> Medical Records</a> 
+            </li>
+
+
+            <li class="list-group-item">
               <a class="nav-link" href="medical_profile_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Medical Profile</a>  
             </li>
             <li class="list-group-item">
@@ -185,6 +195,16 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
             <li class="list-group-item">
               <a class="nav-link" href="annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Physical Records</a>
             </li>
+
+            <li class="list-group-item">
+              <a class="nav-link" href="imaging.php?id=<?php echo $id ?>"><i class="fas fa-x-ray"></i> Imaging</a>  
+            </li>
+
+            <li class="list-group-item">
+              <a class="nav-link" href="attach_medical_records.php?id=<?php echo $id ?>"><i class="fas fa-file-upload"></i> Medical Records</a> 
+            </li>
+
+
             <li class="list-group-item">
               <a class="nav-link" href="medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>  
             </li>
@@ -264,24 +284,29 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
             <hr>
             <img src="../photos/<?php echo $image_result['image_path']; ?>" height="200" width="200">
           </a>
+          <div>
+            <button class="btn btn-danger" data-toggle="modal" data-target="#delete_medical_certificate" data-mc_id="<?php echo $image_result['id']; ?>"><i class="fas fa-trash"></i></button>
+          </div>
           <br>
         <?php  
         }
         ?>
-
-        <form class="form-inline" method="post" enctype="multipart/form-data">
-        <div class="form-group mx-sm-1 mb-1">
-          <input type="file" class="form-control-file" id="image" name="medical_cert_img">
-          <br>  
-        </div>
-        <input type="submit" class="btn btn-primary mb-2" id="insert" value="Upload" name="med_cert_submit">
-        </form>
       </div>
+      <div class="row">
+        <div class="col-md-8 offset-6">
+          <form class="form-inline" method="post" enctype="multipart/form-data">
+            <div class="form-group mx-sm-1 mb-1">
+              <input type="file" class="form-control-file" id="image" name="medical_cert_img">
+              <br>  
+            </div>
+            <input type="submit" class="btn btn-primary mb-2" id="insert" value="Upload" name="med_cert_submit">
+          </form>
+        </div>
+      </div>
+
     </div>
 
-
-
- <script>  
+<script>  
 //Insert Image
  $(document).ready(function(){  
       $('#insert').click(function(){  

@@ -118,6 +118,16 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 						<li class="list-group-item">
 							<a class="nav-link" href="consultation.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i></i> Physical Records</a>
 						</li>
+						
+						<li class="list-group-item">
+							<a class="nav-link" href="imaging.php?id=<?php echo $id ?>"><i class="fas fa-x-ray"></i> Imaging</a>	
+						</li>
+
+						<li class="list-group-item">
+							<a class="nav-link" href="attach_medical_records.php?id=<?php echo $id ?>"><i class="fas fa-file-upload"></i> Medical Records</a>	
+						</li>
+
+
 						<li class="list-group-item">
 							<a class="nav-link" href="medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
 						</li>
@@ -186,6 +196,16 @@ $result = $conn->query("SELECT * FROM patient_pd_tbl WHERE id=$id");
 						<li class="list-group-item">
 							<a class="nav-link" href="consultation.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i></i> Physical Records</a>
 						</li>
+						
+						<li class="list-group-item">
+							<a class="nav-link" href="imaging.php?id=<?php echo $id ?>"><i class="fas fa-x-ray"></i> Imaging</a>	
+						</li>
+
+						<li class="list-group-item">
+							<a class="nav-link" href="attach_medical_records.php?id=<?php echo $id ?>"><i class="fas fa-file-upload"></i> Medical Records</a>	
+						</li>
+
+
 						<li class="list-group-item">
 							<a class="nav-link" href="medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
 						</li>

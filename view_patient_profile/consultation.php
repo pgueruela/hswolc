@@ -115,6 +115,17 @@ $row = mysqli_fetch_assoc($result); ?>
 						<li class="list-group-item">
 							<a class="nav-link" href="medical_profile_records.php?id=<?php echo $id ?>"><i class="far fa-user"></i> Medical Profile</a>	
 						</li>
+
+
+						<li class="list-group-item">
+							<a class="nav-link" href="imaging.php?id=<?php echo $id ?>"><i class="fas fa-x-ray"></i> Imaging</a>	
+						</li>
+
+						<li class="list-group-item">
+							<a class="nav-link" href="attach_medical_records.php?id=<?php echo $id ?>"><i class="fas fa-file-upload"></i> Medical Records</a>	
+						</li>
+
+
 						<li class="list-group-item">
 							<a class="nav-link" href="medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
 						</li>
@@ -179,6 +190,17 @@ $row = mysqli_fetch_assoc($result); ?>
 						<li class="list-group-item">
 							<a class="nav-link" href="annual_physical_records.php?id=<?php echo $id ?>"><i class="fas fa-notes-medical"></i> Physical Records</a>
 						</li>
+						
+						
+						<li class="list-group-item">
+							<a class="nav-link" href="imaging.php?id=<?php echo $id ?>"><i class="fas fa-x-ray"></i> Imaging</a>	
+						</li>
+
+						<li class="list-group-item">
+							<a class="nav-link" href="attach_medical_records.php?id=<?php echo $id ?>"><i class="fas fa-file-upload"></i> Medical Records</a>	
+						</li>
+
+
 						<li class="list-group-item">
 							<a class="nav-link" href="medical_laboratories.php?id=<?php echo $id ?>"><i class="fas fa-vials"></i> Medical Laboratories</a>	
 						</li>
